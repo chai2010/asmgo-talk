@@ -57,7 +57,7 @@ func main()
 
 main_amd64.s:
 
-```nasm
+```
 TEXT ·main(SB), $16-0
 	NO_LOCAL_POINTERS
 	MOVQ ·gopkgHelloWrold(SB), AX
@@ -74,7 +74,7 @@ TEXT ·main(SB), $16-0
 ### Hello, World!
 ----------------
 
-```asm
+```
 #include "textflag.h"
 #include "funcdata.h"
 
@@ -137,6 +137,102 @@ TEXT ·main(SB), $16-0
 - SP: 栈指针, 栈的顶端
 
 
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
+***
+## 更多的例子
+
+- Add
+
+---
+### Add
+-------
+
+```
+#include "textflag.h"
+
+// func Add(a, b int) int
+TEXT ·Add(SB), NOSPLIT, $0-24
+	MOVQ a+0(FP), AX    // a
+	MOVQ b+8(FP), BX    // b
+	ADDQ AX, BX         // a+b
+	MOVQ BX, ret+16(FP) // return a+b
+	RET
+```
+
+---
+### If
+------
+
+```
+// func If(ok bool, a, b int) int
+TEXT ·If(SB), NOSPLIT, $0-32
+	MOVBQZX ok+0(FP), AX // ok
+	MOVQ a+8(FP), BX     // a
+	MOVQ b+16(FP), CX    // b
+	CMPQ AX, $0          // test ok
+	JEQ  3(PC)           // if !ok, skip 2 line
+	MOVQ BX, ret+24(FP)  // return a
+	RET
+	MOVQ CX, ret+24(FP)  // return b
+	RET
+```
+
+---
+### Loop
+--------
+
+```
+// func LoopAdd(cnt, v0, step int) int
+TEXT ·LoopAdd(SB), NOSPLIT, $0-32
+	MOVQ cnt+0(FP), AX   // cnt
+	MOVQ v0+8(FP), BX    // v0
+	MOVQ step+16(FP), CX // step
+
+loop:
+	CMPQ AX, $0 // compare cnt,0
+	JLE  end    // if cnt <= 0: go end
+	DECQ AX     // cnt--
+	ADDQ CX, BX // v0 += step
+	JMP  loop   // goto loop
+
+end:
+	MOVQ BX, ret+24(FP)  // return v0
+	RET
+```
+
+---
+### min
+-------
+
+```
+// func Min(a, b int) int
+TEXT ·Min(SB), NOSPLIT, $0-24
+	MOVQ a+0(FP), AX    // a
+	MOVQ b+8(FP), BX    // b
+	CMPQ AX, BX         // compare a, b
+	JGT  3(PC)          // if a>b, skip 2 line
+	MOVQ AX, ret+16(FP) // return a
+	RET
+	MOVQ BX, ret+16(FP) // return b
+	RET
+```
+
+---
+### max
+-------
+
+```
+// func Max(a, b int) int
+TEXT ·Max(SB), NOSPLIT, $0-24
+	MOVQ a+0(FP), AX    // a
+	MOVQ b+8(FP), BX    // b
+	CMPQ AX, BX         // compare a, b
+	JLT  3(PC)          // if a<b, skip 2 line
+	MOVQ AX, ret+16(FP) // return a
+	RET
+	MOVQ BX, ret+16(FP) // return b
+	RET
+```
 
 
 
