@@ -118,7 +118,7 @@ TEXT ·main(SB), $16-0
 
 ------
 
-- macOS: 简体拼音输入法，输入左上角`~`键对应`·`,
+- macOS: 简体拼音输入法，输入左上角`~`键对应`·`
 - macOS: Unicode输入法，输入对应的Unicode码点
 - Windows: TODO
 - Linux: TODO
