@@ -46,7 +46,59 @@ Reveal.js 可能会需要 AJAX 异步加载 Markdown 文件, 可以在当前目�
 ## 快速入门
 ----------
 
-TODO
+- 你好世界
+
+---
+### Hello, World!
+----------------
+
+```asm
+#include "textflag.h"
+#include "funcdata.h"
+
+// "Hello World!\n"
+DATA  text<>+0(SB)/8,$"Hello Wo"
+DATA  text<>+8(SB)/8,$"rld!\n"
+GLOBL text<>(SB),NOPTR,$16
+
+// func main()
+TEXT ·main(SB), $16-0
+	NO_LOCAL_POINTERS
+	MOVQ $text<>+0(SB), AX
+	MOVQ AX, (SP)
+	MOVQ $16, 8(SP)
+	CALL runtime·printstring(SB)
+	RET
+```
+
+---
+## 你好, 世界
+-----------
+
+```go
+var gopkgHelloWrold = "你好, 世界!\n"
+```
+
+```nasm
+TEXT ·main(SB), $16-0
+	NO_LOCAL_POINTERS
+	MOVQ ·gopkgHelloWrold(SB), AX
+	MOVQ AX, (SP)
+	MOVQ $16, 8(SP)
+	CALL runtime·printstring(SB)
+	RET
+```
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
+***
+
+## 伪寄存器
+----------
+
+- FP: 帧指针, 参数和局部变量
+- PC: 程序计数器, 跳转和分支
+- SB: 静态基址指针, 全局符号
+- SP: 栈指针, 栈的顶端
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 ***
