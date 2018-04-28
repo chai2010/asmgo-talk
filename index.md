@@ -42,6 +42,35 @@ Reveal.js 可能会需要 AJAX 异步加载 Markdown 文件, 可以在当前目�
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 ***
+### 你好, 世界
+-----------
+
+main.go:
+
+```go
+var gopkgHelloWrold = "你好, 世界!\n"
+
+func main()
+```
+
+----------
+
+main_amd64.s:
+
+```nasm
+TEXT ·main(SB), $16-0
+	NO_LOCAL_POINTERS
+	MOVQ ·gopkgHelloWrold(SB), AX
+	MOVQ AX, (SP)
+	MOVQ $16, 8(SP)
+	CALL runtime·printstring(SB)
+	RET
+```
+
+----------
+
+
+---
 ### Hello, World!
 ----------------
 
@@ -64,23 +93,6 @@ TEXT ·main(SB), $16-0
 	RET
 ```
 
----
-## 你好, 世界
------------
-
-```go
-var gopkgHelloWrold = "你好, 世界!\n"
-```
-
-```nasm
-TEXT ·main(SB), $16-0
-	NO_LOCAL_POINTERS
-	MOVQ ·gopkgHelloWrold(SB), AX
-	MOVQ AX, (SP)
-	MOVQ $16, 8(SP)
-	CALL runtime·printstring(SB)
-	RET
-```
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 ***
