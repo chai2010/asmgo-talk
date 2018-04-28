@@ -105,7 +105,11 @@ TEXT ·main(SB), $16-0
 
 ## 参考资源
 
-TODO
+- https://golang.org/doc/asm
+- https://9p.io/sys/doc/asm.pdf
+- https://goroutines.com/asm
+- https://blog.sgmansfield.com/2017/04/a-foray-into-go-assembly-programming/
+
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 ***
