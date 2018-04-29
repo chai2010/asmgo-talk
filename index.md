@@ -118,10 +118,13 @@ TEXT ·main(SB), $16-0
 
 ------
 
+- macOS: 不开输入法时，可直接用 option+shift+9 输入
 - macOS: 简体拼音输入法，输入左上角`~`键对应`·`
 - macOS: Unicode输入法，输入对应的Unicode码点
 - Windows: TODO
 - Linux: TODO
+
+https://en.wikipedia.org/wiki/Interpunct
 
 
 
