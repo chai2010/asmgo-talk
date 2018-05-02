@@ -12,10 +12,10 @@ TEXT ·Add(SB), NOSPLIT, $0-24
 	RET
 
 #define ADD_A_B(off_a, off_b) \
-	MOVQ a+off_a(FP), AX      \ // a
-	MOVQ b+off_b(FP), BX      \ // b
-	ADDQ AX, BX               \ // a+b
-	MOVQ BX, ret+16(FP)       \ // return a+b
+	MOVQ a+off_a(FP), AX;      \ // a
+	MOVQ b+off_b(FP), BX;      \ // b
+	ADDQ AX, BX;               \ // a+b
+	MOVQ BX, ret+16(FP);       \ // return a+b
 	RET
 
 // func (a Int) Add(b int) int
