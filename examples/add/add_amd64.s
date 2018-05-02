@@ -22,6 +22,7 @@ TEXT ·Add(SB), NOSPLIT, $0-24
 TEXT ·Int·Add(SB), NOSPLIT, $0-24
 	ADD_A_B(0, 8)
 
+// https://github.com/golang/go/issues/4978
 // https://groups.google.com/forum/#!topic/golang-nuts/emLyuXwxImU
 
 // func (p *Int) Ptr() uintptr
