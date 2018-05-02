@@ -9,6 +9,7 @@ type Int int
 func (a Int) Add(b int) int
 func (p *Int) Ptr() uintptr
 
+//go:noinline
 func (p *Int) Ptr2() uintptr {
 	return uintptr(unsafe.Pointer(p))
 }
