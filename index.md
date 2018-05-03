@@ -40,6 +40,15 @@ Reveal.js 可能会需要 AJAX 异步加载 Markdown 文件, 可以在当前目�
 #### [chai2010 (柴树杉)](https://chai2010.cn)
 #### [@青云QingCloud](https://www.qingcloud.com/)
 
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
+***
+### 背景
+-------
+
+- 汇编语言的重要性
+- Plan9汇编的来历（跨平台）
+
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 ***
 ### 你好, 世界
@@ -246,6 +255,16 @@ TEXT ·Max(SB), NOSPLIT, $0-24
 
 - https://golang.org/doc/asm
 - https://9p.io/sys/doc/asm.html
+- https://talks.golang.org/2016/asm.slide
+
+<!--
+
+- https://www.doxsey.net/blog/go-and-assembly
+- https://github.com/golang/go/issues/4978
+- https://groups.google.com/forum/#!topic/golang-nuts/emLyuXwxImU
+- https://stackoverflow.com/questions/45937105/underline-implement-of-golang-method-using-golang-assembly-language
+
+-->
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 ***
