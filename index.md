@@ -269,6 +269,9 @@ TEXT ·Max(SB), NOSPLIT, $0-24
 
 - https://github.com/klauspost/asmfmt/tree/master/testdata
 
+- https://goroutines.com/asm
+- http://nelhagedebugsshit.tumblr.com/post/84342207533/things-i-learned-writing-a-jit-in-go
+
 - https://www.doxsey.net/blog/go-and-assembly
 - https://github.com/golang/go/issues/4978
 - https://groups.google.com/forum/#!topic/golang-nuts/emLyuXwxImU
