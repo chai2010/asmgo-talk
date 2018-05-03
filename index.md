@@ -43,21 +43,87 @@ Reveal.js 可能会需要 AJAX 异步加载 Markdown 文件, 可以在当前目�
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 ***
-### 背景
--------
+### 为何要了解汇编?
+----------------
 
-- 汇编语言的重要性
-- Plan9汇编的来历（跨平台）
+- 挖掘芯片的全部功能 (操作系统引导/进程切换等)
+- 挖掘芯片的全部性能 (算法极致优化)
+
+----
+
+- 哪怕只懂一点汇编, 也便于更好地理解计算机
+- 汇编语言可以鄙视一切高级语言
+
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 ***
+### Plan9汇编
+------------
+
+- Ken Thompson, 1986 写的 C 编译器 输出的伪代码
+- Plan9汇编 用于手写 输出的伪代码
+- 是一种近似跨平台的高级汇编语言
+
+-------------
+
+- Go汇编是基于Plan9汇编演化而来
+
+
+---
+### Go汇编工具链
+--------------
+
+#### ![](./images/plan9-asm-arch2.png) <!-- .element: style="width:65%;" -->
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
+***
+## 快速入门
+----------
+
+- 汇编中定义变量(全局/私有)
+- 汇编中定义函数
+
+---
+### Hello, World!
+----------------
+
+main_amd64.s:
+
+```
+#include "textflag.h"
+
+DATA  ·helloworld+0(SB)/8,$"Hello Wo"
+DATA  ·helloworld+8(SB)/8,$"rld!\n"
+GLOBL ·helloworld(SB),NOPTR,$16 // var helloworld [16]byte
+```
+
+----------
+
+main.go:
+
+```go
+var helloworld [16]byte
+
+func main() {
+	var s string
+	hs := (*reflect.StringHeader)(unsafe.Pointer(&s))
+	hs.Data = uintptr(unsafe.Pointer(&helloworld[0]))
+	hs.Len = len(helloworld)
+	println(s)
+}
+```
+----------
+
+<!-- 限制？ -->
+
+---
 ### 你好, 世界
 -----------
 
 main.go:
 
 ```go
-var gopkgHelloWrold = "你好, 世界!\n"
+var helloworld = "你好, 世界!\n"
 
 func main()
 ```
@@ -68,39 +134,49 @@ main_amd64.s:
 
 ```
 TEXT ·main(SB), $16-0
-	NO_LOCAL_POINTERS
-	MOVQ ·gopkgHelloWrold(SB), AX
-	MOVQ AX, (SP)
-	MOVQ $16, 8(SP)
+	MOVQ ·helloworld(SB), AX     // AX = ·helloworld
+	MOVQ AX, (SP)                // reflect.StringHeader.Data
+	MOVQ $16, 8(SP)              // reflect.StringHeader.Len
 	CALL runtime·printstring(SB)
 	RET
 ```
+
+<!--方法，指针方法? -->
 
 ----------
 
-
 ---
-### Hello, World!
+### `textflag.h`
 ----------------
 
-```
-#include "textflag.h"
-#include "funcdata.h"
+```c
+...
 
-// "Hello World!\n"
-DATA  text<>+0(SB)/8,$"Hello Wo"
-DATA  text<>+8(SB)/8,$"rld!\n"
-GLOBL text<>(SB),NOPTR,$16
+// Don't insert stack check preamble.
+#define NOSPLIT	4
+// Put this data in a read-only section.
+#define RODATA	8
+// This data contains no pointers.
+#define NOPTR	16
 
-// func main()
-TEXT ·main(SB), $16-0
-	NO_LOCAL_POINTERS
-	MOVQ $text<>+0(SB), AX
-	MOVQ AX, (SP)
-	MOVQ $16, 8(SP)
-	CALL runtime·printstring(SB)
-	RET
+...
 ```
+
+
+
+
+
+
+
+<!--
+
+
+	println(aa)
+}
+
+func main()
+
+-->
 
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
@@ -276,6 +352,8 @@ TEXT ·Max(SB), NOSPLIT, $0-24
 - https://github.com/golang/go/issues/4978
 - https://groups.google.com/forum/#!topic/golang-nuts/emLyuXwxImU
 - https://stackoverflow.com/questions/45937105/underline-implement-of-golang-method-using-golang-assembly-language
+
+- https://github.com/golang/go/wiki/GcToolchainTricks
 
 -->
 
