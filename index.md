@@ -148,6 +148,10 @@ https://en.wikipedia.org/wiki/Interpunct
 - SB: 静态基址指针, 全局符号
 - SP: 栈指针, 栈的顶端
 
+- 变量定义（到处/局部可见）
+- 函数定义（方法的限制）
+- 调用其它函数
+- if/goto模拟汇编，局部变量对应寄存器
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 ***
@@ -258,6 +262,11 @@ TEXT ·Max(SB), NOSPLIT, $0-24
 - https://talks.golang.org/2016/asm.slide
 
 <!--
+
+- https://github.com/klauspost/asmfmt
+- https://github.com/minio/asm2plan9s
+
+- https://github.com/klauspost/asmfmt/tree/master/testdata
 
 - https://www.doxsey.net/blog/go-and-assembly
 - https://github.com/golang/go/issues/4978
