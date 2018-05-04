@@ -80,104 +80,48 @@ Reveal.js 可能会需要 AJAX 异步加载 Markdown 文件, 可以在当前目�
 ## 快速入门
 ----------
 
-- 汇编中定义变量(全局/私有)
-- 汇编中定义函数
+main.go:
 
----
-### Hello, World!
-----------------
+```go
+package main
+
+var id int       // 声明变量
+func getId() int // 声明函数
+```
 
 main_amd64.s:
 
 ```
 #include "textflag.h"
 
-DATA  ·helloworld+0(SB)/8,$"Hello Wo"
-DATA  ·helloworld+8(SB)/8,$"rld!\n"
-GLOBL ·helloworld(SB),NOPTR,$16 // var helloworld [16]byte
-```
+DATA  ·id+0(SB)/8,$9527 // var id int = 9527
+GLOBL ·id(SB),NOPTR,$8
 
-----------
-
-main.go:
-
-```go
-var helloworld [16]byte
-
-func main() {
-	var s string
-	hs := (*reflect.StringHeader)(unsafe.Pointer(&s))
-	hs.Data = uintptr(unsafe.Pointer(&helloworld[0]))
-	hs.Len = len(helloworld)
-	println(s)
-}
-```
-----------
-
-<!-- 限制？ -->
-
----
-### 你好, 世界
------------
-
-main.go:
-
-```go
-var helloworld = "你好, 世界!\n"
-
-func main()
-```
-
-----------
-
-main_amd64.s:
-
-```
-TEXT ·main(SB), $16-0
-	MOVQ ·helloworld(SB), AX     // AX = ·helloworld
-	MOVQ AX, (SP)                // reflect.StringHeader.Data
-	MOVQ $16, 8(SP)              // reflect.StringHeader.Len
-	CALL runtime·printstring(SB)
+TEXT ·getId(SB), $0-8   // func getId() int
+	MOVQ ·id(SB), AX    // read id
+	MOVQ AX, ret+0(FP)  // return id
 	RET
 ```
 
-<!--方法，指针方法? -->
-
 ----------
 
+
 ---
-### `textflag.h`
-----------------
+### 简单说明
+-----------
 
-```c
-...
+- 变量要在Go语言中声明, 但不能赋值
+- 函数要在Go语言中声明, 但不包含函数实现
 
-// Don't insert stack check preamble.
-#define NOSPLIT	4
-// Put this data in a read-only section.
-#define RODATA	8
-// This data contains no pointers.
-#define NOPTR	16
+------
 
-...
-```
+- Go语言中的标识符`x`对应汇编语言中的`·x`
 
+------
 
-
-
-
-
-
-<!--
-
-
-	println(aa)
-}
-
-func main()
-
--->
-
+- DATA: 定义数据
+- GLOBL: 构造全局标识符
+- TEXT: 定义函数
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 ***
@@ -328,6 +272,44 @@ TEXT ·Max(SB), NOSPLIT, $0-24
 ```
 
 
+---
+### `textflag.h`
+----------------
+
+```c
+...
+
+// Don't insert stack check preamble.
+#define NOSPLIT	4
+// Put this data in a read-only section.
+#define RODATA	8
+// This data contains no pointers.
+#define NOPTR	16
+
+...
+```
+
+
+<!-- 限制？ -->
+
+
+
+<!--方法，指针方法? -->
+
+
+
+
+
+
+<!--
+
+
+	println(aa)
+}
+
+func main()
+
+-->
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 ***
