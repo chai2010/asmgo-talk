@@ -174,9 +174,28 @@ https://en.wikipedia.org/wiki/Interpunct
 ### bool 类型
 -------------
 
+```
+DATA symbol+offset(SB)/width, value
+```
+
+```
+DATA divtab<>+0x00(SB)/4, $0xf4f8fcff
+DATA divtab<>+0x04(SB)/4, $0xe6eaedf0
+...
+DATA divtab<>+0x3c(SB)/4, $0x81828384
+GLOBL divtab<>(SB), RODATA, $64
+
+GLOBL runtime·tlsoffset(SB), NOPTR, $4
+```
+
+----------
+
 <!--
 - 常量: 字符串/十进制数/十六进制数
 
+怎么引用其它pkg的变量？
+
+不给初始化值可以吗？
 -->
 
 
