@@ -31,3 +31,7 @@ GLOBL ·listen_port(SB),NOPTR,$8
 DATA  ·point+0(SB)/8,$1234
 DATA  ·point+8(SB)/8,$5678
 GLOBL ·point(SB),NOPTR,$16
+
+// var const_id int
+DATA  ·const_id+0(SB)/8,$9527
+GLOBL ·const_id(SB),NOPTR|RODATA,$8
