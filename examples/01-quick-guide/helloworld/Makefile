@@ -3,8 +3,6 @@
 # license that can be found in the LICENSE file.
 
 default:
-	-go build -o a.out && ./a.out
-	-@rm a.out
+	go run runme.go
 
 clean:
-	-@rm a.out

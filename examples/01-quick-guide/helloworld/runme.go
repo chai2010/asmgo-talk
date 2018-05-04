@@ -2,11 +2,15 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+// +build ignore
+
 package main
 
-var id int       // 声明变量
-func getId() int // 声明函数
+import (
+	idpkg "."
+)
 
 func main() {
-	println(getId())
+	println(idpkg.Id)
+	println(idpkg.GetId())
 }
