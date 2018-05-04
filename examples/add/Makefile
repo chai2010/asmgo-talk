@@ -3,7 +3,8 @@
 # license that can be found in the LICENSE file.
 
 default:
-	go build -o a.out && ./a.out || rm a.out
+	-go build -o a.out && ./a.out
+	-@rm a.out
 
 clean:
 	-@rm a.out
