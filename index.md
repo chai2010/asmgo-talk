@@ -146,6 +146,8 @@ TEXT ·getId(SB), $0-8   // func getId() int
 - Windows: TODO
 - Linux: TODO
 
+-----
+
 https://en.wikipedia.org/wiki/Interpunct
 
 
@@ -153,6 +155,30 @@ https://en.wikipedia.org/wiki/Interpunct
 ***
 ## 变量定义
 ----------
+
+- bool
+- byte/int/int64/...
+- float32/float4
+
+---------
+
+- string/slice
+- map/channel
+
+---------
+
+- NOPTR/RODATA
+- 仅文件内可见
+
+---
+### bool 类型
+-------------
+
+<!--
+- 常量: 字符串/十进制数/十六进制数
+
+-->
+
 
 TODO
 
