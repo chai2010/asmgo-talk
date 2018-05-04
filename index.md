@@ -184,6 +184,18 @@ TODO
 <!--
 不足之处
 指针类型的方法没有办法定义(目前汇编不支持)
+
+https://talks.golang.org/2016/asm.slide#35
+
+ADDW AX, BX
+
+&obj.Prog{
+    As: arch.Instructions["ADDW"],
+    From: obj.Addr{Reg: arch.Register["AX"]},
+    To: obj.Addr{Reg: arch.Register["BX"]},
+    ...
+}
+
 -->
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
