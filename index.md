@@ -340,6 +340,8 @@ TEXT ·Max(SB), NOSPLIT, $0-24
 
 <!--
 
+- https://golang.org/src/cmd/compile/internal/gc/builtin/runtime.go
+
 - https://github.com/klauspost/asmfmt
 - https://github.com/minio/asm2plan9s
 
