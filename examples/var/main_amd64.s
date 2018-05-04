@@ -1,5 +1,9 @@
 #include "textflag.h"
 
+// var debug bool
+DATA  ·debug+0(SB)/1,$1
+GLOBL ·debug(SB),NOPTR,$1
+
 // utf8: "Hello World!"
 // len: 12
 DATA  helloworld_data<>+0(SB)/8,$"Hello Wo"
@@ -31,6 +35,18 @@ GLOBL ·listen_port(SB),NOPTR,$8
 DATA  ·point+0(SB)/8,$1234
 DATA  ·point+8(SB)/8,$5678
 GLOBL ·point(SB),NOPTR,$16
+
+// var point_slice []struct{ X, Y int }
+
+DATA point_slice_data<>+0(SB)/8, $12
+DATA point_slice_data<>+8(SB)/8, $34
+DATA point_slice_data<>+16(SB)/8, $56
+DATA point_slice_data<>+24(SB)/8, $78
+GLOBL point_slice_data<>(SB),NOPTR,$32
+
+DATA  ·point_slice+0(SB)/8,$point_slice_data<>(SB)
+DATA  ·point_slice+8(SB)/8,$2
+GLOBL ·point_slice(SB),NOPTR,$16
 
 // var const_id int
 DATA  ·const_id+0(SB)/8,$9527
