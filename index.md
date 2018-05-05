@@ -483,6 +483,7 @@ TODO
 - https://cordate.github.io/2018/04/11/golang/Go%E7%9A%84%E6%B1%87%E7%BC%96%E7%A8%8B%E5%BA%8F%E5%BF%AB%E9%80%9F%E6%8C%87%E5%8D%97/
 - http://xargin.com/go-and-plan9-asm/
 - http://colobu.com/goasm/
+- https://toutiao.io/posts/52u5kg/preview
 
 -->
 
