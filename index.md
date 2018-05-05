@@ -74,7 +74,7 @@ Reveal.js 可能会需要 AJAX 异步加载 Markdown 文件, 可以在当前目�
 ----------
 
 ```go
-var helloworld = "Hello World!"
+var helloworld string = "Hello World!"
 func HelloWorld() { println(helloworld) }
 ```
 
@@ -82,11 +82,11 @@ func HelloWorld() { println(helloworld) }
 #include "textflag.h"
 
 // var helloworld string
+GLOBL ·helloworld(SB),NOPTR,$32               // var helloworld string
 DATA  ·helloworld+0(SB)/8,$·helloworld+16(SB) // reflect.StringHeader.Data
 DATA  ·helloworld+8(SB)/8,$12                 // reflect.StringHeader.Len
 DATA  ·helloworld+16(SB)/8,$"Hello Wo"        // ...string data...
 DATA  ·helloworld+24(SB)/8,$"rld!"            // ...string data...
-GLOBL ·helloworld(SB),NOPTR,$32               // var helloworld string
 
 // func HelloWorld()
 TEXT ·HelloWorld(SB), $16-0
@@ -113,8 +113,8 @@ TEXT ·HelloWorld(SB), $16-0
 
 ------
 
-- DATA: 定义数据
-- GLOBL: 构造全局标识符
+- GLOBL: 定义全局标识符, 分配内存空间
+- DATA: 初始化对应内存空间
 - TEXT: 定义函数
 
 
