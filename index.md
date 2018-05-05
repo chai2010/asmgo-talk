@@ -96,7 +96,7 @@ TEXT ·HelloWorld(SB), $16-0
 
 
 ---
-### 简单说明
+### 汇编语法
 -----------
 
 - 变量要在Go语言中声明, 但不能赋值
@@ -111,6 +111,67 @@ TEXT ·HelloWorld(SB), $16-0
 - DATA: 定义数据
 - GLOBL: 构造全局标识符
 - TEXT: 定义函数
+
+
+---
+### 字符串结构
+-------------
+
+```go
+var helloworld string // 只能声明, 不能赋值
+```
+
+```go
+// +---------------------------+              ·helloworld+0(SB)
+// | reflect.StringHeader.Data | ----------\ $·helloworld+16(SB)
+// +---------------------------+           |
+// | reflect.StringHeader.Len  |           |
+// +---------------------------+ <---------/  ·helloworld+16(SB)
+// | "Hello World!"            |
+// +---------------------------+
+```
+
+-------
+
+- 字符串的数据紧挨字符串头结构体
+- `$·helloworld+16(SB)` 表示符号地址
+- `·helloworld+16(SB)` 表示符号地址内的数据
+
+
+---
+### HelloWorld函数
+-----------------
+
+```go
+func HelloWorld() // 只能声明, 不能定义
+```
+
+```
+TEXT ·HelloWorld(SB), $16-0
+	MOVQ ·helloworld+0(SB), AX; MOVQ AX, 0(SP)
+	MOVQ ·helloworld+8(SB), BX; MOVQ BX, 8(SP)
+	CALL runtime·printstring(SB)
+	CALL runtime·printnl(SB)
+	RET
+```
+
+------
+
+- `$16-0`中的16: 表示函数内部有16字节用于局部变量
+- `$16-0`中的0: 表示函数参数和返回值总大小为0
+
+------
+
+- `printstring`的参数类型为`StringHeader`
+- `0(SP)`为`StringHeader.Data`
+- `8(SP)`为`StringHeader.Len`
+
+---
+### 没有分号
+----------
+
+- 分号用于分隔多个汇编语句
+- 末位自动添加分号
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 ***
