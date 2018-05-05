@@ -73,26 +73,22 @@ Reveal.js 可能会需要 AJAX 异步加载 Markdown 文件, 可以在当前目�
 ## 快速入门
 ----------
 
-main.go:
-
-```go
-package main
-
-var  id int      // 声明变量
-func getId() int // 声明函数
-```
-
-main_amd64.s:
-
 ```
 #include "textflag.h"
 
-DATA  ·id+0(SB)/8,$9527 // var id int = 9527
-GLOBL ·id(SB),NOPTR,$8
+// var helloworld string
+DATA  ·helloworld+0(SB)/8,$·helloworld+16(SB) // reflect.StringHeader.Data
+DATA  ·helloworld+8(SB)/8,$12                 // reflect.StringHeader.Len
+DATA  ·helloworld+16(SB)/8,$"Hello Wo"        // ...string data...
+DATA  ·helloworld+24(SB)/8,$"rld!"            // ...string data...
+GLOBL ·helloworld(SB),NOPTR,$32               // var helloworld string
 
-TEXT ·getId(SB), $0-8   // func getId() int
-	MOVQ ·id(SB), AX    // read id
-	MOVQ AX, ret+0(FP)  // return id
+// func HelloWorld()
+TEXT ·HelloWorld(SB), $16-0
+	MOVQ ·helloworld+0(SB), AX; MOVQ AX, 0(SP)
+	MOVQ ·helloworld+8(SB), BX; MOVQ BX, 8(SP)
+	CALL runtime·printstring(SB)
+	CALL runtime·printnl(SB)
 	RET
 ```
 

@@ -4,15 +4,12 @@
 
 #include "textflag.h"
 
-// utf8: "Hello World!"
-// len: 12
-DATA  text<>+0(SB)/8,$"Hello Wo"
-DATA  text<>+8(SB)/8,$"rld!"
-GLOBL text<>(SB),NOPTR,$16
-
-DATA  ·helloworld+0(SB)/8,$text<>(SB)
-DATA  ·helloworld+8(SB)/8,$12
-GLOBL ·helloworld(SB),NOPTR,$16
+// var helloworld string = "Hello World!"
+DATA  ·helloworld+0(SB)/8,$·helloworld+16(SB) // reflect.StringHeader.Data
+DATA  ·helloworld+8(SB)/8,$12                 // reflect.StringHeader.Len
+DATA  ·helloworld+16(SB)/8,$"Hello Wo"        // ...string data...
+DATA  ·helloworld+24(SB)/8,$"rld!"            // ...string data...
+GLOBL ·helloworld(SB),NOPTR,$32               // var helloworld string
 
 // func HelloWorld()
 TEXT ·HelloWorld(SB), $16-0
