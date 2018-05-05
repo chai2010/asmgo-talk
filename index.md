@@ -156,12 +156,11 @@ https://en.wikipedia.org/wiki/Interpunct
 ## 变量定义
 ----------
 
-- bool
-- byte/int/int64/...
-- float32/float4
+- 基本语法
 
 ---------
 
+- bool/byte/int/int64/float32/float64/...
 - string/slice
 - map/channel
 
@@ -171,12 +170,14 @@ https://en.wikipedia.org/wiki/Interpunct
 - 仅文件内可见
 
 ---
-### bool 类型
--------------
+### 基本语法
+-----------
 
 ```
 DATA symbol+offset(SB)/width, value
 ```
+
+--------
 
 ```
 DATA divtab<>+0x00(SB)/4, $0xf4f8fcff
