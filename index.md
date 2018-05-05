@@ -118,8 +118,8 @@ TEXT ·getId(SB), $0-8   // func getId() int
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 ***
-
 ## 特殊字符
+----------
 
 - `U+00B7`: 中点`·`, 替代ASCII点`.`, 例如 `fmt.Printf`
 - `U+2215`: 除法`/`, 替代路径分隔符`/`, 例如 `math/rand.Int`
@@ -481,9 +481,15 @@ TODO
 
 - http://luodw.cc/2016/09/04/golang03/
 - https://cordate.github.io/2018/04/11/golang/Go%E7%9A%84%E6%B1%87%E7%BC%96%E7%A8%8B%E5%BA%8F%E5%BF%AB%E9%80%9F%E6%8C%87%E5%8D%97/
+
 - http://xargin.com/go-and-plan9-asm/
+- http://xargin.com/plan9-assembly/
+
 - http://colobu.com/goasm/
 - https://toutiao.io/posts/52u5kg/preview
+- https://studygolang.com/articles/2917
+
+
 
 -->
 
