@@ -82,7 +82,7 @@ func HelloWorld() { println(helloworld) }
 #include "textflag.h"
 
 // var helloworld string
-GLOBL ·helloworld(SB),NOPTR,$32               // var helloworld string
+GLOBL ·helloworld(SB),NOPTR,$32               // var helloworld [32]byte
 DATA  ·helloworld+0(SB)/8,$·helloworld+16(SB) // reflect.StringHeader.Data
 DATA  ·helloworld+8(SB)/8,$12                 // reflect.StringHeader.Len
 DATA  ·helloworld+16(SB)/8,$"Hello Wo"        // ...string data...
