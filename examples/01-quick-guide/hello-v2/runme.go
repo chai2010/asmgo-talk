@@ -7,8 +7,6 @@
 package main
 
 import (
-	_ "fmt"
-
 	pkg "."
 )
 

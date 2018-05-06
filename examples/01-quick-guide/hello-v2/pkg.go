@@ -4,6 +4,8 @@
 
 package pkg
 
+import _ "fmt"
+
 var helloworld string = "你好, 中国!"
 
 func HelloWorld()
