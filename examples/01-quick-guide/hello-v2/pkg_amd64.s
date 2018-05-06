@@ -61,7 +61,7 @@ TEXT ·HelloWorld(SB),$56-0
 	// MOVQ $0, a0_data-8*1(SP) // a0.data
 
 	// func runtime.convT2E(t *_type, elem unsafe.Pointer) (e eface)
-	LEAQ type·string(SB), AX; MOVQ AX, 8*0(SP) // arg:t: string type
+	LEAQ type·main·MyString(SB), AX; MOVQ AX, 8*0(SP) // arg:t: string type
 	LEAQ ·helloworld(SB), BX; MOVQ BX, 8*1(SP) // arg:elem: &helloworld
 	CALL runtime·convT2E(SB)
 	MOVQ 8*2(SP), AX; MOVQ AX, a0_type-8*2(SP) // ret:e._type
