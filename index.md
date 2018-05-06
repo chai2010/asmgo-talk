@@ -171,6 +171,31 @@ TEXT ·HelloWorld(SB), $16-0
 - `0(SP)`为`StringHeader.Data`
 - `8(SP)`为`StringHeader.Len`
 
+
+---
+### 简化: 在Go中定义变量
+---------------------
+
+```go
+var helloworld string = "你好, 中国!"
+
+func HelloWorld()
+```
+
+```
+TEXT ·HelloWorld(SB), $16-0
+	MOVQ ·helloworld+0(SB), AX; MOVQ AX, 0(SP)
+	MOVQ ·helloworld+8(SB), BX; MOVQ BX, 8(SP)
+	CALL runtime·printstring(SB)
+	CALL runtime·printnl(SB)
+	RET
+```
+
+-------------
+
+- 汇编定义变量没有太多优势, 性价比较低
+- 汇编的优势是挖掘芯片的功能和性能
+
 ---
 ### 没有分号
 ----------
