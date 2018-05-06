@@ -4,6 +4,6 @@
 
 package pkg
 
-var helloworld string = "Hello, World!"
+var helloworld string = "你好, 中国!"
 
 func HelloWorld()

@@ -32,8 +32,8 @@ type itab struct {
 
 TEXT ·HelloWorld(SB),$56-0
 	// var a0 interface{} = helloworld
-	MOVQ $0, a0_type-16(SP) // a0._type
-	MOVQ $0, a0_data-8(SP)  // a0.data
+	// MOVQ $0, a0_type-16(SP) // a0._type
+	// MOVQ $0, a0_data-8(SP)  // a0.data
 
 	// func runtime.convT2E(t *_type, elem unsafe.Pointer) (e eface)
 	LEAQ type·string(SB),   AX; MOVQ AX, 0(SP) // arg:t: string type
