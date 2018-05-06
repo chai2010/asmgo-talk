@@ -55,7 +55,7 @@ func resolveNameOff(ptrInModule unsafe.Pointer, off nameOff) name {}
 func resolveTypeOff(ptrInModule unsafe.Pointer, off typeOff) *_type {}
 */
 
-TEXT ·HelloWorld(SB),$56-0
+TEXT main·HelloWorld(SB),$56-0
 	// var a0 interface{} = helloworld
 	// MOVQ $0, a0_type-8*2(SP) // a0._type
 	// MOVQ $0, a0_data-8*1(SP) // a0.data
