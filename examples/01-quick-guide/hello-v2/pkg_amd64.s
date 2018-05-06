@@ -37,10 +37,10 @@ TEXT ·HelloWorld(SB),$56-0
 
 	// func runtime.convT2E(t *_type, elem unsafe.Pointer) (e eface)
 	LEAQ type·string(SB),   AX; MOVQ AX, 0(SP) // arg:t: string type
-	LEAQ ·helloworld+0(SB), AX; MOVQ AX, 8(SP) // arg:elem: &helloworld
+	LEAQ ·helloworld+0(SB), BX; MOVQ BX, 8(SP) // arg:elem: &helloworld
 	CALL runtime·convT2E(SB)
 	MOVQ 16(SP), AX;  MOVQ AX, a0_type-16(SP)  // ret0._type
-	MOVQ 24(SP), AX;  MOVQ AX, a0_data-8(SP)   // ret0.data
+	MOVQ 24(SP), BX;  MOVQ BX, a0_data-8(SP)   // ret0.data
 
 	// func fmt.Println(a ...interface{}) (n int, err error)
 	LEAQ a0_type-16(SP), AX; MOVQ AX, 0(SP)    // arg:a.Data
@@ -49,7 +49,7 @@ TEXT ·HelloWorld(SB),$56-0
 	CALL fmt·Println(SB)                       // ret: ignore
 
 	// MOVQ 24(SP), AX                         // ret0:n
-	// MOVQ 32(SP), AX                         // ret1:err._type
-	// MOVQ 40(SP), AX                         // ret1:err.data
+	// MOVQ 32(SP), BX                         // ret1:err._type
+	// MOVQ 40(SP), CX                         // ret1:err.data
 
 	RET
