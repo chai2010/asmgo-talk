@@ -235,8 +235,15 @@ TEXT ·HelloWorld(SB), $16-0
 
 -----
 
-https://en.wikipedia.org/wiki/Interpunct
+- https://en.wikipedia.org/wiki/Interpunct
 
+
+---
+## 更多的特殊字符
+---------------
+
+-  https://github.com/golang/go/pull/25274
+- `pkg.(*T).Method` ?
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 ***
