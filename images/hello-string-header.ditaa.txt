@@ -1,0 +1,7 @@
++---------------------------+              ·helloworld+0(SB)
+| reflect.StringHeader.Data +-----------\ $·helloworld+16(SB)
++---------------------------+           |
+| reflect.StringHeader.Len  |           |
++---------------------------+ <---------/  ·helloworld+16(SB)
+| "Hello World!"            |
++---------------------------+

@@ -8,3 +8,5 @@ a.out
 *.lib
 *.dll
 *.exe
+
+.oracle_jre_usage
