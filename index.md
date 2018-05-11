@@ -411,7 +411,7 @@ DATA ·count+2(SB)/2,$3
 
 ------
 
-- `GLOBL` 定义全局变量, 指定内存大小, 不包含类型
+- `GLOBL` 定义全局变量, 只有内存大小, 不包含类型
 - `DATA` 符号对应偏移量, 制定宽度内存内的数据
 
 
@@ -420,10 +420,68 @@ DATA ·count+2(SB)/2,$3
 -------------
 
 ```
-GLOBL ·debugMode1(SB),$1 // 未初始化
+GLOBL ·boolValue(SB),$1   // 未初始化
 
+GLOBL ·trueValue(SB),$1   // var trueValue = true
+DATA ·trueValue(SB)/1,$1  // 非 0 均为 true
+
+GLOBL ·falseValue(SB),$1  // var falseValue = true
+DATA ·falseValue(SB)/1,$0
 ```
 
+------
+
+- 没有bool类型, 定义1字节大小内存即可
+- 非 0 均为 true
+
+---
+### int型变量
+------------
+
+TODO
+
+
+---
+### float型变量
+------------
+
+TODO
+
+
+---
+### string类型变量
+-----------------
+
+TODO
+
+---
+### slice类型变量
+---------------
+
+TODO
+
+
+---
+### map/channel类型变量
+----------------------
+
+TODO
+
+
+---
+### 结构体
+---------
+
+TODO
+
+
+---
+### 特殊标志
+----------
+
+- 仅文件内可见
+- rodata 段的只读量
+- 不含指针
 
 <!--
 
@@ -480,22 +538,6 @@ GLOBL runtime·tlsoffset(SB), NOPTR, $4
 TODO
 
 
----
-### `textflag.h`
-----------------
-
-```c
-...
-
-// Don't insert stack check preamble.
-#define NOSPLIT	4
-// Put this data in a read-only section.
-#define RODATA	8
-// This data contains no pointers.
-#define NOPTR	16
-
-...
-```
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 ***
@@ -534,6 +576,32 @@ ADDW AX, BX
 --------
 
 TODO
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
+***
+## 类C预处理器
+------------
+
+TODO
+
+
+---
+### `textflag.h`
+----------------
+
+```c
+...
+
+// Don't insert stack check preamble.
+#define NOSPLIT	4
+// Put this data in a read-only section.
+#define RODATA	8
+// This data contains no pointers.
+#define NOPTR	16
+
+...
+```
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 ***
@@ -737,7 +805,14 @@ TODO
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 ***
+## 补充部分
+---------
 
+- 标识符的命名, 避免全局的名字冲突
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
+***
 ## 参考资源
 
 #### https://golang.org/doc/asm
