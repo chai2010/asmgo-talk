@@ -493,13 +493,55 @@ DATA ·float64Value(SB)/4,$0x01020304 // bit 方式初始化
 ### string类型变量
 -----------------
 
-TODO
+```go
+type reflect.StringHeader struct {
+	Data uintptr
+	Len  int
+}
+```
+
+```
+GLOBL ·helloworld(SB),$16            // var helloworld = "Hello World!"
+DATA ·helloworld+0(SB)/8,$text<>(SB) // StringHeader.Data
+DATA ·helloworld+8(SB)/8,$12         // StringHeader.Len
+
+GLOBL text<>(SB),$16
+DATA text<>+0(SB)/8,$"Hello Wo"      // ...string data...
+DATA text<>+8(SB)/8,$"rld!"          // ...string data...
+```
+
+------------
+
+- 汇编中 string 只是一种结构体
+- 头部对应 `reflect.StringHeader` 类型
 
 ---
 ### slice类型变量
 ---------------
 
-TODO
+```go
+type reflect.SliceHeader struct {
+	Data uintptr
+	Len  int
+	Cap  int
+}
+```
+
+```
+GLOBL ·helloworld(SB),$24            // var helloworld = []byte("Hello World!")
+DATA ·helloworld+0(SB)/8,$text<>(SB) // StringHeader.Data
+DATA ·helloworld+8(SB)/8,$12         // StringHeader.Len
+DATA ·helloworld+16(SB)/8,$16        // StringHeader.Len
+
+GLOBL text<>(SB),$16
+DATA text<>+0(SB)/8,$"Hello Wo"      // ...string data...
+DATA text<>+8(SB)/8,$"rld!"          // ...string data...
+```
+
+-----
+
+- slice 也是结构体
+- slice 头部兼容 string 头部
 
 
 ---
