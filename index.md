@@ -385,7 +385,7 @@ $1+2         // 常量表达式
 
 ---------
 
-- bool/byte/int/int64/float32/float64/...
+- bool/int/float
 - string/slice
 - map/channel
 
@@ -400,19 +400,21 @@ $1+2         // 常量表达式
 -----------
 
 ```
-GLOBL ·count(SB),$4
+DATA symbol+offset(SB)/width, value
 ```
 
 ```
 DATA ·count+0(SB)/1,$1
 DATA ·count+1(SB)/1,$2
 DATA ·count+2(SB)/2,$3
+
+GLOBL ·count(SB),$4
 ```
 
 ------
 
-- `GLOBL` 定义全局变量, 只有内存大小, 不包含类型
 - `DATA` 符号对应偏移量, 制定宽度内存内的数据
+- `GLOBL` 定义全局变量, 只有内存大小, 不包含类型
 
 
 ---
@@ -548,78 +550,69 @@ DATA text<>+8(SB)/8,$"rld!"          // ...string data...
 ### map/channel类型变量
 ----------------------
 
-TODO
+```
+GLOBL ·m(SB),$8  // var m map[string]int
+DATA  ·m+0(SB)/8,$0
+
+GLOBL ·ch(SB),$8 // var ch chan int
+DATA  ·ch+0(SB)/8,$0
+```
+
+```go
+func makemap(mapType *byte, hint int, mapbuf *any) (hmap map[any]any)
+func makechan(chanType *byte, size int) (hchan chan any)
+```
+
+------
+
+- map/channel 内部均位指针类型
+- `runtime·makemap` 函数构建 map
+- `runtime·makechan` 函数构建 chan
 
 
 ---
-### 结构体
+### 标识符规则
+------------
+
+```
+GLOBL file_private<>(SB),$1
+GLOBL global_name(SB),$1
+```
+
+```
+GLOBL ·pkg_name1(SB),$1
+GLOBL main·pkg_name2(SB),$1
+GLOBL my/pkg·pkg_name(SB),$1
+```
+
 ---------
 
-TODO
+- `file_private<>`仅当前文件内可见(`<>`后缀)
+- `global_name`为全局变量, 建议避免这种用法!!!
 
+------
+
+- `·pkg_name1`为当前包变量
+- `main·pkg_name2`为`main`包的包变量
+- `my/pkg·pkg_name`为`my/pkg`包的包变量
 
 ---
 ### 特殊标志
 ----------
 
-- 仅文件内可见
-- rodata 段的只读量
-- 不含指针
-
-<!--
-
-// var helloworld string
-GLOBL ·helloworld(SB),NOPTR,$32                  // var helloworld [32]byte
-    DATA ·helloworld+0(SB)/8,$·helloworld+16(SB) // StringHeader.Data
-    DATA ·helloworld+8(SB)/8,$12                 // StringHeader.Len
-    DATA ·helloworld+16(SB)/8,$"Hello Wo"        // ...string data...
-    DATA ·helloworld+24(SB)/8,$"rld!"            // ...string data...
-
-
-传统汇编的 section 分布
-
-全局变量
-局部变量
-
-ram/rom 区别？
-flash 区别？
- -->
-
----
-### 基本语法
------------
-
 ```
-DATA symbol+offset(SB)/width, value
+#include "textflag.h"
+
+// var const_id int
+GLOBL ·const_id(SB),NOPTR|RODATA,$8
+DATA  ·const_id+0(SB)/8,$9527
 ```
 
---------
+-----
 
-```
-DATA divtab<>+0x00(SB)/4, $0xf4f8fcff
-DATA divtab<>+0x04(SB)/4, $0xe6eaedf0
-...
-DATA divtab<>+0x3c(SB)/4, $0x81828384
-GLOBL divtab<>(SB), RODATA, $64
-
-GLOBL runtime·tlsoffset(SB), NOPTR, $4
-```
-
-----------
-
-<!--
-- 常量: 字符串/十进制数/十六进制数
-
-怎么引用其它pkg的变量？
-
-不给初始化值可以吗？
-
-全局变量容易导致污染名字空间，最好是文件内部，或者是包内部
--->
-
-
-TODO
-
+- `RODATA`表示数据在只读段定义(`readonly var`)
+- `RODATA`赋值将导致`panic`, 无法`recover`
+- `NOPTR`表示不含指针
 
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->

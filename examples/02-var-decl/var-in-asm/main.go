@@ -16,6 +16,8 @@ var (
 	point         struct{ X, Y int }
 	point_slice   []struct{ X, Y int }
 	const_id      int // read only
+	m             map[string]int
+	ch            chan int
 )
 
 func main() {
@@ -26,6 +28,8 @@ func main() {
 	fmt.Println(point)
 	fmt.Println(point_slice)
 	fmt.Println(const_id)
+	fmt.Println(m)
+	fmt.Printf("%#v\n", ch)
 
 	if false {
 		defer func() {

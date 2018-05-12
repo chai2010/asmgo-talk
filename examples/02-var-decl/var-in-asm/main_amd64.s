@@ -55,3 +55,11 @@ DATA  ·point_slice+8(SB)/8,$2
 // var const_id int
 GLOBL ·const_id(SB),NOPTR|RODATA,$8
 DATA  ·const_id+0(SB)/8,$9527
+
+// map
+GLOBL ·m(SB),$8
+DATA  ·m+0(SB)/8,$0
+
+// chan int
+GLOBL ·ch(SB),$8
+DATA  ·ch+0(SB)/8,$0
