@@ -735,9 +735,9 @@ func Foo() { var local [1]struct{c, b, a int}; var SP = &local[1]; }
 
 ```
 TEXT ·Foo(SB), $24
-	MOVQ c-8*3(SP), CX // c
+	MOVQ c-8*1(SP), CX // c
 	MOVQ b-8*2(SP), BX // b
-	MOVQ a-8*1(SP), AX // a
+	MOVQ a-8*3(SP), AX // a
 	RET
 ```
 
