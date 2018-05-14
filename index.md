@@ -1053,6 +1053,8 @@ runtime tiny
 裸机上的Go，asm 如何启动？类似os？
 https://codereview.appspot.com/3996047/
 
+http://joebergeron.io/posts/post_two.html
+
 -->
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
