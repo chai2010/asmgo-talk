@@ -633,11 +633,103 @@ DATA  ·const_id+0(SB)/8,$9527
 ### 基本语法
 ----------
 
-TODO
+```
+// func Add(a, b int) int
+TEXT main·Add(SB), NOSPLIT, $0-24
+TEXT ·Add(SB), $0
+```
+
+--------
+
+- `TEXT` 表示在 text 段定义函数
+- `main·Add` 中的 main 为包名和路径, 缺少时为当前包
+- `main·Add` 中的 Add 为函数名字
+- `NOSPLIT` 相关标志, 可省略
+
+------
+
+- `$0-24` 中的 `-` 为分隔符
+- `$0-24` 中的 `0` 为局部变量大小
+- `$0-24` 中的 `24` 为参数和返回值大小(缺少时自动计算)
+
+
+---
+### 函数参数大小计算
+-----------------
+
+```go
+func SomeFunc(a, b int, c bool) (d float64, err error) int
+
+type SomeFunc_args_and_returns struct {
+	a   int
+	b   int
+	c   bool
+	d   float64
+	err error
+}
+```
+
+-----------
+
+- 将参数和返回值看着一个结构体(保存原有的顺序)
+- 结构体的大小就是函数的参数和返回值大小
+- 结构体中成员的偏移量就是每个参数的偏移量
+- 每个成员需要进行内存对齐
+
+
+---
+### 函数也没有类型
+---------------
+
+```
+func Foo(a, b int) int
+func Foo(a, b, c int)
+func Foo() (a, b, c int)
+```
+
+----
+
+- 以上函数在汇编中是一样的
+- 汇编中, 函数也没有类型, 类型在Go中定义
+- 汇编只需要函数的名字和各个参数的偏移位置
+
+
+---
+### 函数参数和返回值
+-----------------
+
+```go
+func Foo(a, bint) (c int)
+```
+
+```go
+func Foo(FP *struct{a, b, c int})
+```
+
+```
+TEXT ·Foo(SB), $0
+	MOVEQ a+0(FP), AX  // a
+	MOVEQ b+8(FP), BX  // b
+	MOVEQ c+16(FP), CX // c
+	RET
+```
+
+-----
+
+- 将参数和返回值等价变换到一个结构体中
+- FP 伪寄存器对应唯一结构体参数的指针
+- 成员名加偏移量可定位每个参数
 
 <!--
+
+FP 类型结构体的开始位置
+
 不足之处
 指针类型的方法没有办法定义(目前汇编不支持)
+
+函数参数的访问
+
+调用参数的访问
 
 https://talks.golang.org/2016/asm.slide#35
 
