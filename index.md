@@ -837,6 +837,7 @@ TEXT ·Add(SB), NOSPLIT, $0-24
 
 - 比较指令
 - 跳转指令
+- 算术指令
 
 -------
 
@@ -844,48 +845,225 @@ TEXT ·Add(SB), NOSPLIT, $0-24
 - 循环: for
 
 ---
+### 全部的基础指令
+---------------
+
+- 无条件跳转: JMP
+- 有条件跳转: JL/JLE/JZ/JNE
+- 加法/减法: ADDQ/SUBQ
+
+------
+
+- 基于以上指令可以编写大部分非运算型代码
+
+
+---
 ### 比较指令
 -----------
 
-TODO
+- TEST: 逻辑与运算结果为零, 把ZF(零标志)置1
+- CMP: 算术减法运算结果为零, 就ZF(零标志)置1.
+
+----
+
+- TEST 也可以用 `AND`/`CMP` 模拟
+
 
 ---
 ### 跳转指令
 -----------
 
-- JMP
-- JL/JLE
-- JZ/JNZ
+- 无条件跳转: JMP
+- 有条件跳转: JL/JLE; JZ/JNZ
 
+--------
 
-<!--
-label 跳转
-相对跳转
--->
+- JMP/JL: 跳转和小于跳转可以模拟其它跳转
+- JL/JLE: 小于/小于等于 跳转
+- JZ/JNZ: 零/非零 跳转
+
+--------
+
+- 缩写单词: J(MP), L(ess), E(qual), Z(ero), N(ot)
 
 
 ---
-### if
-------
+### 相对跳转/绝对跳转
+------------------
 
-TODO
+- `JZ 3(PC)` 向后跳转2个指令
+- `JMP LOOP` 跳转到 `LOOP` 标号对应位置
+
+----
+
+- 跳转距离较大时, 尽量用标号跳转
+
 
 ---
-### ifelse
+### 算术指令
 ----------
 
-TODO
+- 加法: ADDQ
+- 减法: SUBQ
+
+--------------
+
+- 加法/减法 是循环和迭代常见的操作
+- 复杂的条件 还需要逻辑运算
+
 
 ---
-### for
+### if: 汇编思维改写Go代码
+-----------------------
+
+```go
+func If(ok bool, a, b int) int {
+	if ok { return a } else { return b }
+}
+```
+
+```go
+func If(ok bool, a, b int) int {
+	if ok == 0 { goto L }
+	return a
+L:  return b
+}
+```
+
+------
+
+- 每个表达式只能有一个运算符
+- if 只能是 `<`/`<=`/`==` 几种比较符号
+- if 的 body 部分只能是一个 goto 语句
+
+
+---
+### if: 转译为汇编
+---------
+
+```
+TEXT ·If(SB), NOSPLIT, $0-32
+	MOVBQZX ok+8*0(FP), CX // ok
+	MOVQ    a+8*1(FP), AX  // a
+	MOVQ    b+8*2(FP), BX  // b
+
+	CMPQ    CX, $0         // test ok
+	JZ      L              // if !ok, skip 2 line
+	MOVQ    AX, ret+24(FP) // return a
+	RET
+
+L:
+	MOVQ    BX, ret+24(FP) // return b
+	RET
+```
+
 -------
 
-TODO
+- if 语句是控制流的基础
+- if+goto 可实现循环
+
+---
+### for 循环
+-----------
+
+```go
+func LoopAdd(cnt, v0, step int) int {
+	result := v0
+	for i := 0; i < cnt; i++ {
+		result += step
+	}
+	return result
+}
+```
+
+------
+
+- for 的三个部分: 初始化, 结束条件, 迭代步长
+- for 可以模拟其它各种循环
+
+
+---
+### for - 展开为 if/goto
+-----------------------
+
+
+```go
+func LoopAdd(cnt, v0, step int) int {
+	var i = 0
+	var result = v0
+
+LOOP:
+	if i < cnt { goto LOOP_BODY }
+	goto END
+
+LOOP_BODY
+	i = i+1
+	result = result + step
+	goto LOOP
+
+END:
+	return result
+}
+```
+
+--------
+
+- if/goto <==> 比较+有条件跳转+无条件跳转
+
+---
+### for - 汇编重写(A)
+------------
+
+```
+// func LoopAdd(cnt, v0, step int) int
+TEXT ·LoopAdd(SB), NOSPLIT, $0-32
+	MOVQ cnt+0(FP), AX   // cnt
+	MOVQ v0+8(FP), BX    // v0/result
+	MOVQ step+16(FP), CX // step
+	MOVQ $0, DX          // i
+
+LOOP:
+	// ....
+```
+
+-----
+
+- v0 和 result 复用一个寄存器
+
+---
+### for - 汇编重写(B)
+--------------------
+
+```
+// func LoopAdd(cnt, v0, step int) int
+TEXT ·LoopAdd(SB), NOSPLIT, $0-32
+	// ...
+LOOP:
+	CMPQ DX, AX          // compare i, cnt
+	JL   LOOP_BODY       // if i < cnt: goto LOOP_BODY
+	goto END
+
+LOOP_BODY:
+	ADDQ $1, DX          // i++
+	ADDQ CX, BX          // result += step
+	goto LOOP
+
+END:
+	MOVQ BX, ret+24(FP)  // return result
+	RET
+```
+
+-------
+
+- 循环优化: `for ; cnt >= 0; cnt--`
+
 
 <!--
-if
-if/else
-for
+最少的几个汇编指令:
+
+JMP
+JL/JLE/JZ/JNZ
+ADDQ/SUBQ
 -->
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
@@ -1232,6 +1410,9 @@ runtime tiny
 https://codereview.appspot.com/3996047/
 
 http://joebergeron.io/posts/post_two.html
+
+
+http://www.zenlife.tk/plan9-assemble.html
 
 -->
 
