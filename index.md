@@ -1048,6 +1048,11 @@ $x+0(SB) 类似 *(x+0) 取指针指向内容的值
 jit
 https://github.com/modern-go/amd64
 
+
+runtime tiny
+裸机上的Go，asm 如何启动？类似os？
+https://codereview.appspot.com/3996047/
+
 -->
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
