@@ -1414,6 +1414,10 @@ http://joebergeron.io/posts/post_two.html
 
 http://www.zenlife.tk/plan9-assemble.html
 
+
+https://github.com/golang/go/blob/b80b4a23d135c12d91e71ba51e906cb5783f4d61/src/cmd/internal/obj/x86/anames.go
+https://github.com/golang/arch/blob/master/x86/x86.csv
+
 -->
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
