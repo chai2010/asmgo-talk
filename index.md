@@ -827,11 +827,11 @@ TEXT ·foo(SB), $24
 ---------
 
 ```
-#define ADD(off_a, off_b) \
-	MOVQ a+off_a(FP), AX; \ // a
-	MOVQ b+off_b(FP), BX; \ // b
-	ADDQ AX, BX;          \ // a+b
-	MOVQ BX, ret+16(FP);  \ // return a+b
+#define ADD(off_a, off_b)                  \
+	MOVQ a+off_a(FP), AX; /* a */          \
+	MOVQ b+off_b(FP), BX; /* b */          \
+	ADDQ AX, BX;          /* a+b */        \
+	MOVQ BX, ret+16(FP);  /* return a+b */ \
 	RET
 
 // func (a Int) Add(b int) int
@@ -844,6 +844,25 @@ TEXT ·Add(SB), NOSPLIT, $0-24
 - Go汇编支持C语言的预处理语法
 - 宏函数就是一个带参数的宏
 - 可通过宏参数替换寄存器名
+- 每个指令结尾需要手工分号
+
+
+---
+### 宏函数 - go_asm.h
+--------------------
+
+```
+#include "go_asm.h"
+
+TEXT ·foo(SB), $0
+	get_tls(CX)
+	MOVL	g(CX), AX     // Move g into AX.
+	MOVL	g_m(AX), BX   // Move g.m into BX.
+```
+
+------
+
+- 获取 runtime 中 goroutine 的结构
 
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
