@@ -1,5 +1,7 @@
 package main
 
+// http://xargin.com/go-and-plan9-asm/#stacks
+
 func main() {
 	println(sum(100))
 }
