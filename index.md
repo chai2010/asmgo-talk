@@ -1093,18 +1093,196 @@ END:
 - 循环优化: `for ; cnt >= 0; cnt--`
 
 
-<!--
-最少的几个汇编指令:
-
-JMP
-JL/JLE/JZ/JNZ
-ADDQ/SUBQ
--->
-
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 ***
 ## 再论函数
 ----------
+
+- 递归函数
+- 栈的动态伸缩
+- 动态栈中的指针
+- ...
+
+---
+### 递归函数: 1到n求和
+--------------------
+
+```go
+// sum = 1+2+...+n
+// sum(100) = 5050
+func sum(n int) int {
+	if n > 0 { return n+sum(n-1) } else { return 0 }
+}
+```
+
+------
+
+- sum为递归版本的1到n等差数列求和
+- Go中的递归不用担心爆栈问题
+
+---
+### 递归函数: if+goto改写
+-----------------------
+
+```go
+func sum(n int) (result int) {
+	var temp1 int
+	var temp2 int
+
+	if n > 0 { goto L_STEP_TO_END }
+	goto L_END
+
+L_STEP_TO_END:
+	temp1 = n-1
+	temp2 = sum(temp1)
+	result = n + temp2
+	return result
+
+L_END:
+	return 0
+}
+```
+
+-----
+
+- 递归调用的参数需要引入局部变量
+- 保存中间结果也需要引入局部变量
+
+---
+### 递归函数: 汇编实现: 参数和变量
+-----------------------------
+
+```
+// func sum(n int) (result int)
+TEXT ·sum(SB), NOSPLIT, $16-16
+	MOVQ n+0(FP), AX       // n
+	MOVQ result+8(FP), BX  // result
+
+	MOVQ $0, temp2-8*1(SP) // DX: temp2
+	MOVQ $0, temp1-8*2(SP) // CX: temp1
+
+	// ...
+```
+
+----
+
+- 函数参数和返回值
+- 局部变量的顺序和Go代码相反(先定义的地址小)
+
+----
+
+- 刚好满足 `temp2 = sum(temp1)` 的内部布局
+
+
+---
+### 递归函数: 汇编实现: 条件跳转
+----------------------------
+
+```
+// func sum(n int) (result int)
+TEXT ·sum(SB), NOSPLIT, $16-16
+	// ...
+
+	CMPQ $0, AX        // test 0 < n
+	JL   L_STEP_TO_END // if 0 < n: goto goto L_STEP_TO_END
+	JMP  L_END         // goto L_END
+
+L_STEP_TO_END:
+	// ...
+
+L_END:
+	// ...
+```
+
+-----
+
+- `if n > 0` 反向 `if 0 < n` 可转为小于比较
+
+---
+### 递归函数: 汇编实现: 递归调用
+----------------------------
+
+```
+// func sum(n int) (result int)
+TEXT ·sum(SB), NOSPLIT, $16-16
+	// ...
+
+L_STEP_TO_END:
+	MOVQ AX, CX           // CX: temp1 = n
+	ADDQ $-1, CX          // CX: temp1 += -1
+
+	MOVQ CX, 0(SP)        // arg: n-1
+	CALL ·sum(SB)
+	MOVQ 8(SP), DX        // DX: temp2 = sum(n-1)
+
+	ADDQ AX, DX           // DX: temp2 += n
+	MOVQ DX, result+8(FP) // return result
+	RET
+```
+
+-----
+
+- `sum(n-1)`参数: `0(SP)` 或 `temp1-8*2(SP)`
+- `sum(n-1)`返回值: `8(SP)` 或 `temp2-8*1(SP)`
+
+---
+### 递归函数: 汇编实现: 终结条件
+----------------------------
+
+```
+// func sum(n int) (result int)
+TEXT ·sum(SB), NOSPLIT, $16-16
+	// ...
+
+L_END:
+	MOVQ $0, result+8(FP) // return 0
+	RET
+```
+
+-----
+
+- 直接返回结果将终结递归调用
+
+<!--
+	MOVQ n+0(FP), AX       // n
+	MOVQ result+8(FP), BX  // result
+
+	MOVQ $0, temp2-8*1(SP) // temp2
+	MOVQ $0, temp1-8*2(SP) // temp1
+
+
+	LEAQ 100(AX), AX
+
+	temp1 = n-1
+	temp2 = sum(temp1)
+	result = n + temp2
+	return result
+
+    CMPQ    CX, $0         // test ok
+    JZ      L              // if !ok, skip 2 line
+
+	if n > 0 { goto L_STEP_TO_END }
+	goto L_END
+
+L_STEP_TO_END:
+	temp1 = n-1
+	temp2 = sum(temp1)
+	result = n + temp2
+	return result
+
+L_END:
+	return 0
+-->
+
+---
+### 栈的动态伸缩
+--------------
+
+TODO
+
+---
+### 动态栈中的指针
+--------------
 
 TODO
 
@@ -1191,12 +1369,6 @@ TODO
 
 TODO
 
-
----
-### 递归函数
------------
-
-TODO
 
 
 ---
