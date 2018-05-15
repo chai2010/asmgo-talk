@@ -1,0 +1,13 @@
+package main
+
+func main() {
+	println(sum(100))
+}
+
+//go:noinline
+func sum(n int) int {
+	if n <= 0 {
+		return 0
+	}
+	return sum(n-1) + n
+}
