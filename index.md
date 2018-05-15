@@ -1505,6 +1505,9 @@ https://github.com/golang/arch/blob/master/x86/x86.csv
 
 https://zhuanlan.zhihu.com/p/34224862
 
+https://studygolang.com/articles/02917
+https://blog.altoros.com/golang-part-4-object-files-and-function-metadata.html
+
 -->
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
