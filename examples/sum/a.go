@@ -16,6 +16,9 @@ func foo() {
 
 	fmt.Sprintf("")
 
+	func() {
+		print("aaa")
+	}()
 }
 
 func bar() int {
