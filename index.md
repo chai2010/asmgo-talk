@@ -1693,6 +1693,11 @@ https://golang.org/src/cmd/internal/obj/plist.go?h=go_args_stackmap
 https://golang.org/src/runtime/asm.s?h=no_pointers_stackmap
 https://docs.google.com/document/d/1lyPIbmsYbXnpNj57a261hgOYVpNRcgydurVQIyZOz_o/pub
 
+
+《深入解析Go》
+https://www.bookstack.cn/read/go-internals/zh-03.6.md#escape analyze
+
+
 -->
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
