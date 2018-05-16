@@ -1684,6 +1684,14 @@ https://studygolang.com/articles/02917
 https://blog.altoros.com/golang-part-4-object-files-and-function-metadata.html
 
 https://godoc.org/github.com/golang/go/src/cmd/internal/goobj
+https://godoc.org/github.com/golang/go/src/cmd/internal/obj
+
+https://github.com/golang/go/blob/master/src/runtime/runtime2.go
+https://golang.org/src/runtime/go_tls.h
+https://golang.org/src/runtime/funcdata.h
+https://golang.org/src/cmd/internal/obj/plist.go?h=go_args_stackmap
+https://golang.org/src/runtime/asm.s?h=no_pointers_stackmap
+https://docs.google.com/document/d/1lyPIbmsYbXnpNj57a261hgOYVpNRcgydurVQIyZOz_o/pub
 
 -->
 
