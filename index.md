@@ -1683,6 +1683,8 @@ https://zhuanlan.zhihu.com/p/34224862
 https://studygolang.com/articles/02917
 https://blog.altoros.com/golang-part-4-object-files-and-function-metadata.html
 
+https://godoc.org/github.com/golang/go/src/cmd/internal/goobj
+
 -->
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
