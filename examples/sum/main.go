@@ -7,6 +7,8 @@ func main() {
 	println("1:", sum(1))
 	println("2:", sum(2))
 	println("3:", sum(3))
+	println("100:", sum(100))
+	println("200:", sum(200)) // stack overflow
 
 	println(sum0(100))
 	println(sum1(100))
