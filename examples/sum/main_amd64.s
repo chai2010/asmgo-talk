@@ -14,7 +14,7 @@ TEXT ·sum(SB), $16-16
 
 	CMPQ AX, $0           // test n - 0
 	JLE  L_END            // if <= 0: goto goto LEND
-	JMP  L_STEP_TO_END    // goto L_STEP_TO_END
+	// JMP  L_STEP_TO_END // goto L_STEP_TO_END
 
 L_STEP_TO_END:
 	MOVQ AX, CX           // CX: temp1 = n

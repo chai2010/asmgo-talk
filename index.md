@@ -1183,9 +1183,9 @@ TEXT ·sum(SB), NOSPLIT, $16-16
 TEXT ·sum(SB), NOSPLIT, $16-16
 	// ...
 
-	CMPQ $0, AX        // test 0 < n
-	JL   L_STEP_TO_END // if 0 < n: goto goto L_STEP_TO_END
-	JMP  L_END         // goto L_END
+	CMPQ AX, $0        // test n <= 0
+	JLE  L_END         // if n <= 0: goto L_END
+	// goto L_STEP_TO_END
 
 L_STEP_TO_END:
 	// ...

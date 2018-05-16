@@ -26,10 +26,10 @@ func sum1(n int) (result int) {
 	var temp1 int
 	var temp2 int
 
-	if n > 0 {
-		goto L_STEP_TO_END
+	if n <= 0 {
+		goto L_END
 	}
-	goto L_END
+	goto L_STEP_TO_END
 
 L_STEP_TO_END:
 	temp1 = n - 1
