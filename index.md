@@ -1698,6 +1698,7 @@ https://docs.google.com/document/d/1lyPIbmsYbXnpNj57a261hgOYVpNRcgydurVQIyZOz_o/
 https://www.bookstack.cn/read/go-internals/zh-03.6.md#escape analyze
 
 
+FUNCDATA_InlTree => FUNCDATA_InlinedTree
 -->
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
