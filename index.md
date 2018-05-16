@@ -1295,6 +1295,9 @@ GC和动态栈
 
 方法值
 方法表达式
+
+goroutine 启动
+defer/panic
 -->
 
 
