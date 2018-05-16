@@ -1699,6 +1699,11 @@ https://www.bookstack.cn/read/go-internals/zh-03.6.md#escape analyze
 
 
 FUNCDATA_InlTree => FUNCDATA_InlinedTree
+
+PCDATA 可能是用于 pc 解析代码位置，栈帧调试
+FUNCDATA 应该是 gc 回收 参数 和 局部 变量的 内容
+
+inline 默认手写汇编不会遇到
 -->
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
