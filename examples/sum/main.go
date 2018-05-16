@@ -3,7 +3,10 @@ package main
 // http://xargin.com/go-and-plan9-asm/#stacks
 
 func main() {
-	println(sum(3))
+	println("0:", sum(0))
+	println("1:", sum(1))
+	println("2:", sum(2))
+	println("3:", sum(3))
 
 	println(sum0(100))
 	println(sum1(100))

@@ -5,16 +5,16 @@
 #include "textflag.h"
 
 // func sum(n int) int
-TEXT ·sum(SB), NOSPLIT, $16-16
+TEXT ·sum(SB), $16-16
 	MOVQ n+0(FP), AX       // n
 	MOVQ result+8(FP), BX  // result
 
 	MOVQ $0, temp2-8*1(SP) // DX: temp2
 	MOVQ $0, temp1-8*2(SP) // CX: temp1
 
-	CMPQ $0, AX           // test 0 < n
-	JL   L_STEP_TO_END    // if 0 < n: goto goto L_STEP_TO_END
-	JMP  L_END            // goto L_END
+	CMPQ AX, $0           // test n - 0
+	JLE  L_END            // if <= 0: goto goto LEND
+	JMP  L_STEP_TO_END    // goto L_STEP_TO_END
 
 L_STEP_TO_END:
 	MOVQ AX, CX           // CX: temp1 = n
