@@ -1788,6 +1788,30 @@ stack指针的判断：如果是指针类型，而且刚好在stack区间
 
 0x0022 00034 (test.go:4)    PCDATA  $0,$0
 PCDATA 第一个是选择那个表格（有多个表格，类似一个二维表格），第二个是要保存的整数，对应当前的PC，构造一个 pc-value 数据对（pc到value对映射）。
+
+rsc blog 中汇编指令的部分，defer/panic
+
+GO_RESULTS_INITIALIZED 对应 PCDATA $0, $1
+
+https://golang.org/src/runtime/symtab.go?h=stackmap#L916
+
+type stackmap struct {
+  	n        int32   // number of bitmaps
+  	nbit     int32   // number of bits in each bitmap
+  	bytedata [1]byte // bitmaps, each starting on a byte boundary
+  }
+
+moduledata 结构
+
+https://golang.org/src/runtime/mgcmark.go?h=scanstack#L736
+
+scanstack 遍历 stack 指针信息
+
+
+https://golang.org/src/runtime/mbitmap.go
+链接的注释部分：
+Garbage collector: type and heap bitmaps.
+
 -->
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
