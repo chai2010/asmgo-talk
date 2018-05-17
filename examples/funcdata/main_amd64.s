@@ -23,6 +23,14 @@ TEXT ·func_2i(SB), $0-16
 	RET
 TEXT ·func_1i_1p(SB), $0-16
 	RET
+TEXT ·func_ret_2i(SB), $0-16
+	RET
+TEXT ·func_ret_1i_1p(SB), $0-16
+	RET
+TEXT ·func_1p_ret_1p(SB), $0-16
+	RET
+TEXT ·func_1p_ret_1i_1p(SB), $0-24
+	RET
 
 TEXT ·func_3b(SB), $0-24
 	RET
@@ -36,5 +44,13 @@ TEXT ·func_4i(SB), $0-32
 
 TEXT ·func_4i_1p(SB), $0-40
 	RET
-
-
+TEXT ·func_4i_1p_4i_1p(SB), $0-80
+	RET
+TEXT ·func_4i_1p_ret_4i_1p(SB), $0-80
+	RET
+TEXT ·func_ret_4i_1p_4i_1p(SB), $0-80
+	RET
+TEXT ·func_1i_ret_3i_1p_4i_1p(SB), $0-80
+	RET
+TEXT ·func_1i_1p_ret_2i_1p_4i_1p(SB), $0-80
+	RET

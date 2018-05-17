@@ -25,9 +25,21 @@ func func_ret_1p() (a *int)
 // 0x0000 01 00 00 00 04 00 00 00 00
 // "".func_1i_1p.args_stackmap SRODATA size=9
 // 0x0000 01 00 00 00 04 00 00 00 02
+// "".func_ret_2i.args_stackmap SRODATA size=10
+// 0x0000 02 00 00 00 04 00 00 00 00 00
+// "".func_ret_1i_1p.args_stackmap SRODATA size=10
+// 0x0000 02 00 00 00 04 00 00 00 00 02
+// "".func_1p_ret_1p.args_stackmap SRODATA size=10
+// 0x0000 02 00 00 00 04 00 00 00 01 03
+// "".func_1p_ret_1i_1p.args_stackmap SRODATA size=10
+// 0x0000 02 00 00 00 06 00 00 00 01 05
 func func_2b(a, b bool)
 func func_2i(a, b int)
 func func_1i_1p(a int, b *int)
+func func_ret_2i() (a, b int)
+func func_ret_1i_1p() (a int, b *int)
+func func_1p_ret_1p(a *int) (b *int)
+func func_1p_ret_1i_1p(_ *int) (a int, b *int)
 
 // "".func_3b.args_stackmap SRODATA size=9
 // 0x0000 01 00 00 00 02 00 00 00 00
@@ -44,8 +56,23 @@ func func_4b(a, b, c, d bool)
 func func_4i(a, b, c, d int)
 
 // "".func_4i_1p.args_stackmap SRODATA size=10
-// 0x0000 01 00 00 00 0a 00 00 00 10 00                    .
+// 0x0000 01 00 00 00 0a 00 00 00 10 00
+// "".func_4i_1p_4i_1p.args_stackmap SRODATA size=11
+// 0x0000 01 00 00 00 14 00 00 00 10 02 00
+// "".func_4i_1p_ret_4i_1p.args_stackmap SRODATA size=14
+// 0x0000 02 00 00 00 14 00 00 00 10 00 00 10 02 00
+// "".func_ret_4i_1p_4i_1p.args_stackmap SRODATA size=14
+// 0x0000 02 00 00 00 14 00 00 00 00 00 00 10 02 00
+// "".func_1i_ret_3i_1p_4i_1p.args_stackmap SRODATA size=14
+// 0x0000 02 00 00 00 14 00 00 00 00 00 00 10 02 00
+// "".func_1i_1p_ret_2i_1p_4i_1p.args_stackmap SRODATA size=14
+// 0x0000 02 00 00 00 14 00 00 00 02 00 00 12 02 00
 func func_4i_1p(a, b, c, d int, e *int)
+func func_4i_1p_4i_1p(a, b, c, d int, e *int, g int, h int, i int, j int, k *int)
+func func_4i_1p_ret_4i_1p(a, b, c, d int, e *int) (int, int, int, int, *int)
+func func_ret_4i_1p_4i_1p() (a, b, c, d int, e *int, g int, h int, i int, j int, k *int)
+func func_1i_ret_3i_1p_4i_1p(a int) (b, c, d int, e *int, g int, h int, i int, j int, k *int)
+func func_1i_1p_ret_2i_1p_4i_1p(a int, b *int) (c, d int, e *int, g int, h int, i int, j int, k *int)
 
 /*
 // $(GOROOT)/src/cmd/compile/internal/gc/pgen.go
