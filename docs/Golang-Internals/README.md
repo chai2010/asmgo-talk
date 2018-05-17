@@ -1,4 +1,7 @@
-https://github.com/JerryZhou/golang-doc/tree/master/Golang-Internals
+# [Golang-Internal:深入浅出](- 原文: https://blog.altoros.com/golang-part-1-main-concepts-and-project-structure.html)
+
+- 原文: https://blog.altoros.com/golang-part-1-main-concepts-and-project-structure.html
+- 译文: https://github.com/JerryZhou/golang-doc/tree/master/Golang-Internals
 
 - [Golang-Internal:深入浅出](Part-0.head.md)
 - [第一部分：工程的结构以及主要概念](Part-1.Main.Concepts.and.Project.Structure.md)
