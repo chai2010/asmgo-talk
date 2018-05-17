@@ -1812,6 +1812,10 @@ https://golang.org/src/runtime/mbitmap.go
 链接的注释部分：
 Garbage collector: type and heap bitmaps.
 
+2问题：
+pcdata 第二个参数如何生成？
+funcdata 第二个符号对应数据的具体结构？
+
 -->
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
