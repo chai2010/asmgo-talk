@@ -1,4 +1,4 @@
-# [Golang-Internal:深入浅出](- 原文: https://blog.altoros.com/golang-part-1-main-concepts-and-project-structure.html)
+# [Golang-Internal:深入浅出](https://blog.altoros.com/golang-part-1-main-concepts-and-project-structure.html)
 
 - 原文: https://blog.altoros.com/golang-part-1-main-concepts-and-project-structure.html
 - 译文: https://github.com/JerryZhou/golang-doc/tree/master/Golang-Internals
