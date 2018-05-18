@@ -2,6 +2,12 @@ package main
 
 func main() {}
 
+type FuncData struct {
+	nbitmap    uint32
+	bitvec_len uint32
+	bitvec     [1]byte // [nbitmap][len]bit
+}
+
 // funcdata 结构:
 // nbitmap    uint32; bitmap个数, 只有参数为1, 有返回值的为2
 // bitvec.len uint32; 每个bitmap位向量长度, argssize/sizeof(prt) * 2; 如果 nbitmap 为 2, 则后面有 2个位向量
