@@ -1217,9 +1217,9 @@ TEXT ·sum(SB), NOSPLIT, $16-16
 TEXT ·sum(SB), NOSPLIT, $16-16
 	// ...
 
-	CMPQ AX, $0        // test n <= 0
-	JLE  L_END         // if n <= 0: goto L_END
-	// goto L_STEP_TO_END
+	CMPQ AX, $0            // test n - 0
+	JLE  L_END             // if <= 0: goto goto LEND
+	// JMP  L_STEP_TO_END  // goto L_STEP_TO_END
 
 L_STEP_TO_END:
 	// ...
@@ -1237,20 +1237,18 @@ L_END:
 ----------------------------
 
 ```
-// func sum(n int) (result int)
-TEXT ·sum(SB), NOSPLIT, $16-16
-	// ...
-
 L_STEP_TO_END:
-	MOVQ AX, CX           // CX: temp1 = n
-	ADDQ $-1, CX          // CX: temp1 += -1
+	MOVQ AX, CX            // CX: temp1 = n
+	ADDQ $-1, CX           // CX: temp1 += -1
+	MOVQ CX, temp1-8*2(SP)
 
-	MOVQ CX, 0(SP)        // arg: n-1
+	MOVQ CX, 0(SP)         // arg: n-1
 	CALL ·sum(SB)
-	MOVQ 8(SP), DX        // DX: temp2 = sum(n-1)
+	MOVQ 8(SP), BX         // DX: temp2 = sum(n-1)
 
-	ADDQ AX, DX           // DX: temp2 += n
-	MOVQ DX, result+8(FP) // return result
+	MOVQ n+0(FP), AX       // n
+	ADDQ AX, BX            // DX: temp2 += n
+	MOVQ BX, result+8(FP)  // return result
 	RET
 ```
 
@@ -1258,6 +1256,10 @@ L_STEP_TO_END:
 
 - `sum(n-1)`参数: `0(SP)` 或 `temp1-8*2(SP)`
 - `sum(n-1)`返回值: `8(SP)` 或 `temp2-8*1(SP)`
+
+-----
+
+- 调用子函数后, 全部寄存器将失效!!!
 
 ---
 ### 递归函数: 汇编实现: 终结条件
@@ -1277,48 +1279,63 @@ L_END:
 
 - 直接返回结果将终结递归调用
 
-<!--
-	MOVQ n+0(FP), AX       // n
-	MOVQ result+8(FP), BX  // result
-
-	MOVQ $0, temp2-8*1(SP) // temp2
-	MOVQ $0, temp1-8*2(SP) // temp1
-
-
-	LEAQ 100(AX), AX
-
-	temp1 = n-1
-	temp2 = sum(temp1)
-	result = n + temp2
-	return result
-
-    CMPQ    CX, $0         // test ok
-    JZ      L              // if !ok, skip 2 line
-
-	if n > 0 { goto L_STEP_TO_END }
-	goto L_END
-
-L_STEP_TO_END:
-	temp1 = n-1
-	temp2 = sum(temp1)
-	result = n + temp2
-	return result
-
-L_END:
-	return 0
--->
 
 ---
-### 栈的动态伸缩
+### 递归爆栈问题
 --------------
+
+- 深度递归将导致栈增长越界, 也就是爆栈
+- Goroutine的初始栈很小(可能是4KB), 很容易超出
+- 上面的递归求和实现, 数据超过100时就容易触发爆栈
+
+----
+
+- 但是 Go 语言实现的递归很少有爆栈现象
+
+---
+### 栈的扩容
+-----------
+
+```
+TEXT ·sum(SB), $32-16
+	NO_LOCAL_POINTERS
+
+L_START:
+	MOVQ TLS, CX          // get tls
+	MOVQ 0(CX)(TLS*1), AX // get g
+	CMPQ SP, 16(AX)       // get stack
+	JLS  L_MORE_STK
+
+	// body ...
+
+L_MORE_STK:
+	CALL runtime·morestack_noctxt(SB)
+	JMP  L_START
+```
+
+-----
+
+- 函数开头先判断栈是否够用
+- `runtime·morestack_noctxt` 将请求更多栈空间
+
+---
+### 动态栈中的指针 - FUNCDATA
+---------------------------
+
+- FUNCDATA 标志参数和局部变量的指针 `funcdata.h`
+- `FUNCDATA $PCDATA_StackMapIndex `
+
 
 TODO
 
----
-### 动态栈中的指针
---------------
 
-TODO
+---
+### 栈的收缩
+-----------
+
+- 主动扩容, 被动收缩
+- 收缩将在 GC 扫描栈内存时进行
+
 
 <!--
 GC和动态栈
