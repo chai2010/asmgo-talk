@@ -1,5 +1,8 @@
 package main
 
+// /Users/chai/go-tip/src/cmd/compile/internal/gc/ssa.go
+// func (s *SSAGenState) PrepareCall(v *ssa.Value)
+
 /*
 "".main0.args_stackmap SRODATA size=8
         0x0000 01 00 00 00 00 00 00 00                          ........

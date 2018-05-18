@@ -1,0 +1,292 @@
+"".main STEXT nosplit size=1 args=0x0 locals=0x0
+	0x0000 00000 (local.go:5)	TEXT	"".main(SB), NOSPLIT, $0-0
+	0x0000 00000 (local.go:5)	FUNCDATA	$0, gclocals·33cdeccccebe80329f1fdbee7f5874cb(SB)
+	0x0000 00000 (local.go:5)	FUNCDATA	$1, gclocals·33cdeccccebe80329f1fdbee7f5874cb(SB)
+	0x0000 00000 (local.go:5)	RET
+	0x0000 c3                                               .
+"".fn_local STEXT size=219 args=0x0 locals=0x30
+	0x0000 00000 (local.go:7)	TEXT	"".fn_local(SB), $48-0
+	0x0000 00000 (local.go:7)	MOVQ	(TLS), CX
+	0x0009 00009 (local.go:7)	CMPQ	SP, 16(CX)
+	0x000d 00013 (local.go:7)	JLS	209
+	0x0013 00019 (local.go:7)	SUBQ	$48, SP
+	0x0017 00023 (local.go:7)	MOVQ	BP, 40(SP)
+	0x001c 00028 (local.go:7)	LEAQ	40(SP), BP
+	0x0021 00033 (local.go:7)	FUNCDATA	$0, gclocals·33cdeccccebe80329f1fdbee7f5874cb(SB)
+	0x0021 00033 (local.go:7)	FUNCDATA	$1, gclocals·33cdeccccebe80329f1fdbee7f5874cb(SB)
+	0x0021 00033 (local.go:8)	MOVQ	$1, "".a+8(SP)
+	0x002a 00042 (local.go:9)	MOVQ	$0, ""..autotmp_8+16(SP)
+	0x0033 00051 (local.go:12)	PCDATA	$0, $0
+	0x0033 00051 (local.go:12)	CALL	runtime.printlock(SB)
+	0x0038 00056 (local.go:12)	MOVQ	"".a+8(SP), AX
+	0x003d 00061 (local.go:12)	MOVQ	AX, (SP)
+	0x0041 00065 (local.go:12)	PCDATA	$0, $0
+	0x0041 00065 (local.go:12)	CALL	runtime.printint(SB)
+	0x0046 00070 (local.go:12)	PCDATA	$0, $0
+	0x0046 00070 (local.go:12)	CALL	runtime.printsp(SB)
+	0x004b 00075 (local.go:12)	LEAQ	""..autotmp_8+16(SP), AX
+	0x0050 00080 (local.go:12)	MOVQ	AX, (SP)
+	0x0054 00084 (local.go:12)	PCDATA	$0, $0
+	0x0054 00084 (local.go:12)	CALL	runtime.printpointer(SB)
+	0x0059 00089 (local.go:12)	PCDATA	$0, $0
+	0x0059 00089 (local.go:12)	CALL	runtime.printsp(SB)
+	0x005e 00094 (local.go:12)	MOVQ	$3, (SP)
+	0x0066 00102 (local.go:12)	PCDATA	$0, $0
+	0x0066 00102 (local.go:12)	CALL	runtime.printint(SB)
+	0x006b 00107 (local.go:12)	PCDATA	$0, $0
+	0x006b 00107 (local.go:12)	CALL	runtime.printnl(SB)
+	0x0070 00112 (local.go:12)	PCDATA	$0, $0
+	0x0070 00112 (local.go:12)	CALL	runtime.printunlock(SB)
+	0x0075 00117 (local.go:13)	LEAQ	""..autotmp_8+16(SP), AX
+	0x007a 00122 (local.go:13)	MOVQ	AX, (SP)
+	0x007e 00126 (local.go:13)	PCDATA	$0, $0
+	0x007e 00126 (local.go:13)	CALL	"".fn_noinline(SB)
+	0x0083 00131 (local.go:18)	MOVQ	"".a+8(SP), AX
+	0x0088 00136 (local.go:18)	MOVQ	AX, ""..autotmp_12+32(SP)
+	0x008d 00141 (local.go:18)	MOVQ	""..autotmp_8+16(SP), CX
+	0x0092 00146 (local.go:18)	MOVQ	CX, ""..autotmp_13+24(SP)
+	0x0097 00151 (local.go:18)	PCDATA	$0, $0
+	0x0097 00151 (local.go:18)	CALL	runtime.printlock(SB)
+	0x009c 00156 (local.go:18)	MOVQ	""..autotmp_12+32(SP), AX
+	0x00a1 00161 (local.go:18)	MOVQ	AX, (SP)
+	0x00a5 00165 (local.go:18)	PCDATA	$0, $0
+	0x00a5 00165 (local.go:18)	CALL	runtime.printint(SB)
+	0x00aa 00170 (local.go:18)	PCDATA	$0, $0
+	0x00aa 00170 (local.go:18)	CALL	runtime.printsp(SB)
+	0x00af 00175 (local.go:18)	MOVQ	""..autotmp_13+24(SP), AX
+	0x00b4 00180 (local.go:18)	MOVQ	AX, (SP)
+	0x00b8 00184 (local.go:18)	PCDATA	$0, $0
+	0x00b8 00184 (local.go:18)	CALL	runtime.printint(SB)
+	0x00bd 00189 (local.go:18)	PCDATA	$0, $0
+	0x00bd 00189 (local.go:18)	CALL	runtime.printnl(SB)
+	0x00c2 00194 (local.go:18)	PCDATA	$0, $0
+	0x00c2 00194 (local.go:18)	CALL	runtime.printunlock(SB)
+	0x00c7 00199 (<unknown line number>)	MOVQ	40(SP), BP
+	0x00cc 00204 (<unknown line number>)	ADDQ	$48, SP
+	0x00d0 00208 (<unknown line number>)	RET
+	0x00d1 00209 (<unknown line number>)	NOP
+	0x00d1 00209 (local.go:7)	PCDATA	$0, $-1
+	0x00d1 00209 (local.go:7)	CALL	runtime.morestack_noctxt(SB)
+	0x00d6 00214 (local.go:7)	JMP	0
+	0x0000 65 48 8b 0c 25 00 00 00 00 48 3b 61 10 0f 86 be  eH..%....H;a....
+	0x0010 00 00 00 48 83 ec 30 48 89 6c 24 28 48 8d 6c 24  ...H..0H.l$(H.l$
+	0x0020 28 48 c7 44 24 08 01 00 00 00 48 c7 44 24 10 00  (H.D$.....H.D$..
+	0x0030 00 00 00 e8 00 00 00 00 48 8b 44 24 08 48 89 04  ........H.D$.H..
+	0x0040 24 e8 00 00 00 00 e8 00 00 00 00 48 8d 44 24 10  $..........H.D$.
+	0x0050 48 89 04 24 e8 00 00 00 00 e8 00 00 00 00 48 c7  H..$..........H.
+	0x0060 04 24 03 00 00 00 e8 00 00 00 00 e8 00 00 00 00  .$..............
+	0x0070 e8 00 00 00 00 48 8d 44 24 10 48 89 04 24 e8 00  .....H.D$.H..$..
+	0x0080 00 00 00 48 8b 44 24 08 48 89 44 24 20 48 8b 4c  ...H.D$.H.D$ H.L
+	0x0090 24 10 48 89 4c 24 18 e8 00 00 00 00 48 8b 44 24  $.H.L$......H.D$
+	0x00a0 20 48 89 04 24 e8 00 00 00 00 e8 00 00 00 00 48   H..$..........H
+	0x00b0 8b 44 24 18 48 89 04 24 e8 00 00 00 00 e8 00 00  .D$.H..$........
+	0x00c0 00 00 e8 00 00 00 00 48 8b 6c 24 28 48 83 c4 30  .......H.l$(H..0
+	0x00d0 c3 e8 00 00 00 00 e9 25 ff ff ff                 .......%...
+	rel 5+4 t=16 TLS+0
+	rel 52+4 t=8 runtime.printlock+0
+	rel 66+4 t=8 runtime.printint+0
+	rel 71+4 t=8 runtime.printsp+0
+	rel 85+4 t=8 runtime.printpointer+0
+	rel 90+4 t=8 runtime.printsp+0
+	rel 103+4 t=8 runtime.printint+0
+	rel 108+4 t=8 runtime.printnl+0
+	rel 113+4 t=8 runtime.printunlock+0
+	rel 127+4 t=8 "".fn_noinline+0
+	rel 152+4 t=8 runtime.printlock+0
+	rel 166+4 t=8 runtime.printint+0
+	rel 171+4 t=8 runtime.printsp+0
+	rel 185+4 t=8 runtime.printint+0
+	rel 190+4 t=8 runtime.printnl+0
+	rel 195+4 t=8 runtime.printunlock+0
+	rel 210+4 t=8 runtime.morestack_noctxt+0
+"".fn_noinline STEXT nosplit size=1 args=0x8 locals=0x0
+	0x0000 00000 (local.go:22)	TEXT	"".fn_noinline(SB), NOSPLIT, $0-8
+	0x0000 00000 (local.go:22)	FUNCDATA	$0, gclocals·2a5305abe05176240e61b8620e19a815(SB)
+	0x0000 00000 (local.go:22)	FUNCDATA	$1, gclocals·33cdeccccebe80329f1fdbee7f5874cb(SB)
+	0x0000 00000 (local.go:22)	RET
+	0x0000 c3                                               .
+"".fn_local.func1 STEXT size=133 args=0x20 locals=0x20
+	0x0000 00000 (local.go:15)	TEXT	"".fn_local.func1(SB), $32-32
+	0x0000 00000 (local.go:15)	MOVQ	(TLS), CX
+	0x0009 00009 (local.go:15)	CMPQ	SP, 16(CX)
+	0x000d 00013 (local.go:15)	JLS	123
+	0x000f 00015 (local.go:15)	SUBQ	$32, SP
+	0x0013 00019 (local.go:15)	MOVQ	BP, 24(SP)
+	0x0018 00024 (local.go:15)	LEAQ	24(SP), BP
+	0x001d 00029 (local.go:15)	FUNCDATA	$0, gclocals·38dccdcc3f5ebc9850912c2843c80563(SB)
+	0x001d 00029 (local.go:15)	FUNCDATA	$1, gclocals·69c1753bd5f81501d95132d08af04464(SB)
+	0x001d 00029 (local.go:16)	MOVQ	"".&a+40(SP), AX
+	0x0022 00034 (local.go:16)	MOVQ	(AX), CX
+	0x0025 00037 (local.go:16)	MOVQ	CX, ""..autotmp_6+16(SP)
+	0x002a 00042 (local.go:16)	MOVQ	"".aa+56(SP), DX
+	0x002f 00047 (local.go:16)	MOVQ	(DX), DX
+	0x0032 00050 (local.go:16)	MOVQ	DX, ""..autotmp_7+8(SP)
+	0x0037 00055 (local.go:16)	PCDATA	$0, $1
+	0x0037 00055 (local.go:16)	CALL	runtime.printlock(SB)
+	0x003c 00060 (local.go:16)	MOVQ	""..autotmp_6+16(SP), AX
+	0x0041 00065 (local.go:16)	MOVQ	AX, (SP)
+	0x0045 00069 (local.go:16)	PCDATA	$0, $1
+	0x0045 00069 (local.go:16)	CALL	runtime.printint(SB)
+	0x004a 00074 (local.go:16)	PCDATA	$0, $1
+	0x004a 00074 (local.go:16)	CALL	runtime.printsp(SB)
+	0x004f 00079 (local.go:16)	MOVQ	""..autotmp_7+8(SP), AX
+	0x0054 00084 (local.go:16)	MOVQ	AX, (SP)
+	0x0058 00088 (local.go:16)	PCDATA	$0, $1
+	0x0058 00088 (local.go:16)	CALL	runtime.printint(SB)
+	0x005d 00093 (local.go:16)	PCDATA	$0, $1
+	0x005d 00093 (local.go:16)	CALL	runtime.printnl(SB)
+	0x0062 00098 (local.go:16)	PCDATA	$0, $1
+	0x0062 00098 (local.go:16)	CALL	runtime.printunlock(SB)
+	0x0067 00103 (local.go:17)	MOVQ	"".&a+40(SP), AX
+	0x006c 00108 (local.go:17)	MOVQ	AX, "".~r2+64(SP)
+	0x0071 00113 (local.go:17)	MOVQ	24(SP), BP
+	0x0076 00118 (local.go:17)	ADDQ	$32, SP
+	0x007a 00122 (local.go:17)	RET
+	0x007b 00123 (local.go:17)	NOP
+	0x007b 00123 (local.go:15)	PCDATA	$0, $-1
+	0x007b 00123 (local.go:15)	CALL	runtime.morestack_noctxt(SB)
+	0x0080 00128 (local.go:15)	JMP	0
+	0x0000 65 48 8b 0c 25 00 00 00 00 48 3b 61 10 76 6c 48  eH..%....H;a.vlH
+	0x0010 83 ec 20 48 89 6c 24 18 48 8d 6c 24 18 48 8b 44  .. H.l$.H.l$.H.D
+	0x0020 24 28 48 8b 08 48 89 4c 24 10 48 8b 54 24 38 48  $(H..H.L$.H.T$8H
+	0x0030 8b 12 48 89 54 24 08 e8 00 00 00 00 48 8b 44 24  ..H.T$......H.D$
+	0x0040 10 48 89 04 24 e8 00 00 00 00 e8 00 00 00 00 48  .H..$..........H
+	0x0050 8b 44 24 08 48 89 04 24 e8 00 00 00 00 e8 00 00  .D$.H..$........
+	0x0060 00 00 e8 00 00 00 00 48 8b 44 24 28 48 89 44 24  .......H.D$(H.D$
+	0x0070 40 48 8b 6c 24 18 48 83 c4 20 c3 e8 00 00 00 00  @H.l$.H.. ......
+	0x0080 e9 7b ff ff ff                                   .{...
+	rel 5+4 t=16 TLS+0
+	rel 56+4 t=8 runtime.printlock+0
+	rel 70+4 t=8 runtime.printint+0
+	rel 75+4 t=8 runtime.printsp+0
+	rel 89+4 t=8 runtime.printint+0
+	rel 94+4 t=8 runtime.printnl+0
+	rel 99+4 t=8 runtime.printunlock+0
+	rel 124+4 t=8 runtime.morestack_noctxt+0
+"".init STEXT size=80 args=0x0 locals=0x8
+	0x0000 00000 (<autogenerated>:1)	TEXT	"".init(SB), $8-0
+	0x0000 00000 (<autogenerated>:1)	MOVQ	(TLS), CX
+	0x0009 00009 (<autogenerated>:1)	CMPQ	SP, 16(CX)
+	0x000d 00013 (<autogenerated>:1)	JLS	73
+	0x000f 00015 (<autogenerated>:1)	SUBQ	$8, SP
+	0x0013 00019 (<autogenerated>:1)	MOVQ	BP, (SP)
+	0x0017 00023 (<autogenerated>:1)	LEAQ	(SP), BP
+	0x001b 00027 (<autogenerated>:1)	FUNCDATA	$0, gclocals·33cdeccccebe80329f1fdbee7f5874cb(SB)
+	0x001b 00027 (<autogenerated>:1)	FUNCDATA	$1, gclocals·33cdeccccebe80329f1fdbee7f5874cb(SB)
+	0x001b 00027 (<autogenerated>:1)	MOVBLZX	"".initdone·(SB), AX
+	0x0022 00034 (<autogenerated>:1)	CMPB	AL, $1
+	0x0025 00037 (<autogenerated>:1)	JLS	48
+	0x0027 00039 (<autogenerated>:1)	MOVQ	(SP), BP
+	0x002b 00043 (<autogenerated>:1)	ADDQ	$8, SP
+	0x002f 00047 (<autogenerated>:1)	RET
+	0x0030 00048 (<autogenerated>:1)	JNE	57
+	0x0032 00050 (<autogenerated>:1)	PCDATA	$0, $0
+	0x0032 00050 (<autogenerated>:1)	CALL	runtime.throwinit(SB)
+	0x0037 00055 (<autogenerated>:1)	UNDEF
+	0x0039 00057 (<autogenerated>:1)	MOVB	$2, "".initdone·(SB)
+	0x0040 00064 (<autogenerated>:1)	MOVQ	(SP), BP
+	0x0044 00068 (<autogenerated>:1)	ADDQ	$8, SP
+	0x0048 00072 (<autogenerated>:1)	RET
+	0x0049 00073 (<autogenerated>:1)	NOP
+	0x0049 00073 (<autogenerated>:1)	PCDATA	$0, $-1
+	0x0049 00073 (<autogenerated>:1)	CALL	runtime.morestack_noctxt(SB)
+	0x004e 00078 (<autogenerated>:1)	JMP	0
+	0x0000 65 48 8b 0c 25 00 00 00 00 48 3b 61 10 76 3a 48  eH..%....H;a.v:H
+	0x0010 83 ec 08 48 89 2c 24 48 8d 2c 24 0f b6 05 00 00  ...H.,$H.,$.....
+	0x0020 00 00 80 f8 01 76 09 48 8b 2c 24 48 83 c4 08 c3  .....v.H.,$H....
+	0x0030 75 07 e8 00 00 00 00 0f 0b c6 05 00 00 00 00 02  u...............
+	0x0040 48 8b 2c 24 48 83 c4 08 c3 e8 00 00 00 00 eb b0  H.,$H...........
+	rel 5+4 t=16 TLS+0
+	rel 30+4 t=15 "".initdone·+0
+	rel 51+4 t=8 runtime.throwinit+0
+	rel 59+4 t=15 "".initdone·+-1
+	rel 74+4 t=8 runtime.morestack_noctxt+0
+go.info."".fn_local.func1$abstract SDWARFINFO dupok size=37
+	0x0000 03 2e 66 6e 5f 6c 6f 63 61 6c 2e 66 75 6e 63 31  ..fn_local.func1
+	0x0010 00 01 01 10 61 61 00 00 00 00 00 00 10 71 00 00  ....aa.......q..
+	0x0020 00 00 00 00 00                                   .....
+	rel 24+4 t=28 go.info.*int+0
+	rel 32+4 t=28 go.info.int+0
+go.loc."".main SDWARFLOC size=0
+go.info."".main SDWARFINFO size=33
+	0x0000 02 22 22 2e 6d 61 69 6e 00 00 00 00 00 00 00 00  ."".main........
+	0x0010 00 00 00 00 00 00 00 00 00 01 9c 00 00 00 00 01  ................
+	0x0020 00                                               .
+	rel 9+8 t=1 "".main+0
+	rel 17+8 t=1 "".main+1
+	rel 27+4 t=29 gofile../Users/chai/go/src/github.com/chai2010/asmgo-talk/examples/funcdata/local.go+0
+go.range."".main SDWARFRANGE size=0
+go.isstmt."".main SDWARFMISC size=0
+	0x0000 04 01 00                                         ...
+go.loc."".fn_local SDWARFLOC size=52
+	0x0000 ff ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00  ................
+	0x0010 2a 00 00 00 00 00 00 00 db 00 00 00 00 00 00 00  *...............
+	0x0020 02 00 91 50 00 00 00 00 00 00 00 00 00 00 00 00  ...P............
+	0x0030 00 00 00 00                                      ....
+	rel 8+8 t=1 "".fn_local+0
+go.info."".fn_local SDWARFINFO size=76
+	0x0000 02 22 22 2e 66 6e 5f 6c 6f 63 61 6c 00 00 00 00  ."".fn_local....
+	0x0010 00 00 00 00 00 00 00 00 00 00 00 00 00 01 9c 00  ................
+	0x0020 00 00 00 01 0a 61 00 08 00 00 00 00 00 00 00 00  .....a..........
+	0x0030 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 00 00 00 00 00 00 00 00 00 12 00 00              ............
+	rel 13+8 t=1 "".fn_local+0
+	rel 21+8 t=1 "".fn_local+219
+	rel 31+4 t=29 gofile../Users/chai/go/src/github.com/chai2010/asmgo-talk/examples/funcdata/local.go+0
+	rel 40+4 t=28 go.info.int+0
+	rel 44+4 t=28 go.loc."".fn_local+0
+	rel 49+4 t=28 go.info."".fn_local.func1$abstract+0
+	rel 53+8 t=1 "".fn_local+141
+	rel 61+8 t=1 "".fn_local+199
+	rel 69+4 t=29 gofile../Users/chai/go/src/github.com/chai2010/asmgo-talk/examples/funcdata/local.go+0
+go.range."".fn_local SDWARFRANGE size=0
+go.isstmt."".fn_local SDWARFMISC size=0
+	0x0000 04 2a 01 09 02 18 01 05 02 25 01 05 02 4d 01 0a  .*.......%...M..
+	0x0010 02 0a 00                                         ...
+go.loc."".fn_noinline SDWARFLOC size=0
+go.info."".fn_noinline SDWARFINFO size=50
+	0x0000 02 22 22 2e 66 6e 5f 6e 6f 69 6e 6c 69 6e 65 00  ."".fn_noinline.
+	0x0010 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0020 01 9c 00 00 00 00 01 0e 61 00 00 16 00 00 00 00  ........a.......
+	0x0030 00 00                                            ..
+	rel 16+8 t=1 "".fn_noinline+0
+	rel 24+8 t=1 "".fn_noinline+1
+	rel 34+4 t=29 gofile../Users/chai/go/src/github.com/chai2010/asmgo-talk/examples/funcdata/local.go+0
+	rel 44+4 t=28 go.info.*int+0
+go.range."".fn_noinline SDWARFRANGE size=0
+go.isstmt."".fn_noinline SDWARFMISC size=0
+	0x0000 04 01 00                                         ...
+go.loc."".fn_local.func1 SDWARFLOC size=0
+go.info."".fn_local.func1 SDWARFINFO size=48
+	0x0000 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0010 00 00 00 00 00 01 9c 11 00 00 00 00 00 11 00 00  ................
+	0x0020 00 00 00 0e 7e 72 32 00 01 0f 00 00 00 00 00 00  ....~r2.........
+	rel 1+4 t=28 go.info."".fn_local.func1$abstract+0
+	rel 5+8 t=1 "".fn_local.func1+0
+	rel 13+8 t=1 "".fn_local.func1+133
+	rel 24+4 t=28 go.info."".fn_local.func1$abstract+19
+	rel 30+4 t=28 go.info."".fn_local.func1$abstract+28
+	rel 42+4 t=28 go.info.*int+0
+go.range."".fn_local.func1 SDWARFRANGE size=0
+go.isstmt."".fn_local.func1 SDWARFMISC size=0
+	0x0000 04 85 01 00                                      ....
+go.loc."".init SDWARFLOC size=0
+go.info."".init SDWARFINFO size=33
+	0x0000 02 22 22 2e 69 6e 69 74 00 00 00 00 00 00 00 00  ."".init........
+	0x0010 00 00 00 00 00 00 00 00 00 01 9c 00 00 00 00 01  ................
+	0x0020 00                                               .
+	rel 9+8 t=1 "".init+0
+	rel 17+8 t=1 "".init+80
+	rel 27+4 t=29 gofile..<autogenerated>+0
+go.range."".init SDWARFRANGE size=0
+go.isstmt."".init SDWARFMISC size=0
+	0x0000 04 50 00                                         .P.
+"".initdone· SNOPTRBSS size=1
+gclocals·33cdeccccebe80329f1fdbee7f5874cb SRODATA dupok size=8
+	0x0000 01 00 00 00 00 00 00 00                          ........
+gclocals·2a5305abe05176240e61b8620e19a815 SRODATA dupok size=9
+	0x0000 01 00 00 00 01 00 00 00 00                       .........
+gclocals·38dccdcc3f5ebc9850912c2843c80563 SRODATA dupok size=10
+	0x0000 02 00 00 00 04 00 00 00 05 01                    ..........
+gclocals·69c1753bd5f81501d95132d08af04464 SRODATA dupok size=8
+	0x0000 02 00 00 00 00 00 00 00                          ........
