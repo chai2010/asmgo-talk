@@ -2,6 +2,19 @@ package main
 
 func main() {}
 
+// funcdata 结构:
+// nbitmap    uint32; bitmap个数, 只有参数为1, 有返回值的为2
+// bitvec.len uint32; 每个bitmap位向量长度, argssize/sizeof(prt) * 2; 如果 nbitmap 为 2, 则后面有 2个位向量
+//
+// 位向量排列:
+// 第一个 bitvec 对应参数部分, 如果是指针则bit为1
+// 第二个 bitvec 对应参数+返回值部分, 如果是指针则bit为1
+//
+// 因此, 第二个 bitvec 可能包含了第一 bitvec 的信息
+
+// 局部变量的 bitvec 可能是无法手工创建的(或者动态创建?)
+// 唯一要处理的是stack分裂时, 保证栈上的指针是正确的(gc不会挪动指针)
+
 // "".func_0x.args_stackmap SRODATA size=8
 // 0x0000 01 00 00 00 00 00 00 00
 func func_0x()
