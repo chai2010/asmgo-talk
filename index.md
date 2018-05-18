@@ -1816,6 +1816,9 @@ Garbage collector: type and heap bitmaps.
 pcdata 第二个参数如何生成？
 funcdata 第二个符号对应数据的具体结构？
 
+/Users/chai/go-tip/src/cmd/asm/internal/asm/asm.go
+汇编指令处理
+
 -->
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->

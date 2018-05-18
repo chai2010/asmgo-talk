@@ -1,0 +1,1396 @@
+"".main STEXT size=603 args=0x0 locals=0x98
+	0x0000 00000 (main.go:8)	TEXT	"".main(SB), $152-0
+	0x0000 00000 (main.go:8)	MOVQ	(TLS), CX
+	0x0009 00009 (main.go:8)	LEAQ	-24(SP), AX
+	0x000e 00014 (main.go:8)	CMPQ	AX, 16(CX)
+	0x0012 00018 (main.go:8)	JLS	593
+	0x0018 00024 (main.go:8)	SUBQ	$152, SP
+	0x001f 00031 (main.go:8)	MOVQ	BP, 144(SP)
+	0x0027 00039 (main.go:8)	LEAQ	144(SP), BP
+	0x002f 00047 (main.go:8)	FUNCDATA	$0, gclocals·0ce64bbc7cfa5ef04d41c861de81a3d7(SB)
+	0x002f 00047 (main.go:8)	FUNCDATA	$1, gclocals·3e3b7180bf2fe31e1bae0bc5717a21d7(SB)
+	0x002f 00047 (main.go:10)	LEAQ	go.string."{\"endpoint\":\"b\"}"(SB), AX
+	0x0036 00054 (main.go:10)	MOVQ	AX, ""..autotmp_5+112(SP)
+	0x003b 00059 (main.go:10)	MOVQ	$16, ""..autotmp_5+120(SP)
+	0x0044 00068 (main.go:10)	PCDATA	$0, $1
+	0x0044 00068 (main.go:10)	CALL	runtime.makemap_small(SB)
+	0x0049 00073 (main.go:10)	MOVQ	(SP), AX
+	0x004d 00077 (main.go:10)	MOVQ	AX, "".data+64(SP)
+	0x0052 00082 (main.go:10)	LEAQ	type.string(SB), CX
+	0x0059 00089 (main.go:10)	MOVQ	CX, (SP)
+	0x005d 00093 (main.go:10)	LEAQ	""..autotmp_5+112(SP), DX
+	0x0062 00098 (main.go:10)	MOVQ	DX, 8(SP)
+	0x0067 00103 (main.go:10)	PCDATA	$0, $2
+	0x0067 00103 (main.go:10)	CALL	runtime.convT2Estring(SB)
+	0x006c 00108 (main.go:10)	MOVQ	16(SP), AX
+	0x0071 00113 (main.go:10)	MOVQ	AX, ""..autotmp_26+48(SP)
+	0x0076 00118 (main.go:10)	MOVQ	24(SP), CX
+	0x007b 00123 (main.go:10)	MOVQ	CX, ""..autotmp_27+72(SP)
+	0x0080 00128 (main.go:10)	LEAQ	type.map[string]interface {}(SB), DX
+	0x0087 00135 (main.go:10)	MOVQ	DX, (SP)
+	0x008b 00139 (main.go:10)	MOVQ	"".data+64(SP), BX
+	0x0090 00144 (main.go:10)	MOVQ	BX, 8(SP)
+	0x0095 00149 (main.go:10)	LEAQ	go.string."a"(SB), SI
+	0x009c 00156 (main.go:10)	MOVQ	SI, 16(SP)
+	0x00a1 00161 (main.go:10)	MOVQ	$1, 24(SP)
+	0x00aa 00170 (main.go:10)	PCDATA	$0, $3
+	0x00aa 00170 (main.go:10)	CALL	runtime.mapassign_faststr(SB)
+	0x00af 00175 (main.go:10)	MOVQ	32(SP), AX
+	0x00b4 00180 (main.go:10)	MOVQ	""..autotmp_26+48(SP), CX
+	0x00b9 00185 (main.go:10)	MOVQ	CX, (AX)
+	0x00bc 00188 (main.go:10)	CMPL	runtime.writeBarrier(SB), $0
+	0x00c3 00195 (main.go:10)	JNE	574
+	0x00c9 00201 (main.go:10)	MOVQ	""..autotmp_27+72(SP), CX
+	0x00ce 00206 (main.go:10)	MOVQ	CX, 8(AX)
+	0x00d2 00210 (main.go:11)	LEAQ	type.map[string]interface {}(SB), AX
+	0x00d9 00217 (main.go:11)	MOVQ	AX, (SP)
+	0x00dd 00221 (main.go:11)	MOVQ	"".data+64(SP), CX
+	0x00e2 00226 (main.go:11)	MOVQ	CX, 8(SP)
+	0x00e7 00231 (main.go:11)	PCDATA	$0, $0
+	0x00e7 00231 (main.go:11)	CALL	"".jsonutilToString(SB)
+	0x00ec 00236 (main.go:11)	MOVQ	24(SP), AX
+	0x00f1 00241 (main.go:11)	MOVQ	16(SP), CX
+	0x00f6 00246 (main.go:12)	MOVQ	CX, ""..autotmp_7+96(SP)
+	0x00fb 00251 (main.go:12)	MOVQ	AX, ""..autotmp_7+104(SP)
+	0x0100 00256 (main.go:12)	PCDATA	$0, $4
+	0x0100 00256 (main.go:12)	CALL	runtime.makemap_small(SB)
+	0x0105 00261 (main.go:12)	MOVQ	(SP), AX
+	0x0109 00265 (main.go:12)	MOVQ	AX, "".data2+56(SP)
+	0x010e 00270 (main.go:12)	LEAQ	type.string(SB), CX
+	0x0115 00277 (main.go:12)	MOVQ	CX, (SP)
+	0x0119 00281 (main.go:12)	LEAQ	""..autotmp_7+96(SP), DX
+	0x011e 00286 (main.go:12)	MOVQ	DX, 8(SP)
+	0x0123 00291 (main.go:12)	PCDATA	$0, $5
+	0x0123 00291 (main.go:12)	CALL	runtime.convT2Estring(SB)
+	0x0128 00296 (main.go:12)	MOVQ	16(SP), AX
+	0x012d 00301 (main.go:12)	MOVQ	AX, ""..autotmp_26+48(SP)
+	0x0132 00306 (main.go:12)	MOVQ	24(SP), CX
+	0x0137 00311 (main.go:12)	MOVQ	CX, ""..autotmp_27+72(SP)
+	0x013c 00316 (main.go:12)	LEAQ	type.map[string]interface {}(SB), DX
+	0x0143 00323 (main.go:12)	MOVQ	DX, (SP)
+	0x0147 00327 (main.go:12)	MOVQ	"".data2+56(SP), BX
+	0x014c 00332 (main.go:12)	MOVQ	BX, 8(SP)
+	0x0151 00337 (main.go:12)	LEAQ	go.string."a"(SB), SI
+	0x0158 00344 (main.go:12)	MOVQ	SI, 16(SP)
+	0x015d 00349 (main.go:12)	MOVQ	$1, 24(SP)
+	0x0166 00358 (main.go:12)	PCDATA	$0, $6
+	0x0166 00358 (main.go:12)	CALL	runtime.mapassign_faststr(SB)
+	0x016b 00363 (main.go:12)	MOVQ	32(SP), AX
+	0x0170 00368 (main.go:12)	MOVQ	""..autotmp_26+48(SP), CX
+	0x0175 00373 (main.go:12)	MOVQ	CX, (AX)
+	0x0178 00376 (main.go:12)	CMPL	runtime.writeBarrier(SB), $0
+	0x017f 00383 (main.go:12)	JNE	555
+	0x0185 00389 (main.go:12)	MOVQ	""..autotmp_27+72(SP), CX
+	0x018a 00394 (main.go:12)	MOVQ	CX, 8(AX)
+	0x018e 00398 (main.go:13)	LEAQ	type.map[string]interface {}(SB), AX
+	0x0195 00405 (main.go:13)	MOVQ	AX, (SP)
+	0x0199 00409 (main.go:13)	MOVQ	"".data2+56(SP), AX
+	0x019e 00414 (main.go:13)	MOVQ	AX, 8(SP)
+	0x01a3 00419 (main.go:13)	PCDATA	$0, $0
+	0x01a3 00419 (main.go:13)	CALL	"".jsonutilToString(SB)
+	0x01a8 00424 (main.go:13)	MOVQ	16(SP), AX
+	0x01ad 00429 (main.go:13)	MOVQ	24(SP), CX
+	0x01b2 00434 (main.go:15)	MOVQ	AX, ""..autotmp_10+128(SP)
+	0x01ba 00442 (main.go:15)	MOVQ	CX, ""..autotmp_10+136(SP)
+	0x01c2 00450 (main.go:15)	XORPS	X0, X0
+	0x01c5 00453 (main.go:15)	MOVUPS	X0, ""..autotmp_9+80(SP)
+	0x01ca 00458 (main.go:15)	LEAQ	type.string(SB), AX
+	0x01d1 00465 (main.go:15)	MOVQ	AX, (SP)
+	0x01d5 00469 (main.go:15)	LEAQ	""..autotmp_10+128(SP), AX
+	0x01dd 00477 (main.go:15)	MOVQ	AX, 8(SP)
+	0x01e2 00482 (main.go:15)	PCDATA	$0, $7
+	0x01e2 00482 (main.go:15)	CALL	runtime.convT2Estring(SB)
+	0x01e7 00487 (main.go:15)	MOVQ	16(SP), AX
+	0x01ec 00492 (main.go:15)	MOVQ	24(SP), CX
+	0x01f1 00497 (main.go:15)	MOVQ	AX, ""..autotmp_9+80(SP)
+	0x01f6 00502 (main.go:15)	MOVQ	CX, ""..autotmp_9+88(SP)
+	0x01fb 00507 (main.go:15)	LEAQ	""..autotmp_9+80(SP), AX
+	0x0200 00512 (main.go:15)	MOVQ	AX, (SP)
+	0x0204 00516 (main.go:15)	MOVQ	$1, 8(SP)
+	0x020d 00525 (main.go:15)	MOVQ	$1, 16(SP)
+	0x0216 00534 (main.go:15)	PCDATA	$0, $7
+	0x0216 00534 (main.go:15)	CALL	fmt.Println(SB)
+	0x021b 00539 (main.go:16)	MOVQ	144(SP), BP
+	0x0223 00547 (main.go:16)	ADDQ	$152, SP
+	0x022a 00554 (main.go:16)	RET
+	0x022b 00555 (main.go:12)	LEAQ	8(AX), DI
+	0x022f 00559 (main.go:12)	MOVQ	""..autotmp_27+72(SP), AX
+	0x0234 00564 (main.go:12)	CALL	runtime.gcWriteBarrier(SB)
+	0x0239 00569 (main.go:12)	JMP	398
+	0x023e 00574 (main.go:10)	LEAQ	8(AX), DI
+	0x0242 00578 (main.go:10)	MOVQ	""..autotmp_27+72(SP), AX
+	0x0247 00583 (main.go:10)	CALL	runtime.gcWriteBarrier(SB)
+	0x024c 00588 (main.go:10)	JMP	210
+	0x0251 00593 (main.go:10)	NOP
+	0x0251 00593 (main.go:8)	PCDATA	$0, $-1
+	0x0251 00593 (main.go:8)	CALL	runtime.morestack_noctxt(SB)
+	0x0256 00598 (main.go:8)	JMP	0
+	0x0000 65 48 8b 0c 25 00 00 00 00 48 8d 44 24 e8 48 3b  eH..%....H.D$.H;
+	0x0010 41 10 0f 86 39 02 00 00 48 81 ec 98 00 00 00 48  A...9...H......H
+	0x0020 89 ac 24 90 00 00 00 48 8d ac 24 90 00 00 00 48  ..$....H..$....H
+	0x0030 8d 05 00 00 00 00 48 89 44 24 70 48 c7 44 24 78  ......H.D$pH.D$x
+	0x0040 10 00 00 00 e8 00 00 00 00 48 8b 04 24 48 89 44  .........H..$H.D
+	0x0050 24 40 48 8d 0d 00 00 00 00 48 89 0c 24 48 8d 54  $@H......H..$H.T
+	0x0060 24 70 48 89 54 24 08 e8 00 00 00 00 48 8b 44 24  $pH.T$......H.D$
+	0x0070 10 48 89 44 24 30 48 8b 4c 24 18 48 89 4c 24 48  .H.D$0H.L$.H.L$H
+	0x0080 48 8d 15 00 00 00 00 48 89 14 24 48 8b 5c 24 40  H......H..$H.\$@
+	0x0090 48 89 5c 24 08 48 8d 35 00 00 00 00 48 89 74 24  H.\$.H.5....H.t$
+	0x00a0 10 48 c7 44 24 18 01 00 00 00 e8 00 00 00 00 48  .H.D$..........H
+	0x00b0 8b 44 24 20 48 8b 4c 24 30 48 89 08 83 3d 00 00  .D$ H.L$0H...=..
+	0x00c0 00 00 00 0f 85 75 01 00 00 48 8b 4c 24 48 48 89  .....u...H.L$HH.
+	0x00d0 48 08 48 8d 05 00 00 00 00 48 89 04 24 48 8b 4c  H.H......H..$H.L
+	0x00e0 24 40 48 89 4c 24 08 e8 00 00 00 00 48 8b 44 24  $@H.L$......H.D$
+	0x00f0 18 48 8b 4c 24 10 48 89 4c 24 60 48 89 44 24 68  .H.L$.H.L$`H.D$h
+	0x0100 e8 00 00 00 00 48 8b 04 24 48 89 44 24 38 48 8d  .....H..$H.D$8H.
+	0x0110 0d 00 00 00 00 48 89 0c 24 48 8d 54 24 60 48 89  .....H..$H.T$`H.
+	0x0120 54 24 08 e8 00 00 00 00 48 8b 44 24 10 48 89 44  T$......H.D$.H.D
+	0x0130 24 30 48 8b 4c 24 18 48 89 4c 24 48 48 8d 15 00  $0H.L$.H.L$HH...
+	0x0140 00 00 00 48 89 14 24 48 8b 5c 24 38 48 89 5c 24  ...H..$H.\$8H.\$
+	0x0150 08 48 8d 35 00 00 00 00 48 89 74 24 10 48 c7 44  .H.5....H.t$.H.D
+	0x0160 24 18 01 00 00 00 e8 00 00 00 00 48 8b 44 24 20  $..........H.D$ 
+	0x0170 48 8b 4c 24 30 48 89 08 83 3d 00 00 00 00 00 0f  H.L$0H...=......
+	0x0180 85 a6 00 00 00 48 8b 4c 24 48 48 89 48 08 48 8d  .....H.L$HH.H.H.
+	0x0190 05 00 00 00 00 48 89 04 24 48 8b 44 24 38 48 89  .....H..$H.D$8H.
+	0x01a0 44 24 08 e8 00 00 00 00 48 8b 44 24 10 48 8b 4c  D$......H.D$.H.L
+	0x01b0 24 18 48 89 84 24 80 00 00 00 48 89 8c 24 88 00  $.H..$....H..$..
+	0x01c0 00 00 0f 57 c0 0f 11 44 24 50 48 8d 05 00 00 00  ...W...D$PH.....
+	0x01d0 00 48 89 04 24 48 8d 84 24 80 00 00 00 48 89 44  .H..$H..$....H.D
+	0x01e0 24 08 e8 00 00 00 00 48 8b 44 24 10 48 8b 4c 24  $......H.D$.H.L$
+	0x01f0 18 48 89 44 24 50 48 89 4c 24 58 48 8d 44 24 50  .H.D$PH.L$XH.D$P
+	0x0200 48 89 04 24 48 c7 44 24 08 01 00 00 00 48 c7 44  H..$H.D$.....H.D
+	0x0210 24 10 01 00 00 00 e8 00 00 00 00 48 8b ac 24 90  $..........H..$.
+	0x0220 00 00 00 48 81 c4 98 00 00 00 c3 48 8d 78 08 48  ...H.......H.x.H
+	0x0230 8b 44 24 48 e8 00 00 00 00 e9 50 ff ff ff 48 8d  .D$H......P...H.
+	0x0240 78 08 48 8b 44 24 48 e8 00 00 00 00 e9 81 fe ff  x.H.D$H.........
+	0x0250 ff e8 00 00 00 00 e9 a5 fd ff ff                 ...........
+	rel 5+4 t=16 TLS+0
+	rel 50+4 t=15 go.string."{\"endpoint\":\"b\"}"+0
+	rel 69+4 t=8 runtime.makemap_small+0
+	rel 85+4 t=15 type.string+0
+	rel 104+4 t=8 runtime.convT2Estring+0
+	rel 131+4 t=15 type.map[string]interface {}+0
+	rel 152+4 t=15 go.string."a"+0
+	rel 171+4 t=8 runtime.mapassign_faststr+0
+	rel 190+4 t=15 runtime.writeBarrier+-1
+	rel 213+4 t=15 type.map[string]interface {}+0
+	rel 232+4 t=8 "".jsonutilToString+0
+	rel 257+4 t=8 runtime.makemap_small+0
+	rel 273+4 t=15 type.string+0
+	rel 292+4 t=8 runtime.convT2Estring+0
+	rel 319+4 t=15 type.map[string]interface {}+0
+	rel 340+4 t=15 go.string."a"+0
+	rel 359+4 t=8 runtime.mapassign_faststr+0
+	rel 378+4 t=15 runtime.writeBarrier+-1
+	rel 401+4 t=15 type.map[string]interface {}+0
+	rel 420+4 t=8 "".jsonutilToString+0
+	rel 461+4 t=15 type.string+0
+	rel 483+4 t=8 runtime.convT2Estring+0
+	rel 535+4 t=8 fmt.Println+0
+	rel 565+4 t=8 runtime.gcWriteBarrier+0
+	rel 584+4 t=8 runtime.gcWriteBarrier+0
+	rel 594+4 t=8 runtime.morestack_noctxt+0
+"".foo STEXT size=112 args=0x0 locals=0x48
+	0x0000 00000 (main.go:20)	TEXT	"".foo(SB), $72-0
+	0x0000 00000 (main.go:20)	MOVQ	(TLS), CX
+	0x0009 00009 (main.go:20)	CMPQ	SP, 16(CX)
+	0x000d 00013 (main.go:20)	JLS	105
+	0x000f 00015 (main.go:20)	SUBQ	$72, SP
+	0x0013 00019 (main.go:20)	MOVQ	BP, 64(SP)
+	0x0018 00024 (main.go:20)	LEAQ	64(SP), BP
+	0x001d 00029 (main.go:20)	FUNCDATA	$0, gclocals·69c1753bd5f81501d95132d08af04464(SB)
+	0x001d 00029 (main.go:20)	FUNCDATA	$1, gclocals·568470801006e5c0dc3947ea998fe279(SB)
+	0x001d 00029 (main.go:21)	PCDATA	$0, $0
+	0x001d 00029 (main.go:21)	CALL	runtime.makemap_small(SB)
+	0x0022 00034 (main.go:21)	MOVQ	(SP), AX
+	0x0026 00038 (main.go:22)	XORPS	X0, X0
+	0x0029 00041 (main.go:22)	MOVUPS	X0, ""..autotmp_1+48(SP)
+	0x002e 00046 (main.go:22)	LEAQ	type.map[int]string(SB), CX
+	0x0035 00053 (main.go:22)	MOVQ	CX, ""..autotmp_1+48(SP)
+	0x003a 00058 (main.go:22)	MOVQ	AX, ""..autotmp_1+56(SP)
+	0x003f 00063 (main.go:22)	LEAQ	""..autotmp_1+48(SP), AX
+	0x0044 00068 (main.go:22)	MOVQ	AX, (SP)
+	0x0048 00072 (main.go:22)	MOVQ	$1, 8(SP)
+	0x0051 00081 (main.go:22)	MOVQ	$1, 16(SP)
+	0x005a 00090 (main.go:22)	PCDATA	$0, $1
+	0x005a 00090 (main.go:22)	CALL	fmt.Println(SB)
+	0x005f 00095 (main.go:23)	MOVQ	64(SP), BP
+	0x0064 00100 (main.go:23)	ADDQ	$72, SP
+	0x0068 00104 (main.go:23)	RET
+	0x0069 00105 (main.go:23)	NOP
+	0x0069 00105 (main.go:20)	PCDATA	$0, $-1
+	0x0069 00105 (main.go:20)	CALL	runtime.morestack_noctxt(SB)
+	0x006e 00110 (main.go:20)	JMP	0
+	0x0000 65 48 8b 0c 25 00 00 00 00 48 3b 61 10 76 5a 48  eH..%....H;a.vZH
+	0x0010 83 ec 48 48 89 6c 24 40 48 8d 6c 24 40 e8 00 00  ..HH.l$@H.l$@...
+	0x0020 00 00 48 8b 04 24 0f 57 c0 0f 11 44 24 30 48 8d  ..H..$.W...D$0H.
+	0x0030 0d 00 00 00 00 48 89 4c 24 30 48 89 44 24 38 48  .....H.L$0H.D$8H
+	0x0040 8d 44 24 30 48 89 04 24 48 c7 44 24 08 01 00 00  .D$0H..$H.D$....
+	0x0050 00 48 c7 44 24 10 01 00 00 00 e8 00 00 00 00 48  .H.D$..........H
+	0x0060 8b 6c 24 40 48 83 c4 48 c3 e8 00 00 00 00 eb 90  .l$@H..H........
+	rel 5+4 t=16 TLS+0
+	rel 30+4 t=8 runtime.makemap_small+0
+	rel 49+4 t=15 type.map[int]string+0
+	rel 91+4 t=8 fmt.Println+0
+	rel 106+4 t=8 runtime.morestack_noctxt+0
+"".foo1 STEXT size=172 args=0x0 locals=0x60
+	0x0000 00000 (main.go:27)	TEXT	"".foo1(SB), $96-0
+	0x0000 00000 (main.go:27)	MOVQ	(TLS), CX
+	0x0009 00009 (main.go:27)	CMPQ	SP, 16(CX)
+	0x000d 00013 (main.go:27)	JLS	162
+	0x0013 00019 (main.go:27)	SUBQ	$96, SP
+	0x0017 00023 (main.go:27)	MOVQ	BP, 88(SP)
+	0x001c 00028 (main.go:27)	LEAQ	88(SP), BP
+	0x0021 00033 (main.go:27)	FUNCDATA	$0, gclocals·7d2d5fca80364273fb07d5820a76fef4(SB)
+	0x0021 00033 (main.go:27)	FUNCDATA	$1, gclocals·80b0d9ad63c242a848af3702a9ec7107(SB)
+	0x0021 00033 (main.go:28)	PCDATA	$0, $0
+	0x0021 00033 (main.go:28)	CALL	runtime.makemap_small(SB)
+	0x0026 00038 (main.go:28)	MOVQ	(SP), AX
+	0x002a 00042 (main.go:28)	MOVQ	AX, "".m+48(SP)
+	0x002f 00047 (main.go:29)	LEAQ	type.int(SB), CX
+	0x0036 00054 (main.go:29)	MOVQ	CX, (SP)
+	0x003a 00058 (main.go:29)	PCDATA	$0, $1
+	0x003a 00058 (main.go:29)	CALL	runtime.newobject(SB)
+	0x003f 00063 (main.go:29)	MOVQ	8(SP), AX
+	0x0044 00068 (main.go:30)	XORPS	X0, X0
+	0x0047 00071 (main.go:30)	MOVUPS	X0, ""..autotmp_2+56(SP)
+	0x004c 00076 (main.go:30)	MOVUPS	X0, ""..autotmp_2+72(SP)
+	0x0051 00081 (main.go:30)	LEAQ	type.map[int]string(SB), CX
+	0x0058 00088 (main.go:30)	MOVQ	CX, ""..autotmp_2+56(SP)
+	0x005d 00093 (main.go:30)	MOVQ	"".m+48(SP), CX
+	0x0062 00098 (main.go:30)	MOVQ	CX, ""..autotmp_2+64(SP)
+	0x0067 00103 (main.go:30)	LEAQ	type.*int(SB), CX
+	0x006e 00110 (main.go:30)	MOVQ	CX, ""..autotmp_2+72(SP)
+	0x0073 00115 (main.go:30)	MOVQ	AX, ""..autotmp_2+80(SP)
+	0x0078 00120 (main.go:30)	LEAQ	""..autotmp_2+56(SP), AX
+	0x007d 00125 (main.go:30)	MOVQ	AX, (SP)
+	0x0081 00129 (main.go:30)	MOVQ	$2, 8(SP)
+	0x008a 00138 (main.go:30)	MOVQ	$2, 16(SP)
+	0x0093 00147 (main.go:30)	PCDATA	$0, $2
+	0x0093 00147 (main.go:30)	CALL	fmt.Println(SB)
+	0x0098 00152 (main.go:31)	MOVQ	88(SP), BP
+	0x009d 00157 (main.go:31)	ADDQ	$96, SP
+	0x00a1 00161 (main.go:31)	RET
+	0x00a2 00162 (main.go:31)	NOP
+	0x00a2 00162 (main.go:27)	PCDATA	$0, $-1
+	0x00a2 00162 (main.go:27)	CALL	runtime.morestack_noctxt(SB)
+	0x00a7 00167 (main.go:27)	JMP	0
+	0x0000 65 48 8b 0c 25 00 00 00 00 48 3b 61 10 0f 86 8f  eH..%....H;a....
+	0x0010 00 00 00 48 83 ec 60 48 89 6c 24 58 48 8d 6c 24  ...H..`H.l$XH.l$
+	0x0020 58 e8 00 00 00 00 48 8b 04 24 48 89 44 24 30 48  X.....H..$H.D$0H
+	0x0030 8d 0d 00 00 00 00 48 89 0c 24 e8 00 00 00 00 48  ......H..$.....H
+	0x0040 8b 44 24 08 0f 57 c0 0f 11 44 24 38 0f 11 44 24  .D$..W...D$8..D$
+	0x0050 48 48 8d 0d 00 00 00 00 48 89 4c 24 38 48 8b 4c  HH......H.L$8H.L
+	0x0060 24 30 48 89 4c 24 40 48 8d 0d 00 00 00 00 48 89  $0H.L$@H......H.
+	0x0070 4c 24 48 48 89 44 24 50 48 8d 44 24 38 48 89 04  L$HH.D$PH.D$8H..
+	0x0080 24 48 c7 44 24 08 02 00 00 00 48 c7 44 24 10 02  $H.D$.....H.D$..
+	0x0090 00 00 00 e8 00 00 00 00 48 8b 6c 24 58 48 83 c4  ........H.l$XH..
+	0x00a0 60 c3 e8 00 00 00 00 e9 54 ff ff ff              `.......T...
+	rel 5+4 t=16 TLS+0
+	rel 34+4 t=8 runtime.makemap_small+0
+	rel 50+4 t=15 type.int+0
+	rel 59+4 t=8 runtime.newobject+0
+	rel 84+4 t=15 type.map[int]string+0
+	rel 106+4 t=15 type.*int+0
+	rel 148+4 t=8 fmt.Println+0
+	rel 163+4 t=8 runtime.morestack_noctxt+0
+"".foo2 STEXT size=124 args=0x0 locals=0x48
+	0x0000 00000 (main.go:35)	TEXT	"".foo2(SB), $72-0
+	0x0000 00000 (main.go:35)	MOVQ	(TLS), CX
+	0x0009 00009 (main.go:35)	CMPQ	SP, 16(CX)
+	0x000d 00013 (main.go:35)	JLS	117
+	0x000f 00015 (main.go:35)	SUBQ	$72, SP
+	0x0013 00019 (main.go:35)	MOVQ	BP, 64(SP)
+	0x0018 00024 (main.go:35)	LEAQ	64(SP), BP
+	0x001d 00029 (main.go:35)	FUNCDATA	$0, gclocals·69c1753bd5f81501d95132d08af04464(SB)
+	0x001d 00029 (main.go:35)	FUNCDATA	$1, gclocals·568470801006e5c0dc3947ea998fe279(SB)
+	0x001d 00029 (main.go:36)	LEAQ	type.int(SB), AX
+	0x0024 00036 (main.go:36)	MOVQ	AX, (SP)
+	0x0028 00040 (main.go:36)	PCDATA	$0, $0
+	0x0028 00040 (main.go:36)	CALL	runtime.newobject(SB)
+	0x002d 00045 (main.go:36)	MOVQ	8(SP), AX
+	0x0032 00050 (main.go:37)	XORPS	X0, X0
+	0x0035 00053 (main.go:37)	MOVUPS	X0, ""..autotmp_1+48(SP)
+	0x003a 00058 (main.go:37)	LEAQ	type.*int(SB), CX
+	0x0041 00065 (main.go:37)	MOVQ	CX, ""..autotmp_1+48(SP)
+	0x0046 00070 (main.go:37)	MOVQ	AX, ""..autotmp_1+56(SP)
+	0x004b 00075 (main.go:37)	LEAQ	""..autotmp_1+48(SP), AX
+	0x0050 00080 (main.go:37)	MOVQ	AX, (SP)
+	0x0054 00084 (main.go:37)	MOVQ	$1, 8(SP)
+	0x005d 00093 (main.go:37)	MOVQ	$1, 16(SP)
+	0x0066 00102 (main.go:37)	PCDATA	$0, $1
+	0x0066 00102 (main.go:37)	CALL	fmt.Println(SB)
+	0x006b 00107 (main.go:38)	MOVQ	64(SP), BP
+	0x0070 00112 (main.go:38)	ADDQ	$72, SP
+	0x0074 00116 (main.go:38)	RET
+	0x0075 00117 (main.go:38)	NOP
+	0x0075 00117 (main.go:35)	PCDATA	$0, $-1
+	0x0075 00117 (main.go:35)	CALL	runtime.morestack_noctxt(SB)
+	0x007a 00122 (main.go:35)	JMP	0
+	0x0000 65 48 8b 0c 25 00 00 00 00 48 3b 61 10 76 66 48  eH..%....H;a.vfH
+	0x0010 83 ec 48 48 89 6c 24 40 48 8d 6c 24 40 48 8d 05  ..HH.l$@H.l$@H..
+	0x0020 00 00 00 00 48 89 04 24 e8 00 00 00 00 48 8b 44  ....H..$.....H.D
+	0x0030 24 08 0f 57 c0 0f 11 44 24 30 48 8d 0d 00 00 00  $..W...D$0H.....
+	0x0040 00 48 89 4c 24 30 48 89 44 24 38 48 8d 44 24 30  .H.L$0H.D$8H.D$0
+	0x0050 48 89 04 24 48 c7 44 24 08 01 00 00 00 48 c7 44  H..$H.D$.....H.D
+	0x0060 24 10 01 00 00 00 e8 00 00 00 00 48 8b 6c 24 40  $..........H.l$@
+	0x0070 48 83 c4 48 c3 e8 00 00 00 00 eb 84              H..H........
+	rel 5+4 t=16 TLS+0
+	rel 32+4 t=15 type.int+0
+	rel 41+4 t=8 runtime.newobject+0
+	rel 61+4 t=15 type.*int+0
+	rel 103+4 t=8 fmt.Println+0
+	rel 118+4 t=8 runtime.morestack_noctxt+0
+"".foo3 STEXT size=84 args=0x0 locals=0x18
+	0x0000 00000 (main.go:40)	TEXT	"".foo3(SB), $24-0
+	0x0000 00000 (main.go:40)	MOVQ	(TLS), CX
+	0x0009 00009 (main.go:40)	CMPQ	SP, 16(CX)
+	0x000d 00013 (main.go:40)	JLS	77
+	0x000f 00015 (main.go:40)	SUBQ	$24, SP
+	0x0013 00019 (main.go:40)	MOVQ	BP, 16(SP)
+	0x0018 00024 (main.go:40)	LEAQ	16(SP), BP
+	0x001d 00029 (main.go:40)	FUNCDATA	$0, gclocals·33cdeccccebe80329f1fdbee7f5874cb(SB)
+	0x001d 00029 (main.go:40)	FUNCDATA	$1, gclocals·33cdeccccebe80329f1fdbee7f5874cb(SB)
+	0x001d 00029 (main.go:42)	MOVQ	$0, ""..autotmp_1+8(SP)
+	0x0026 00038 (main.go:42)	PCDATA	$0, $0
+	0x0026 00038 (main.go:42)	CALL	runtime.printlock(SB)
+	0x002b 00043 (main.go:42)	LEAQ	""..autotmp_1+8(SP), AX
+	0x0030 00048 (main.go:42)	MOVQ	AX, (SP)
+	0x0034 00052 (main.go:42)	PCDATA	$0, $0
+	0x0034 00052 (main.go:42)	CALL	runtime.printpointer(SB)
+	0x0039 00057 (main.go:42)	PCDATA	$0, $0
+	0x0039 00057 (main.go:42)	CALL	runtime.printnl(SB)
+	0x003e 00062 (main.go:42)	PCDATA	$0, $0
+	0x003e 00062 (main.go:42)	CALL	runtime.printunlock(SB)
+	0x0043 00067 (main.go:43)	MOVQ	16(SP), BP
+	0x0048 00072 (main.go:43)	ADDQ	$24, SP
+	0x004c 00076 (main.go:43)	RET
+	0x004d 00077 (main.go:43)	NOP
+	0x004d 00077 (main.go:40)	PCDATA	$0, $-1
+	0x004d 00077 (main.go:40)	CALL	runtime.morestack_noctxt(SB)
+	0x0052 00082 (main.go:40)	JMP	0
+	0x0000 65 48 8b 0c 25 00 00 00 00 48 3b 61 10 76 3e 48  eH..%....H;a.v>H
+	0x0010 83 ec 18 48 89 6c 24 10 48 8d 6c 24 10 48 c7 44  ...H.l$.H.l$.H.D
+	0x0020 24 08 00 00 00 00 e8 00 00 00 00 48 8d 44 24 08  $..........H.D$.
+	0x0030 48 89 04 24 e8 00 00 00 00 e8 00 00 00 00 e8 00  H..$............
+	0x0040 00 00 00 48 8b 6c 24 10 48 83 c4 18 c3 e8 00 00  ...H.l$.H.......
+	0x0050 00 00 eb ac                                      ....
+	rel 5+4 t=16 TLS+0
+	rel 39+4 t=8 runtime.printlock+0
+	rel 53+4 t=8 runtime.printpointer+0
+	rel 58+4 t=8 runtime.printnl+0
+	rel 63+4 t=8 runtime.printunlock+0
+	rel 78+4 t=8 runtime.morestack_noctxt+0
+"".Encode STEXT size=120 args=0x38 locals=0x40
+	0x0000 00000 (main.go:45)	TEXT	"".Encode(SB), $64-56
+	0x0000 00000 (main.go:45)	MOVQ	(TLS), CX
+	0x0009 00009 (main.go:45)	CMPQ	SP, 16(CX)
+	0x000d 00013 (main.go:45)	JLS	113
+	0x000f 00015 (main.go:45)	SUBQ	$64, SP
+	0x0013 00019 (main.go:45)	MOVQ	BP, 56(SP)
+	0x0018 00024 (main.go:45)	LEAQ	56(SP), BP
+	0x001d 00029 (main.go:45)	FUNCDATA	$0, gclocals·d39053b1cd6da978eb3ffbd501e63ec0(SB)
+	0x001d 00029 (main.go:45)	FUNCDATA	$1, gclocals·69c1753bd5f81501d95132d08af04464(SB)
+	0x001d 00029 (main.go:46)	MOVQ	"".o+72(SP), AX
+	0x0022 00034 (main.go:46)	MOVQ	AX, (SP)
+	0x0026 00038 (main.go:45)	MOVQ	"".o+80(SP), AX
+	0x002b 00043 (main.go:46)	MOVQ	AX, 8(SP)
+	0x0030 00048 (main.go:46)	PCDATA	$0, $1
+	0x0030 00048 (main.go:46)	CALL	encoding/json.Marshal(SB)
+	0x0035 00053 (main.go:46)	MOVQ	16(SP), AX
+	0x003a 00058 (main.go:46)	MOVQ	24(SP), CX
+	0x003f 00063 (main.go:46)	MOVQ	32(SP), DX
+	0x0044 00068 (main.go:46)	MOVQ	40(SP), BX
+	0x0049 00073 (main.go:46)	MOVQ	48(SP), SI
+	0x004e 00078 (main.go:46)	MOVQ	AX, "".~r1+88(SP)
+	0x0053 00083 (main.go:46)	MOVQ	CX, "".~r1+96(SP)
+	0x0058 00088 (main.go:46)	MOVQ	DX, "".~r1+104(SP)
+	0x005d 00093 (main.go:46)	MOVQ	BX, "".~r2+112(SP)
+	0x0062 00098 (main.go:46)	MOVQ	SI, "".~r2+120(SP)
+	0x0067 00103 (main.go:46)	MOVQ	56(SP), BP
+	0x006c 00108 (main.go:46)	ADDQ	$64, SP
+	0x0070 00112 (main.go:46)	RET
+	0x0071 00113 (main.go:46)	NOP
+	0x0071 00113 (main.go:45)	PCDATA	$0, $-1
+	0x0071 00113 (main.go:45)	CALL	runtime.morestack_noctxt(SB)
+	0x0076 00118 (main.go:45)	JMP	0
+	0x0000 65 48 8b 0c 25 00 00 00 00 48 3b 61 10 76 62 48  eH..%....H;a.vbH
+	0x0010 83 ec 40 48 89 6c 24 38 48 8d 6c 24 38 48 8b 44  ..@H.l$8H.l$8H.D
+	0x0020 24 48 48 89 04 24 48 8b 44 24 50 48 89 44 24 08  $HH..$H.D$PH.D$.
+	0x0030 e8 00 00 00 00 48 8b 44 24 10 48 8b 4c 24 18 48  .....H.D$.H.L$.H
+	0x0040 8b 54 24 20 48 8b 5c 24 28 48 8b 74 24 30 48 89  .T$ H.\$(H.t$0H.
+	0x0050 44 24 58 48 89 4c 24 60 48 89 54 24 68 48 89 5c  D$XH.L$`H.T$hH.\
+	0x0060 24 70 48 89 74 24 78 48 8b 6c 24 38 48 83 c4 40  $pH.t$xH.l$8H..@
+	0x0070 c3 e8 00 00 00 00 eb 88                          ........
+	rel 5+4 t=16 TLS+0
+	rel 49+4 t=8 encoding/json.Marshal+0
+	rel 114+4 t=8 runtime.morestack_noctxt+0
+"".Decode STEXT size=120 args=0x38 locals=0x40
+	0x0000 00000 (main.go:49)	TEXT	"".Decode(SB), $64-56
+	0x0000 00000 (main.go:49)	MOVQ	(TLS), CX
+	0x0009 00009 (main.go:49)	CMPQ	SP, 16(CX)
+	0x000d 00013 (main.go:49)	JLS	113
+	0x000f 00015 (main.go:49)	SUBQ	$64, SP
+	0x0013 00019 (main.go:49)	MOVQ	BP, 56(SP)
+	0x0018 00024 (main.go:49)	LEAQ	56(SP), BP
+	0x001d 00029 (main.go:49)	FUNCDATA	$0, gclocals·b15988bb9a6c5e0aba983211203f7743(SB)
+	0x001d 00029 (main.go:49)	FUNCDATA	$1, gclocals·69c1753bd5f81501d95132d08af04464(SB)
+	0x001d 00029 (main.go:50)	MOVQ	"".y+72(SP), AX
+	0x0022 00034 (main.go:50)	MOVQ	AX, (SP)
+	0x0026 00038 (main.go:49)	MOVQ	"".y+80(SP), AX
+	0x002b 00043 (main.go:50)	MOVQ	AX, 8(SP)
+	0x0030 00048 (main.go:49)	MOVQ	"".y+88(SP), AX
+	0x0035 00053 (main.go:50)	MOVQ	AX, 16(SP)
+	0x003a 00058 (main.go:49)	MOVQ	"".o+96(SP), AX
+	0x003f 00063 (main.go:50)	MOVQ	AX, 24(SP)
+	0x0044 00068 (main.go:49)	MOVQ	"".o+104(SP), AX
+	0x0049 00073 (main.go:50)	MOVQ	AX, 32(SP)
+	0x004e 00078 (main.go:50)	PCDATA	$0, $1
+	0x004e 00078 (main.go:50)	CALL	encoding/json.Unmarshal(SB)
+	0x0053 00083 (main.go:50)	MOVQ	40(SP), AX
+	0x0058 00088 (main.go:50)	MOVQ	48(SP), CX
+	0x005d 00093 (main.go:50)	MOVQ	AX, "".~r2+112(SP)
+	0x0062 00098 (main.go:50)	MOVQ	CX, "".~r2+120(SP)
+	0x0067 00103 (main.go:50)	MOVQ	56(SP), BP
+	0x006c 00108 (main.go:50)	ADDQ	$64, SP
+	0x0070 00112 (main.go:50)	RET
+	0x0071 00113 (main.go:50)	NOP
+	0x0071 00113 (main.go:49)	PCDATA	$0, $-1
+	0x0071 00113 (main.go:49)	CALL	runtime.morestack_noctxt(SB)
+	0x0076 00118 (main.go:49)	JMP	0
+	0x0000 65 48 8b 0c 25 00 00 00 00 48 3b 61 10 76 62 48  eH..%....H;a.vbH
+	0x0010 83 ec 40 48 89 6c 24 38 48 8d 6c 24 38 48 8b 44  ..@H.l$8H.l$8H.D
+	0x0020 24 48 48 89 04 24 48 8b 44 24 50 48 89 44 24 08  $HH..$H.D$PH.D$.
+	0x0030 48 8b 44 24 58 48 89 44 24 10 48 8b 44 24 60 48  H.D$XH.D$.H.D$`H
+	0x0040 89 44 24 18 48 8b 44 24 68 48 89 44 24 20 e8 00  .D$.H.D$hH.D$ ..
+	0x0050 00 00 00 48 8b 44 24 28 48 8b 4c 24 30 48 89 44  ...H.D$(H.L$0H.D
+	0x0060 24 70 48 89 4c 24 78 48 8b 6c 24 38 48 83 c4 40  $pH.L$xH.l$8H..@
+	0x0070 c3 e8 00 00 00 00 eb 88                          ........
+	rel 5+4 t=16 TLS+0
+	rel 79+4 t=8 encoding/json.Unmarshal+0
+	rel 114+4 t=8 runtime.morestack_noctxt+0
+"".jsonutilToString STEXT size=166 args=0x20 locals=0x40
+	0x0000 00000 (main.go:53)	TEXT	"".jsonutilToString(SB), $64-32
+	0x0000 00000 (main.go:53)	MOVQ	(TLS), CX
+	0x0009 00009 (main.go:53)	CMPQ	SP, 16(CX)
+	0x000d 00013 (main.go:53)	JLS	156
+	0x0013 00019 (main.go:53)	SUBQ	$64, SP
+	0x0017 00023 (main.go:53)	MOVQ	BP, 56(SP)
+	0x001c 00028 (main.go:53)	LEAQ	56(SP), BP
+	0x0021 00033 (main.go:53)	FUNCDATA	$0, gclocals·abb2c5050fe821353449583ee1559325(SB)
+	0x0021 00033 (main.go:53)	FUNCDATA	$1, gclocals·69c1753bd5f81501d95132d08af04464(SB)
+	0x0021 00033 (main.go:54)	MOVQ	"".o+72(SP), AX
+	0x0026 00038 (main.go:54)	MOVQ	AX, (SP)
+	0x002a 00042 (main.go:53)	MOVQ	"".o+80(SP), AX
+	0x002f 00047 (main.go:54)	MOVQ	AX, 8(SP)
+	0x0034 00052 (main.go:54)	PCDATA	$0, $1
+	0x0034 00052 (main.go:54)	CALL	"".Encode(SB)
+	0x0039 00057 (main.go:54)	MOVQ	16(SP), AX
+	0x003e 00062 (main.go:54)	MOVQ	24(SP), CX
+	0x0043 00067 (main.go:54)	MOVQ	32(SP), DX
+	0x0048 00072 (main.go:55)	CMPQ	40(SP), $0
+	0x004e 00078 (main.go:55)	JEQ	98
+	0x0050 00080 (main.go:56)	XORPS	X0, X0
+	0x0053 00083 (main.go:56)	MOVUPS	X0, "".~r1+88(SP)
+	0x0058 00088 (main.go:56)	MOVQ	56(SP), BP
+	0x005d 00093 (main.go:56)	ADDQ	$64, SP
+	0x0061 00097 (main.go:56)	RET
+	0x0062 00098 (main.go:58)	MOVQ	$0, (SP)
+	0x006a 00106 (main.go:58)	MOVQ	AX, 8(SP)
+	0x006f 00111 (main.go:58)	MOVQ	CX, 16(SP)
+	0x0074 00116 (main.go:58)	MOVQ	DX, 24(SP)
+	0x0079 00121 (main.go:58)	PCDATA	$0, $1
+	0x0079 00121 (main.go:58)	CALL	runtime.slicebytetostring(SB)
+	0x007e 00126 (main.go:58)	MOVQ	32(SP), AX
+	0x0083 00131 (main.go:58)	MOVQ	40(SP), CX
+	0x0088 00136 (main.go:58)	MOVQ	AX, "".~r1+88(SP)
+	0x008d 00141 (main.go:58)	MOVQ	CX, "".~r1+96(SP)
+	0x0092 00146 (main.go:58)	MOVQ	56(SP), BP
+	0x0097 00151 (main.go:58)	ADDQ	$64, SP
+	0x009b 00155 (main.go:58)	RET
+	0x009c 00156 (main.go:58)	NOP
+	0x009c 00156 (main.go:53)	PCDATA	$0, $-1
+	0x009c 00156 (main.go:53)	CALL	runtime.morestack_noctxt(SB)
+	0x00a1 00161 (main.go:53)	JMP	0
+	0x0000 65 48 8b 0c 25 00 00 00 00 48 3b 61 10 0f 86 89  eH..%....H;a....
+	0x0010 00 00 00 48 83 ec 40 48 89 6c 24 38 48 8d 6c 24  ...H..@H.l$8H.l$
+	0x0020 38 48 8b 44 24 48 48 89 04 24 48 8b 44 24 50 48  8H.D$HH..$H.D$PH
+	0x0030 89 44 24 08 e8 00 00 00 00 48 8b 44 24 10 48 8b  .D$......H.D$.H.
+	0x0040 4c 24 18 48 8b 54 24 20 48 83 7c 24 28 00 74 12  L$.H.T$ H.|$(.t.
+	0x0050 0f 57 c0 0f 11 44 24 58 48 8b 6c 24 38 48 83 c4  .W...D$XH.l$8H..
+	0x0060 40 c3 48 c7 04 24 00 00 00 00 48 89 44 24 08 48  @.H..$....H.D$.H
+	0x0070 89 4c 24 10 48 89 54 24 18 e8 00 00 00 00 48 8b  .L$.H.T$......H.
+	0x0080 44 24 20 48 8b 4c 24 28 48 89 44 24 58 48 89 4c  D$ H.L$(H.D$XH.L
+	0x0090 24 60 48 8b 6c 24 38 48 83 c4 40 c3 e8 00 00 00  $`H.l$8H..@.....
+	0x00a0 00 e9 5a ff ff ff                                ..Z...
+	rel 5+4 t=16 TLS+0
+	rel 53+4 t=8 "".Encode+0
+	rel 122+4 t=8 runtime.slicebytetostring+0
+	rel 157+4 t=8 runtime.morestack_noctxt+0
+"".init STEXT size=97 args=0x0 locals=0x8
+	0x0000 00000 (<autogenerated>:1)	TEXT	"".init(SB), $8-0
+	0x0000 00000 (<autogenerated>:1)	MOVQ	(TLS), CX
+	0x0009 00009 (<autogenerated>:1)	CMPQ	SP, 16(CX)
+	0x000d 00013 (<autogenerated>:1)	JLS	90
+	0x000f 00015 (<autogenerated>:1)	SUBQ	$8, SP
+	0x0013 00019 (<autogenerated>:1)	MOVQ	BP, (SP)
+	0x0017 00023 (<autogenerated>:1)	LEAQ	(SP), BP
+	0x001b 00027 (<autogenerated>:1)	FUNCDATA	$0, gclocals·33cdeccccebe80329f1fdbee7f5874cb(SB)
+	0x001b 00027 (<autogenerated>:1)	FUNCDATA	$1, gclocals·33cdeccccebe80329f1fdbee7f5874cb(SB)
+	0x001b 00027 (<autogenerated>:1)	MOVBLZX	"".initdone·(SB), AX
+	0x0022 00034 (<autogenerated>:1)	CMPB	AL, $1
+	0x0025 00037 (<autogenerated>:1)	JLS	48
+	0x0027 00039 (<autogenerated>:1)	MOVQ	(SP), BP
+	0x002b 00043 (<autogenerated>:1)	ADDQ	$8, SP
+	0x002f 00047 (<autogenerated>:1)	RET
+	0x0030 00048 (<autogenerated>:1)	JNE	57
+	0x0032 00050 (<autogenerated>:1)	PCDATA	$0, $0
+	0x0032 00050 (<autogenerated>:1)	CALL	runtime.throwinit(SB)
+	0x0037 00055 (<autogenerated>:1)	UNDEF
+	0x0039 00057 (<autogenerated>:1)	MOVB	$1, "".initdone·(SB)
+	0x0040 00064 (<autogenerated>:1)	PCDATA	$0, $0
+	0x0040 00064 (<autogenerated>:1)	CALL	encoding/json.init(SB)
+	0x0045 00069 (<autogenerated>:1)	PCDATA	$0, $0
+	0x0045 00069 (<autogenerated>:1)	CALL	fmt.init(SB)
+	0x004a 00074 (<autogenerated>:1)	MOVB	$2, "".initdone·(SB)
+	0x0051 00081 (<autogenerated>:1)	MOVQ	(SP), BP
+	0x0055 00085 (<autogenerated>:1)	ADDQ	$8, SP
+	0x0059 00089 (<autogenerated>:1)	RET
+	0x005a 00090 (<autogenerated>:1)	NOP
+	0x005a 00090 (<autogenerated>:1)	PCDATA	$0, $-1
+	0x005a 00090 (<autogenerated>:1)	CALL	runtime.morestack_noctxt(SB)
+	0x005f 00095 (<autogenerated>:1)	JMP	0
+	0x0000 65 48 8b 0c 25 00 00 00 00 48 3b 61 10 76 4b 48  eH..%....H;a.vKH
+	0x0010 83 ec 08 48 89 2c 24 48 8d 2c 24 0f b6 05 00 00  ...H.,$H.,$.....
+	0x0020 00 00 80 f8 01 76 09 48 8b 2c 24 48 83 c4 08 c3  .....v.H.,$H....
+	0x0030 75 07 e8 00 00 00 00 0f 0b c6 05 00 00 00 00 01  u...............
+	0x0040 e8 00 00 00 00 e8 00 00 00 00 c6 05 00 00 00 00  ................
+	0x0050 02 48 8b 2c 24 48 83 c4 08 c3 e8 00 00 00 00 eb  .H.,$H..........
+	0x0060 9f                                               .
+	rel 5+4 t=16 TLS+0
+	rel 30+4 t=15 "".initdone·+0
+	rel 51+4 t=8 runtime.throwinit+0
+	rel 59+4 t=15 "".initdone·+-1
+	rel 65+4 t=8 encoding/json.init+0
+	rel 70+4 t=8 fmt.init+0
+	rel 76+4 t=15 "".initdone·+-1
+	rel 91+4 t=8 runtime.morestack_noctxt+0
+type..hash.[2]interface {} STEXT dupok size=110 args=0x18 locals=0x28
+	0x0000 00000 (<autogenerated>:1)	TEXT	type..hash.[2]interface {}(SB), DUPOK, $40-24
+	0x0000 00000 (<autogenerated>:1)	MOVQ	(TLS), CX
+	0x0009 00009 (<autogenerated>:1)	CMPQ	SP, 16(CX)
+	0x000d 00013 (<autogenerated>:1)	JLS	103
+	0x000f 00015 (<autogenerated>:1)	SUBQ	$40, SP
+	0x0013 00019 (<autogenerated>:1)	MOVQ	BP, 32(SP)
+	0x0018 00024 (<autogenerated>:1)	LEAQ	32(SP), BP
+	0x001d 00029 (<autogenerated>:1)	FUNCDATA	$0, gclocals·a36216b97439c93dafebe03e7f0808b5(SB)
+	0x001d 00029 (<autogenerated>:1)	FUNCDATA	$1, gclocals·33cdeccccebe80329f1fdbee7f5874cb(SB)
+	0x001d 00029 (<autogenerated>:1)	XORL	AX, AX
+	0x001f 00031 (<autogenerated>:1)	MOVQ	"".h+56(SP), CX
+	0x0024 00036 (<autogenerated>:1)	JMP	82
+	0x0026 00038 (<autogenerated>:1)	MOVQ	AX, "".i+24(SP)
+	0x002b 00043 (<autogenerated>:1)	SHLQ	$4, AX
+	0x002f 00047 (<autogenerated>:1)	MOVQ	"".p+48(SP), BX
+	0x0034 00052 (<autogenerated>:1)	ADDQ	BX, AX
+	0x0037 00055 (<autogenerated>:1)	MOVQ	AX, (SP)
+	0x003b 00059 (<autogenerated>:1)	MOVQ	CX, 8(SP)
+	0x0040 00064 (<autogenerated>:1)	PCDATA	$0, $0
+	0x0040 00064 (<autogenerated>:1)	CALL	runtime.nilinterhash(SB)
+	0x0045 00069 (<autogenerated>:1)	MOVQ	16(SP), CX
+	0x004a 00074 (<autogenerated>:1)	MOVQ	"".i+24(SP), AX
+	0x004f 00079 (<autogenerated>:1)	INCQ	AX
+	0x0052 00082 (<autogenerated>:1)	CMPQ	AX, $2
+	0x0056 00086 (<autogenerated>:1)	JLT	38
+	0x0058 00088 (<autogenerated>:1)	MOVQ	CX, "".~r2+64(SP)
+	0x005d 00093 (<autogenerated>:1)	MOVQ	32(SP), BP
+	0x0062 00098 (<autogenerated>:1)	ADDQ	$40, SP
+	0x0066 00102 (<autogenerated>:1)	RET
+	0x0067 00103 (<autogenerated>:1)	NOP
+	0x0067 00103 (<autogenerated>:1)	PCDATA	$0, $-1
+	0x0067 00103 (<autogenerated>:1)	CALL	runtime.morestack_noctxt(SB)
+	0x006c 00108 (<autogenerated>:1)	JMP	0
+	0x0000 65 48 8b 0c 25 00 00 00 00 48 3b 61 10 76 58 48  eH..%....H;a.vXH
+	0x0010 83 ec 28 48 89 6c 24 20 48 8d 6c 24 20 31 c0 48  ..(H.l$ H.l$ 1.H
+	0x0020 8b 4c 24 38 eb 2c 48 89 44 24 18 48 c1 e0 04 48  .L$8.,H.D$.H...H
+	0x0030 8b 5c 24 30 48 01 d8 48 89 04 24 48 89 4c 24 08  .\$0H..H..$H.L$.
+	0x0040 e8 00 00 00 00 48 8b 4c 24 10 48 8b 44 24 18 48  .....H.L$.H.D$.H
+	0x0050 ff c0 48 83 f8 02 7c ce 48 89 4c 24 40 48 8b 6c  ..H...|.H.L$@H.l
+	0x0060 24 20 48 83 c4 28 c3 e8 00 00 00 00 eb 92        $ H..(........
+	rel 5+4 t=16 TLS+0
+	rel 65+4 t=8 runtime.nilinterhash+0
+	rel 104+4 t=8 runtime.morestack_noctxt+0
+type..eq.[2]interface {} STEXT dupok size=182 args=0x18 locals=0x30
+	0x0000 00000 (<autogenerated>:1)	TEXT	type..eq.[2]interface {}(SB), DUPOK, $48-24
+	0x0000 00000 (<autogenerated>:1)	MOVQ	(TLS), CX
+	0x0009 00009 (<autogenerated>:1)	CMPQ	SP, 16(CX)
+	0x000d 00013 (<autogenerated>:1)	JLS	172
+	0x0013 00019 (<autogenerated>:1)	SUBQ	$48, SP
+	0x0017 00023 (<autogenerated>:1)	MOVQ	BP, 40(SP)
+	0x001c 00028 (<autogenerated>:1)	LEAQ	40(SP), BP
+	0x0021 00033 (<autogenerated>:1)	FUNCDATA	$0, gclocals·d2de89f6cf5e99ce0097843c3071e829(SB)
+	0x0021 00033 (<autogenerated>:1)	FUNCDATA	$1, gclocals·33cdeccccebe80329f1fdbee7f5874cb(SB)
+	0x0021 00033 (<autogenerated>:1)	MOVQ	"".p+56(SP), AX
+	0x0026 00038 (<autogenerated>:1)	MOVQ	"".q+64(SP), CX
+	0x002b 00043 (<autogenerated>:1)	XORL	DX, DX
+	0x002d 00045 (<autogenerated>:1)	JMP	72
+	0x002f 00047 (<autogenerated>:1)	MOVQ	""..autotmp_8+32(SP), BX
+	0x0034 00052 (<autogenerated>:1)	LEAQ	1(BX), DX
+	0x0038 00056 (<autogenerated>:1)	MOVQ	"".p+56(SP), BX
+	0x003d 00061 (<autogenerated>:1)	MOVQ	"".q+64(SP), SI
+	0x0042 00066 (<autogenerated>:1)	MOVQ	BX, AX
+	0x0045 00069 (<autogenerated>:1)	MOVQ	SI, CX
+	0x0048 00072 (<autogenerated>:1)	CMPQ	DX, $2
+	0x004c 00076 (<autogenerated>:1)	JGE	157
+	0x004e 00078 (<autogenerated>:1)	MOVQ	DX, BX
+	0x0051 00081 (<autogenerated>:1)	SHLQ	$4, DX
+	0x0055 00085 (<autogenerated>:1)	MOVQ	8(DX)(AX*1), SI
+	0x005a 00090 (<autogenerated>:1)	MOVQ	(DX)(AX*1), DI
+	0x005e 00094 (<autogenerated>:1)	MOVQ	8(DX)(CX*1), R8
+	0x0063 00099 (<autogenerated>:1)	MOVQ	(DX)(CX*1), DX
+	0x0067 00103 (<autogenerated>:1)	CMPQ	DI, DX
+	0x006a 00106 (<autogenerated>:1)	JNE	142
+	0x006c 00108 (<autogenerated>:1)	MOVQ	BX, ""..autotmp_8+32(SP)
+	0x0071 00113 (<autogenerated>:1)	MOVQ	DI, (SP)
+	0x0075 00117 (<autogenerated>:1)	MOVQ	SI, 8(SP)
+	0x007a 00122 (<autogenerated>:1)	MOVQ	R8, 16(SP)
+	0x007f 00127 (<autogenerated>:1)	PCDATA	$0, $0
+	0x007f 00127 (<autogenerated>:1)	CALL	runtime.efaceeq(SB)
+	0x0084 00132 (<autogenerated>:1)	LEAQ	24(SP), AX
+	0x0089 00137 (<autogenerated>:1)	CMPB	(AX), $0
+	0x008c 00140 (<autogenerated>:1)	JNE	47
+	0x008e 00142 (<autogenerated>:1)	MOVB	$0, "".~r2+72(SP)
+	0x0093 00147 (<autogenerated>:1)	MOVQ	40(SP), BP
+	0x0098 00152 (<autogenerated>:1)	ADDQ	$48, SP
+	0x009c 00156 (<autogenerated>:1)	RET
+	0x009d 00157 (<autogenerated>:1)	MOVB	$1, "".~r2+72(SP)
+	0x00a2 00162 (<autogenerated>:1)	MOVQ	40(SP), BP
+	0x00a7 00167 (<autogenerated>:1)	ADDQ	$48, SP
+	0x00ab 00171 (<autogenerated>:1)	RET
+	0x00ac 00172 (<autogenerated>:1)	NOP
+	0x00ac 00172 (<autogenerated>:1)	PCDATA	$0, $-1
+	0x00ac 00172 (<autogenerated>:1)	CALL	runtime.morestack_noctxt(SB)
+	0x00b1 00177 (<autogenerated>:1)	JMP	0
+	0x0000 65 48 8b 0c 25 00 00 00 00 48 3b 61 10 0f 86 99  eH..%....H;a....
+	0x0010 00 00 00 48 83 ec 30 48 89 6c 24 28 48 8d 6c 24  ...H..0H.l$(H.l$
+	0x0020 28 48 8b 44 24 38 48 8b 4c 24 40 31 d2 eb 19 48  (H.D$8H.L$@1...H
+	0x0030 8b 5c 24 20 48 8d 53 01 48 8b 5c 24 38 48 8b 74  .\$ H.S.H.\$8H.t
+	0x0040 24 40 48 89 d8 48 89 f1 48 83 fa 02 7d 4f 48 89  $@H..H..H...}OH.
+	0x0050 d3 48 c1 e2 04 48 8b 74 02 08 48 8b 3c 02 4c 8b  .H...H.t..H.<.L.
+	0x0060 44 0a 08 48 8b 14 0a 48 39 d7 75 22 48 89 5c 24  D..H...H9.u"H.\$
+	0x0070 20 48 89 3c 24 48 89 74 24 08 4c 89 44 24 10 e8   H.<$H.t$.L.D$..
+	0x0080 00 00 00 00 48 8d 44 24 18 80 38 00 75 a1 c6 44  ....H.D$..8.u..D
+	0x0090 24 48 00 48 8b 6c 24 28 48 83 c4 30 c3 c6 44 24  $H.H.l$(H..0..D$
+	0x00a0 48 01 48 8b 6c 24 28 48 83 c4 30 c3 e8 00 00 00  H.H.l$(H..0.....
+	0x00b0 00 e9 4a ff ff ff                                ..J...
+	rel 5+4 t=16 TLS+0
+	rel 128+4 t=8 runtime.efaceeq+0
+	rel 173+4 t=8 runtime.morestack_noctxt+0
+go.string."{\"endpoint\":\"b\"}" SRODATA dupok size=16
+	0x0000 7b 22 65 6e 64 70 6f 69 6e 74 22 3a 22 62 22 7d  {"endpoint":"b"}
+go.string."a" SRODATA dupok size=1
+	0x0000 61                                               a
+go.loc."".main SDWARFLOC size=325
+	0x0000 ff ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00  ................
+	0x0010 4d 00 00 00 00 00 00 00 6c 00 00 00 00 00 00 00  M.......l.......
+	0x0020 01 00 50 6c 00 00 00 00 00 00 00 5b 02 00 00 00  ..Pl.......[....
+	0x0030 00 00 00 03 00 91 a0 7f 00 00 00 00 00 00 00 00  ................
+	0x0040 00 00 00 00 00 00 00 00 ff ff ff ff ff ff ff ff  ................
+	0x0050 00 00 00 00 00 00 00 00 09 01 00 00 00 00 00 00  ................
+	0x0060 28 01 00 00 00 00 00 00 01 00 50 28 01 00 00 00  (.........P(....
+	0x0070 00 00 00 5b 02 00 00 00 00 00 00 03 00 91 98 7f  ...[............
+	0x0080 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0090 ff ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00  ................
+	0x00a0 f1 00 00 00 00 00 00 00 f6 00 00 00 00 00 00 00  ................
+	0x00b0 05 00 93 08 50 93 08 f6 00 00 00 00 00 00 00 05  ....P...........
+	0x00c0 01 00 00 00 00 00 00 06 00 52 93 08 50 93 08 00  .........R..P...
+	0x00d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ff  ................
+	0x00e0 ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00 ad  ................
+	0x00f0 01 00 00 00 00 00 00 b2 01 00 00 00 00 00 00 05  ................
+	0x0100 00 50 93 08 93 08 b2 01 00 00 00 00 00 00 d1 01  .P..............
+	0x0110 00 00 00 00 00 00 06 00 50 93 08 52 93 08 d1 01  ........P..R....
+	0x0120 00 00 00 00 00 00 e7 01 00 00 00 00 00 00 05 00  ................
+	0x0130 93 08 52 93 08 00 00 00 00 00 00 00 00 00 00 00  ..R.............
+	0x0140 00 00 00 00 00                                   .....
+	rel 8+8 t=1 "".main+0
+	rel 80+8 t=1 "".main+0
+	rel 152+8 t=1 "".main+0
+	rel 231+8 t=1 "".main+0
+go.info."".main SDWARFINFO size=101
+	0x0000 02 22 22 2e 6d 61 69 6e 00 00 00 00 00 00 00 00  ."".main........
+	0x0010 00 00 00 00 00 00 00 00 00 01 9c 00 00 00 00 01  ................
+	0x0020 0a 64 61 74 61 00 0a 00 00 00 00 00 00 00 00 0a  .data...........
+	0x0030 64 61 74 61 32 00 0c 00 00 00 00 00 00 00 00 09  data2...........
+	0x0040 74 65 73 74 00 09 00 00 00 00 00 0a 76 00 0b 00  test........v...
+	0x0050 00 00 00 00 00 00 00 0a 76 32 00 0d 00 00 00 00  ........v2......
+	0x0060 00 00 00 00 00                                   .....
+	rel 9+8 t=1 "".main+0
+	rel 17+8 t=1 "".main+603
+	rel 27+4 t=29 gofile../Users/chai/go/src/github.com/chai2010/asmgo-talk/examples/funcdata-local/main.go+0
+	rel 39+4 t=28 go.info.map[string]interface {}+0
+	rel 43+4 t=28 go.loc."".main+0
+	rel 55+4 t=28 go.info.map[string]interface {}+0
+	rel 59+4 t=28 go.loc."".main+72
+	rel 70+4 t=28 go.info.string+0
+	rel 79+4 t=28 go.info.string+0
+	rel 83+4 t=28 go.loc."".main+144
+	rel 92+4 t=28 go.info.string+0
+	rel 96+4 t=28 go.loc."".main+223
+go.range."".main SDWARFRANGE size=0
+go.isstmt."".main SDWARFMISC size=0
+	0x0000 04 36 01 0e 02 0e 01 07 02 04 01 05 02 1e 01 07  .6..............
+	0x0010 02 0e 01 07 02 36 01 07 02 1d 01 0a 02 0e 01 07  .....6..........
+	0x0020 02 04 01 05 02 1e 01 07 02 0e 01 07 02 36 01 07  .............6..
+	0x0030 02 1d 01 1f 02 04 01 08 02 1e 01 05 02 5b 00     .............[.
+go.loc."".foo SDWARFLOC size=51
+	0x0000 ff ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00  ................
+	0x0010 26 00 00 00 00 00 00 00 44 00 00 00 00 00 00 00  &.......D.......
+	0x0020 01 00 50 00 00 00 00 00 00 00 00 00 00 00 00 00  ..P.............
+	0x0030 00 00 00                                         ...
+	rel 8+8 t=1 "".foo+0
+go.info."".foo SDWARFINFO size=44
+	0x0000 02 22 22 2e 66 6f 6f 00 00 00 00 00 00 00 00 00  ."".foo.........
+	0x0010 00 00 00 00 00 00 00 00 01 9c 00 00 00 00 01 0a  ................
+	0x0020 6d 00 15 00 00 00 00 00 00 00 00 00              m...........
+	rel 8+8 t=1 "".foo+0
+	rel 16+8 t=1 "".foo+112
+	rel 26+4 t=29 gofile../Users/chai/go/src/github.com/chai2010/asmgo-talk/examples/funcdata-local/main.go+0
+	rel 35+4 t=28 go.info.map[int]string+0
+	rel 39+4 t=28 go.loc."".foo+0
+go.range."".foo SDWARFRANGE size=0
+go.isstmt."".foo SDWARFMISC size=0
+	0x0000 04 26 01 0f 02 0a 01 05 02 2c 00                 .&.......,.
+go.loc."".foo1 SDWARFLOC size=122
+	0x0000 ff ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00  ................
+	0x0010 2a 00 00 00 00 00 00 00 3f 00 00 00 00 00 00 00  *.......?.......
+	0x0020 01 00 50 3f 00 00 00 00 00 00 00 ac 00 00 00 00  ..P?............
+	0x0030 00 00 00 02 00 91 48 00 00 00 00 00 00 00 00 00  ......H.........
+	0x0040 00 00 00 00 00 00 00 ff ff ff ff ff ff ff ff 00  ................
+	0x0050 00 00 00 00 00 00 00 44 00 00 00 00 00 00 00 7d  .......D.......}
+	0x0060 00 00 00 00 00 00 00 01 00 50 00 00 00 00 00 00  .........P......
+	0x0070 00 00 00 00 00 00 00 00 00 00                    ..........
+	rel 8+8 t=1 "".foo1+0
+	rel 79+8 t=1 "".foo1+0
+go.info."".foo1 SDWARFINFO size=57
+	0x0000 02 22 22 2e 66 6f 6f 31 00 00 00 00 00 00 00 00  ."".foo1........
+	0x0010 00 00 00 00 00 00 00 00 00 01 9c 00 00 00 00 01  ................
+	0x0020 0a 6d 00 1c 00 00 00 00 00 00 00 00 0a 70 00 1d  .m...........p..
+	0x0030 00 00 00 00 00 00 00 00 00                       .........
+	rel 9+8 t=1 "".foo1+0
+	rel 17+8 t=1 "".foo1+172
+	rel 27+4 t=29 gofile../Users/chai/go/src/github.com/chai2010/asmgo-talk/examples/funcdata-local/main.go+0
+	rel 36+4 t=28 go.info.map[int]string+0
+	rel 40+4 t=28 go.loc."".foo1+0
+	rel 48+4 t=28 go.info.*int+0
+	rel 52+4 t=28 go.loc."".foo1+71
+go.range."".foo1 SDWARFRANGE size=0
+go.isstmt."".foo1 SDWARFMISC size=0
+	0x0000 04 2f 01 07 02 0e 01 03 02 0a 01 07 02 0f 01 07  ./..............
+	0x0010 02 0a 01 05 02 2f 00                             ...../.
+go.loc."".foo2 SDWARFLOC size=51
+	0x0000 ff ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00  ................
+	0x0010 32 00 00 00 00 00 00 00 50 00 00 00 00 00 00 00  2.......P.......
+	0x0020 01 00 50 00 00 00 00 00 00 00 00 00 00 00 00 00  ..P.............
+	0x0030 00 00 00                                         ...
+	rel 8+8 t=1 "".foo2+0
+go.info."".foo2 SDWARFINFO size=45
+	0x0000 02 22 22 2e 66 6f 6f 32 00 00 00 00 00 00 00 00  ."".foo2........
+	0x0010 00 00 00 00 00 00 00 00 00 01 9c 00 00 00 00 01  ................
+	0x0020 0a 70 00 24 00 00 00 00 00 00 00 00 00           .p.$.........
+	rel 9+8 t=1 "".foo2+0
+	rel 17+8 t=1 "".foo2+124
+	rel 27+4 t=29 gofile../Users/chai/go/src/github.com/chai2010/asmgo-talk/examples/funcdata-local/main.go+0
+	rel 36+4 t=28 go.info.*int+0
+	rel 40+4 t=28 go.loc."".foo2+0
+go.range."".foo2 SDWARFRANGE size=0
+go.isstmt."".foo2 SDWARFMISC size=0
+	0x0000 04 32 01 0f 02 0a 01 05 02 2c 00                 .2.......,.
+go.loc."".foo3 SDWARFLOC size=0
+go.info."".foo3 SDWARFINFO size=33
+	0x0000 02 22 22 2e 66 6f 6f 33 00 00 00 00 00 00 00 00  ."".foo3........
+	0x0010 00 00 00 00 00 00 00 00 00 01 9c 00 00 00 00 01  ................
+	0x0020 00                                               .
+	rel 9+8 t=1 "".foo3+0
+	rel 17+8 t=1 "".foo3+84
+	rel 27+4 t=29 gofile../Users/chai/go/src/github.com/chai2010/asmgo-talk/examples/funcdata-local/main.go+0
+go.range."".foo3 SDWARFRANGE size=0
+go.isstmt."".foo3 SDWARFMISC size=0
+	0x0000 04 2b 01 05 02 24 00                             .+...$.
+go.loc."".Encode SDWARFLOC size=0
+go.info."".Encode SDWARFINFO size=69
+	0x0000 02 22 22 2e 45 6e 63 6f 64 65 00 00 00 00 00 00  ."".Encode......
+	0x0010 00 00 00 00 00 00 00 00 00 00 00 01 9c 00 00 00  ................
+	0x0020 00 01 0e 6f 00 00 2d 00 00 00 00 00 0e 7e 72 31  ...o..-......~r1
+	0x0030 00 01 2d 00 00 00 00 00 0e 7e 72 32 00 01 2d 00  ..-......~r2..-.
+	0x0040 00 00 00 00 00                                   .....
+	rel 11+8 t=1 "".Encode+0
+	rel 19+8 t=1 "".Encode+120
+	rel 29+4 t=29 gofile../Users/chai/go/src/github.com/chai2010/asmgo-talk/examples/funcdata-local/main.go+0
+	rel 39+4 t=28 go.info.interface {}+0
+	rel 51+4 t=28 go.info.[]uint8+0
+	rel 63+4 t=28 go.info.error+0
+go.range."".Encode SDWARFRANGE size=0
+go.isstmt."".Encode SDWARFMISC size=0
+	0x0000 04 78 00                                         .x.
+go.loc."".Decode SDWARFLOC size=0
+go.info."".Decode SDWARFINFO size=67
+	0x0000 02 22 22 2e 44 65 63 6f 64 65 00 00 00 00 00 00  ."".Decode......
+	0x0010 00 00 00 00 00 00 00 00 00 00 00 01 9c 00 00 00  ................
+	0x0020 00 01 0e 6f 00 00 31 00 00 00 00 00 0e 79 00 00  ...o..1......y..
+	0x0030 31 00 00 00 00 00 0e 7e 72 32 00 01 31 00 00 00  1......~r2..1...
+	0x0040 00 00 00                                         ...
+	rel 11+8 t=1 "".Decode+0
+	rel 19+8 t=1 "".Decode+120
+	rel 29+4 t=29 gofile../Users/chai/go/src/github.com/chai2010/asmgo-talk/examples/funcdata-local/main.go+0
+	rel 39+4 t=28 go.info.interface {}+0
+	rel 49+4 t=28 go.info.[]uint8+0
+	rel 61+4 t=28 go.info.error+0
+go.range."".Decode SDWARFRANGE size=0
+go.isstmt."".Decode SDWARFMISC size=0
+	0x0000 04 78 00                                         .x.
+go.string."" SRODATA dupok size=0
+go.loc."".jsonutilToString SDWARFLOC size=110
+	0x0000 ff ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00  ................
+	0x0010 3e 00 00 00 00 00 00 00 43 00 00 00 00 00 00 00  >.......C.......
+	0x0020 07 00 50 93 08 93 08 93 08 43 00 00 00 00 00 00  ..P......C......
+	0x0030 00 48 00 00 00 00 00 00 00 08 00 50 93 08 52 93  .H.........P..R.
+	0x0040 08 93 08 48 00 00 00 00 00 00 00 7e 00 00 00 00  ...H.......~....
+	0x0050 00 00 00 09 00 50 93 08 52 93 08 51 93 08 00 00  .....P..R..Q....
+	0x0060 00 00 00 00 00 00 00 00 00 00 00 00 00 00        ..............
+	rel 8+8 t=1 "".jsonutilToString+0
+go.info."".jsonutilToString SDWARFINFO size=79
+	0x0000 02 22 22 2e 6a 73 6f 6e 75 74 69 6c 54 6f 53 74  ."".jsonutilToSt
+	0x0010 72 69 6e 67 00 00 00 00 00 00 00 00 00 00 00 00  ring............
+	0x0020 00 00 00 00 00 01 9c 00 00 00 00 01 0a 62 00 36  .............b.6
+	0x0030 00 00 00 00 00 00 00 00 0e 6f 00 00 35 00 00 00  .........o..5...
+	0x0040 00 00 0e 7e 72 31 00 01 35 00 00 00 00 00 00     ...~r1..5......
+	rel 21+8 t=1 "".jsonutilToString+0
+	rel 29+8 t=1 "".jsonutilToString+166
+	rel 39+4 t=29 gofile../Users/chai/go/src/github.com/chai2010/asmgo-talk/examples/funcdata-local/main.go+0
+	rel 48+4 t=28 go.info.[]uint8+0
+	rel 52+4 t=28 go.loc."".jsonutilToString+0
+	rel 61+4 t=28 go.info.interface {}+0
+	rel 73+4 t=28 go.info.string+0
+go.range."".jsonutilToString SDWARFRANGE size=0
+go.isstmt."".jsonutilToString SDWARFMISC size=0
+	0x0000 04 50 01 03 02 53 00                             .P...S.
+go.loc."".init SDWARFLOC size=0
+go.info."".init SDWARFINFO size=33
+	0x0000 02 22 22 2e 69 6e 69 74 00 00 00 00 00 00 00 00  ."".init........
+	0x0010 00 00 00 00 00 00 00 00 00 01 9c 00 00 00 00 01  ................
+	0x0020 00                                               .
+	rel 9+8 t=1 "".init+0
+	rel 17+8 t=1 "".init+97
+	rel 27+4 t=29 gofile..<autogenerated>+0
+go.range."".init SDWARFRANGE size=0
+go.isstmt."".init SDWARFMISC size=0
+	0x0000 04 61 00                                         .a.
+"".initdone· SNOPTRBSS size=1
+runtime.gcbits.01 SRODATA dupok size=1
+	0x0000 01                                               .
+type..namedata.*interface {}- SRODATA dupok size=16
+	0x0000 00 00 0d 2a 69 6e 74 65 72 66 61 63 65 20 7b 7d  ...*interface {}
+type.*interface {} SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 4f 0f 96 9d 00 08 08 36 00 00 00 00 00 00 00 00  O......6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+80
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*interface {}-+0
+	rel 48+8 t=1 type.interface {}+0
+runtime.gcbits.02 SRODATA dupok size=1
+	0x0000 02                                               .
+type.interface {} SRODATA dupok size=80
+	0x0000 10 00 00 00 00 00 00 00 10 00 00 00 00 00 00 00  ................
+	0x0010 e7 57 a0 18 02 08 08 14 00 00 00 00 00 00 00 00  .W..............
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	rel 24+8 t=1 runtime.algarray+144
+	rel 32+8 t=1 runtime.gcbits.02+0
+	rel 40+4 t=5 type..namedata.*interface {}-+0
+	rel 44+4 t=6 type.*interface {}+0
+	rel 56+8 t=1 type.interface {}+80
+type..namedata.*[]interface {}- SRODATA dupok size=18
+	0x0000 00 00 0f 2a 5b 5d 69 6e 74 65 72 66 61 63 65 20  ...*[]interface 
+	0x0010 7b 7d                                            {}
+type.*[]interface {} SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 f3 04 9a e7 00 08 08 36 00 00 00 00 00 00 00 00  .......6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+80
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*[]interface {}-+0
+	rel 48+8 t=1 type.[]interface {}+0
+type.[]interface {} SRODATA dupok size=56
+	0x0000 18 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 70 93 ea 2f 02 08 08 17 00 00 00 00 00 00 00 00  p../............
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+0
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*[]interface {}-+0
+	rel 44+4 t=6 type.*[]interface {}+0
+	rel 48+8 t=1 type.interface {}+0
+type..namedata.*[1]interface {}- SRODATA dupok size=19
+	0x0000 00 00 10 2a 5b 31 5d 69 6e 74 65 72 66 61 63 65  ...*[1]interface
+	0x0010 20 7b 7d                                          {}
+type.*[1]interface {} SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 bf 03 a8 35 00 08 08 36 00 00 00 00 00 00 00 00  ...5...6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+80
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*[1]interface {}-+0
+	rel 48+8 t=1 type.[1]interface {}+0
+type.[1]interface {} SRODATA dupok size=72
+	0x0000 10 00 00 00 00 00 00 00 10 00 00 00 00 00 00 00  ................
+	0x0010 50 91 5b fa 02 08 08 11 00 00 00 00 00 00 00 00  P.[.............
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 01 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+144
+	rel 32+8 t=1 runtime.gcbits.02+0
+	rel 40+4 t=5 type..namedata.*[1]interface {}-+0
+	rel 44+4 t=6 type.*[1]interface {}+0
+	rel 48+8 t=1 type.interface {}+0
+	rel 56+8 t=1 type.[]interface {}+0
+go.loc.type..hash.[2]interface {} SDWARFLOC dupok size=173
+	0x0000 ff ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00  ................
+	0x0010 2b 00 00 00 00 00 00 00 56 00 00 00 00 00 00 00  +.......V.......
+	0x0020 02 00 91 68 56 00 00 00 00 00 00 00 6e 00 00 00  ...hV.......n...
+	0x0030 00 00 00 00 01 00 50 00 00 00 00 00 00 00 00 00  ......P.........
+	0x0040 00 00 00 00 00 00 00 ff ff ff ff ff ff ff ff 00  ................
+	0x0050 00 00 00 00 00 00 00 1f 00 00 00 00 00 00 00 6e  ...............n
+	0x0060 00 00 00 00 00 00 00 01 00 9c 00 00 00 00 00 00  ................
+	0x0070 00 00 00 00 00 00 00 00 00 00 ff ff ff ff ff ff  ................
+	0x0080 ff ff 00 00 00 00 00 00 00 00 4a 00 00 00 00 00  ..........J.....
+	0x0090 00 00 6e 00 00 00 00 00 00 00 01 00 52 00 00 00  ..n.........R...
+	0x00a0 00 00 00 00 00 00 00 00 00 00 00 00 00           .............
+	rel 8+8 t=1 type..hash.[2]interface {}+0
+	rel 79+8 t=1 type..hash.[2]interface {}+0
+	rel 130+8 t=1 type..hash.[2]interface {}+0
+go.info.type..hash.[2]interface {} SDWARFINFO dupok size=102
+	0x0000 02 74 79 70 65 2e 2e 68 61 73 68 2e 5b 32 5d 69  .type..hash.[2]i
+	0x0010 6e 74 65 72 66 61 63 65 20 7b 7d 00 00 00 00 00  nterface {}.....
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 01 9c 00 00  ................
+	0x0030 00 00 01 0a 69 00 01 00 00 00 00 00 00 00 00 0f  ....i...........
+	0x0040 70 00 00 01 00 00 00 00 00 00 00 00 0f 68 00 00  p............h..
+	0x0050 01 00 00 00 00 00 00 00 00 0e 7e 72 32 00 01 01  ..........~r2...
+	0x0060 00 00 00 00 00 00                                ......
+	rel 28+8 t=1 type..hash.[2]interface {}+0
+	rel 36+8 t=1 type..hash.[2]interface {}+110
+	rel 46+4 t=29 gofile..<autogenerated>+0
+	rel 55+4 t=28 go.info.int+0
+	rel 59+4 t=28 go.loc.type..hash.[2]interface {}+0
+	rel 68+4 t=28 go.info.*[2]interface {}+0
+	rel 72+4 t=28 go.loc.type..hash.[2]interface {}+71
+	rel 81+4 t=28 go.info.uintptr+0
+	rel 85+4 t=28 go.loc.type..hash.[2]interface {}+122
+	rel 96+4 t=28 go.info.uintptr+0
+go.range.type..hash.[2]interface {} SDWARFRANGE dupok size=0
+go.isstmt.type..hash.[2]interface {} SDWARFMISC dupok size=0
+	0x0000 04 6e 00                                         .n.
+go.loc.type..eq.[2]interface {} SDWARFLOC dupok size=154
+	0x0000 ff ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00  ................
+	0x0010 4c 00 00 00 00 00 00 00 55 00 00 00 00 00 00 00  L.......U.......
+	0x0020 01 00 51 00 00 00 00 00 00 00 00 00 00 00 00 00  ..Q.............
+	0x0030 00 00 00 ff ff ff ff ff ff ff ff 00 00 00 00 00  ................
+	0x0040 00 00 00 26 00 00 00 00 00 00 00 b6 00 00 00 00  ...&............
+	0x0050 00 00 00 01 00 9c 00 00 00 00 00 00 00 00 00 00  ................
+	0x0060 00 00 00 00 00 00 ff ff ff ff ff ff ff ff 00 00  ................
+	0x0070 00 00 00 00 00 00 26 00 00 00 00 00 00 00 b6 00  ......&.........
+	0x0080 00 00 00 00 00 00 02 00 91 08 00 00 00 00 00 00  ................
+	0x0090 00 00 00 00 00 00 00 00 00 00                    ..........
+	rel 8+8 t=1 type..eq.[2]interface {}+0
+	rel 59+8 t=1 type..eq.[2]interface {}+0
+	rel 110+8 t=1 type..eq.[2]interface {}+0
+go.info.type..eq.[2]interface {} SDWARFINFO dupok size=100
+	0x0000 02 74 79 70 65 2e 2e 65 71 2e 5b 32 5d 69 6e 74  .type..eq.[2]int
+	0x0010 65 72 66 61 63 65 20 7b 7d 00 00 00 00 00 00 00  erface {}.......
+	0x0020 00 00 00 00 00 00 00 00 00 00 01 9c 00 00 00 00  ................
+	0x0030 01 0a 69 00 01 00 00 00 00 00 00 00 00 0f 70 00  ..i...........p.
+	0x0040 00 01 00 00 00 00 00 00 00 00 0f 71 00 00 01 00  ...........q....
+	0x0050 00 00 00 00 00 00 00 0e 7e 72 32 00 01 01 00 00  ........~r2.....
+	0x0060 00 00 00 00                                      ....
+	rel 26+8 t=1 type..eq.[2]interface {}+0
+	rel 34+8 t=1 type..eq.[2]interface {}+182
+	rel 44+4 t=29 gofile..<autogenerated>+0
+	rel 53+4 t=28 go.info.int+0
+	rel 57+4 t=28 go.loc.type..eq.[2]interface {}+0
+	rel 66+4 t=28 go.info.*[2]interface {}+0
+	rel 70+4 t=28 go.loc.type..eq.[2]interface {}+51
+	rel 79+4 t=28 go.info.*[2]interface {}+0
+	rel 83+4 t=28 go.loc.type..eq.[2]interface {}+102
+	rel 94+4 t=28 go.info.bool+0
+go.range.type..eq.[2]interface {} SDWARFRANGE dupok size=0
+go.isstmt.type..eq.[2]interface {} SDWARFMISC dupok size=0
+	0x0000 04 84 01 01 05 02 2d 00                          ......-.
+type..hashfunc.[2]interface {} SRODATA dupok size=8
+	0x0000 00 00 00 00 00 00 00 00                          ........
+	rel 0+8 t=1 type..hash.[2]interface {}+0
+type..eqfunc.[2]interface {} SRODATA dupok size=8
+	0x0000 00 00 00 00 00 00 00 00                          ........
+	rel 0+8 t=1 type..eq.[2]interface {}+0
+type..alg.[2]interface {} SRODATA dupok size=16
+	0x0000 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	rel 0+8 t=1 type..hashfunc.[2]interface {}+0
+	rel 8+8 t=1 type..eqfunc.[2]interface {}+0
+type..namedata.*[2]interface {}- SRODATA dupok size=19
+	0x0000 00 00 10 2a 5b 32 5d 69 6e 74 65 72 66 61 63 65  ...*[2]interface
+	0x0010 20 7b 7d                                          {}
+type.*[2]interface {} SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 be 73 2d 71 00 08 08 36 00 00 00 00 00 00 00 00  .s-q...6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+80
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*[2]interface {}-+0
+	rel 48+8 t=1 type.[2]interface {}+0
+runtime.gcbits.0a SRODATA dupok size=1
+	0x0000 0a                                               .
+type.[2]interface {} SRODATA dupok size=72
+	0x0000 20 00 00 00 00 00 00 00 20 00 00 00 00 00 00 00   ....... .......
+	0x0010 2c 59 a4 f1 02 08 08 11 00 00 00 00 00 00 00 00  ,Y..............
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 02 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 type..alg.[2]interface {}+0
+	rel 32+8 t=1 runtime.gcbits.0a+0
+	rel 40+4 t=5 type..namedata.*[2]interface {}-+0
+	rel 44+4 t=6 type.*[2]interface {}+0
+	rel 48+8 t=1 type.interface {}+0
+	rel 56+8 t=1 type.[]interface {}+0
+type..namedata.*[]uint8- SRODATA dupok size=11
+	0x0000 00 00 08 2a 5b 5d 75 69 6e 74 38                 ...*[]uint8
+type.*[]uint8 SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 a5 8e d0 69 00 08 08 36 00 00 00 00 00 00 00 00  ...i...6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+80
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*[]uint8-+0
+	rel 48+8 t=1 type.[]uint8+0
+type.[]uint8 SRODATA dupok size=56
+	0x0000 18 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 df 7e 2e 38 02 08 08 17 00 00 00 00 00 00 00 00  .~.8............
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+0
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*[]uint8-+0
+	rel 44+4 t=6 type.*[]uint8+0
+	rel 48+8 t=1 type.uint8+0
+type..namedata.*[8]uint8- SRODATA dupok size=12
+	0x0000 00 00 09 2a 5b 38 5d 75 69 6e 74 38              ...*[8]uint8
+type.*[8]uint8 SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 a9 89 a5 7a 00 08 08 36 00 00 00 00 00 00 00 00  ...z...6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+80
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*[8]uint8-+0
+	rel 48+8 t=1 type.[8]uint8+0
+runtime.gcbits. SRODATA dupok size=0
+type.[8]uint8 SRODATA dupok size=72
+	0x0000 08 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0010 3e f9 30 b4 02 01 01 91 00 00 00 00 00 00 00 00  >.0.............
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 08 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+80
+	rel 32+8 t=1 runtime.gcbits.+0
+	rel 40+4 t=5 type..namedata.*[8]uint8-+0
+	rel 44+4 t=6 type.*[8]uint8+0
+	rel 48+8 t=1 type.uint8+0
+	rel 56+8 t=1 type.[]uint8+0
+type..namedata.*[]int- SRODATA dupok size=9
+	0x0000 00 00 06 2a 5b 5d 69 6e 74                       ...*[]int
+type.*[]int SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 1b 31 52 88 00 08 08 36 00 00 00 00 00 00 00 00  .1R....6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+80
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*[]int-+0
+	rel 48+8 t=1 type.[]int+0
+type.[]int SRODATA dupok size=56
+	0x0000 18 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 8e 66 f9 1b 02 08 08 17 00 00 00 00 00 00 00 00  .f..............
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+0
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*[]int-+0
+	rel 44+4 t=6 type.*[]int+0
+	rel 48+8 t=1 type.int+0
+type..namedata.*[8]int- SRODATA dupok size=10
+	0x0000 00 00 07 2a 5b 38 5d 69 6e 74                    ...*[8]int
+type.*[8]int SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 f3 3f a8 3b 00 08 08 36 00 00 00 00 00 00 00 00  .?.;...6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+80
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*[8]int-+0
+	rel 48+8 t=1 type.noalg.[8]int+0
+type.noalg.[8]int SRODATA dupok size=72
+	0x0000 40 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  @...............
+	0x0010 96 99 d5 05 02 08 08 91 00 00 00 00 00 00 00 00  ................
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 08 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+0
+	rel 32+8 t=1 runtime.gcbits.+0
+	rel 40+4 t=5 type..namedata.*[8]int-+0
+	rel 44+4 t=6 type.*[8]int+0
+	rel 48+8 t=1 type.int+0
+	rel 56+8 t=1 type.[]int+0
+type..namedata.*[]string- SRODATA dupok size=12
+	0x0000 00 00 09 2a 5b 5d 73 74 72 69 6e 67              ...*[]string
+type.*[]string SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 92 22 76 84 00 08 08 36 00 00 00 00 00 00 00 00  ."v....6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+80
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*[]string-+0
+	rel 48+8 t=1 type.[]string+0
+type.[]string SRODATA dupok size=56
+	0x0000 18 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 d3 a8 f3 0a 02 08 08 17 00 00 00 00 00 00 00 00  ................
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+0
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*[]string-+0
+	rel 44+4 t=6 type.*[]string+0
+	rel 48+8 t=1 type.string+0
+type..namedata.*[8]string- SRODATA dupok size=13
+	0x0000 00 00 0a 2a 5b 38 5d 73 74 72 69 6e 67           ...*[8]string
+type.*[8]string SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 ad 94 14 6f 00 08 08 36 00 00 00 00 00 00 00 00  ...o...6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+80
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*[8]string-+0
+	rel 48+8 t=1 type.noalg.[8]string+0
+runtime.gcbits.5555 SRODATA dupok size=2
+	0x0000 55 55                                            UU
+type.noalg.[8]string SRODATA dupok size=72
+	0x0000 80 00 00 00 00 00 00 00 78 00 00 00 00 00 00 00  ........x.......
+	0x0010 55 53 8c 3e 02 08 08 11 00 00 00 00 00 00 00 00  US.>............
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 08 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+0
+	rel 32+8 t=1 runtime.gcbits.5555+0
+	rel 40+4 t=5 type..namedata.*[8]string-+0
+	rel 44+4 t=6 type.*[8]string+0
+	rel 48+8 t=1 type.string+0
+	rel 56+8 t=1 type.[]string+0
+type..namedata.*map.bucket[int]string- SRODATA dupok size=25
+	0x0000 00 00 16 2a 6d 61 70 2e 62 75 63 6b 65 74 5b 69  ...*map.bucket[i
+	0x0010 6e 74 5d 73 74 72 69 6e 67                       nt]string
+type.*map.bucket[int]string SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 04 a6 2b 12 00 08 08 36 00 00 00 00 00 00 00 00  ..+....6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+80
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*map.bucket[int]string-+0
+	rel 48+8 t=1 type.noalg.map.bucket[int]string+0
+runtime.gcbits.00aaaa02 SRODATA dupok size=4
+	0x0000 00 aa aa 02                                      ....
+type..importpath.. SRODATA dupok size=3
+	0x0000 00 00 00                                         ...
+type..namedata.topbits- SRODATA dupok size=10
+	0x0000 00 00 07 74 6f 70 62 69 74 73                    ...topbits
+type..namedata.keys- SRODATA dupok size=7
+	0x0000 00 00 04 6b 65 79 73                             ...keys
+type..namedata.values- SRODATA dupok size=9
+	0x0000 00 00 06 76 61 6c 75 65 73                       ...values
+type..namedata.overflow- SRODATA dupok size=11
+	0x0000 00 00 08 6f 76 65 72 66 6c 6f 77                 ...overflow
+type.noalg.map.bucket[int]string SRODATA dupok size=176
+	0x0000 d0 00 00 00 00 00 00 00 d0 00 00 00 00 00 00 00  ................
+	0x0010 64 a3 2d a6 02 08 08 19 00 00 00 00 00 00 00 00  d.-.............
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 04 00 00 00 00 00 00 00 04 00 00 00 00 00 00 00  ................
+	0x0050 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0060 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0070 00 00 00 00 00 00 00 00 10 00 00 00 00 00 00 00  ................
+	0x0080 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0090 90 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x00a0 00 00 00 00 00 00 00 00 90 01 00 00 00 00 00 00  ................
+	rel 24+8 t=1 runtime.algarray+0
+	rel 32+8 t=1 runtime.gcbits.00aaaa02+0
+	rel 40+4 t=5 type..namedata.*map.bucket[int]string-+0
+	rel 44+4 t=6 type.*map.bucket[int]string+0
+	rel 48+8 t=1 type..importpath..+0
+	rel 56+8 t=1 type.noalg.map.bucket[int]string+80
+	rel 80+8 t=1 type..namedata.topbits-+0
+	rel 88+8 t=1 type.[8]uint8+0
+	rel 104+8 t=1 type..namedata.keys-+0
+	rel 112+8 t=1 type.noalg.[8]int+0
+	rel 128+8 t=1 type..namedata.values-+0
+	rel 136+8 t=1 type.noalg.[8]string+0
+	rel 152+8 t=1 type..namedata.overflow-+0
+	rel 160+8 t=1 type.*map.bucket[int]string+0
+type..namedata.*map[int]string- SRODATA dupok size=18
+	0x0000 00 00 0f 2a 6d 61 70 5b 69 6e 74 5d 73 74 72 69  ...*map[int]stri
+	0x0010 6e 67                                            ng
+type.*map[int]string SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 56 97 f6 03 00 08 08 36 00 00 00 00 00 00 00 00  V......6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+80
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*map[int]string-+0
+	rel 48+8 t=1 type.map[int]string+0
+type.map[int]string SRODATA dupok size=80
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 26 5c 96 90 02 08 08 35 00 00 00 00 00 00 00 00  &\.....5........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 00 00 00 00 00 00 00 00 08 00 10 00 d0 00 01 00  ................
+	rel 24+8 t=1 runtime.algarray+0
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*map[int]string-+0
+	rel 44+4 t=6 type.*map[int]string+0
+	rel 48+8 t=1 type.int+0
+	rel 56+8 t=1 type.string+0
+	rel 64+8 t=1 type.noalg.map.bucket[int]string+0
+type..namedata.*[8]interface {}- SRODATA dupok size=19
+	0x0000 00 00 10 2a 5b 38 5d 69 6e 74 65 72 66 61 63 65  ...*[8]interface
+	0x0010 20 7b 7d                                          {}
+type.*[8]interface {} SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 89 61 4b 14 00 08 08 36 00 00 00 00 00 00 00 00  .aK....6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+80
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*[8]interface {}-+0
+	rel 48+8 t=1 type.noalg.[8]interface {}+0
+runtime.gcbits.aaaa SRODATA dupok size=2
+	0x0000 aa aa                                            ..
+type.noalg.[8]interface {} SRODATA dupok size=72
+	0x0000 80 00 00 00 00 00 00 00 80 00 00 00 00 00 00 00  ................
+	0x0010 c7 2e 54 f0 02 08 08 11 00 00 00 00 00 00 00 00  ..T.............
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 08 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+0
+	rel 32+8 t=1 runtime.gcbits.aaaa+0
+	rel 40+4 t=5 type..namedata.*[8]interface {}-+0
+	rel 44+4 t=6 type.*[8]interface {}+0
+	rel 48+8 t=1 type.interface {}+0
+	rel 56+8 t=1 type.[]interface {}+0
+type..namedata.*map.bucket[string]interface {}- SRODATA dupok size=34
+	0x0000 00 00 1f 2a 6d 61 70 2e 62 75 63 6b 65 74 5b 73  ...*map.bucket[s
+	0x0010 74 72 69 6e 67 5d 69 6e 74 65 72 66 61 63 65 20  tring]interface 
+	0x0020 7b 7d                                            {}
+type.*map.bucket[string]interface {} SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 f6 0e cc e8 00 08 08 36 00 00 00 00 00 00 00 00  .......6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+80
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*map.bucket[string]interface {}-+0
+	rel 48+8 t=1 type.noalg.map.bucket[string]interface {}+0
+runtime.gcbits.aaaa545503 SRODATA dupok size=5
+	0x0000 aa aa 54 55 03                                   ..TU.
+type.noalg.map.bucket[string]interface {} SRODATA dupok size=176
+	0x0000 10 01 00 00 00 00 00 00 10 01 00 00 00 00 00 00  ................
+	0x0010 0e 0a be f7 02 08 08 19 00 00 00 00 00 00 00 00  ................
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 04 00 00 00 00 00 00 00 04 00 00 00 00 00 00 00  ................
+	0x0050 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0060 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0070 00 00 00 00 00 00 00 00 10 00 00 00 00 00 00 00  ................
+	0x0080 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0090 10 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x00a0 00 00 00 00 00 00 00 00 10 02 00 00 00 00 00 00  ................
+	rel 24+8 t=1 runtime.algarray+0
+	rel 32+8 t=1 runtime.gcbits.aaaa545503+0
+	rel 40+4 t=5 type..namedata.*map.bucket[string]interface {}-+0
+	rel 44+4 t=6 type.*map.bucket[string]interface {}+0
+	rel 48+8 t=1 type..importpath..+0
+	rel 56+8 t=1 type.noalg.map.bucket[string]interface {}+80
+	rel 80+8 t=1 type..namedata.topbits-+0
+	rel 88+8 t=1 type.[8]uint8+0
+	rel 104+8 t=1 type..namedata.keys-+0
+	rel 112+8 t=1 type.noalg.[8]string+0
+	rel 128+8 t=1 type..namedata.values-+0
+	rel 136+8 t=1 type.noalg.[8]interface {}+0
+	rel 152+8 t=1 type..namedata.overflow-+0
+	rel 160+8 t=1 type.*map.bucket[string]interface {}+0
+type..namedata.*map[string]interface {}- SRODATA dupok size=27
+	0x0000 00 00 18 2a 6d 61 70 5b 73 74 72 69 6e 67 5d 69  ...*map[string]i
+	0x0010 6e 74 65 72 66 61 63 65 20 7b 7d                 nterface {}
+type.*map[string]interface {} SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 0e 89 65 63 00 08 08 36 00 00 00 00 00 00 00 00  ..ec...6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+80
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*map[string]interface {}-+0
+	rel 48+8 t=1 type.map[string]interface {}+0
+type.map[string]interface {} SRODATA dupok size=80
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 86 62 71 0e 02 08 08 35 00 00 00 00 00 00 00 00  .bq....5........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 00 00 00 00 00 00 00 00 10 00 10 00 10 01 01 01  ................
+	rel 24+8 t=1 runtime.algarray+0
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*map[string]interface {}-+0
+	rel 44+4 t=6 type.*map[string]interface {}+0
+	rel 48+8 t=1 type.string+0
+	rel 56+8 t=1 type.interface {}+0
+	rel 64+8 t=1 type.noalg.map.bucket[string]interface {}+0
+type..importpath.encoding/json. SRODATA dupok size=16
+	0x0000 00 00 0d 65 6e 63 6f 64 69 6e 67 2f 6a 73 6f 6e  ...encoding/json
+type..importpath.fmt. SRODATA dupok size=6
+	0x0000 00 00 03 66 6d 74                                ...fmt
+gclocals·0ce64bbc7cfa5ef04d41c861de81a3d7 SRODATA dupok size=8
+	0x0000 08 00 00 00 00 00 00 00                          ........
+gclocals·3e3b7180bf2fe31e1bae0bc5717a21d7 SRODATA dupok size=24
+	0x0000 08 00 00 00 0b 00 00 00 00 00 80 00 82 00 86 00  ................
+	0x0010 20 00 21 00 25 00 10 02                           .!.%...
+gclocals·69c1753bd5f81501d95132d08af04464 SRODATA dupok size=8
+	0x0000 02 00 00 00 00 00 00 00                          ........
+gclocals·568470801006e5c0dc3947ea998fe279 SRODATA dupok size=10
+	0x0000 02 00 00 00 02 00 00 00 00 02                    ..........
+gclocals·7d2d5fca80364273fb07d5820a76fef4 SRODATA dupok size=8
+	0x0000 03 00 00 00 00 00 00 00                          ........
+gclocals·80b0d9ad63c242a848af3702a9ec7107 SRODATA dupok size=11
+	0x0000 03 00 00 00 05 00 00 00 00 01 14                 ...........
+gclocals·33cdeccccebe80329f1fdbee7f5874cb SRODATA dupok size=8
+	0x0000 01 00 00 00 00 00 00 00                          ........
+gclocals·d39053b1cd6da978eb3ffbd501e63ec0 SRODATA dupok size=10
+	0x0000 02 00 00 00 07 00 00 00 02 00                    ..........
+gclocals·b15988bb9a6c5e0aba983211203f7743 SRODATA dupok size=10
+	0x0000 02 00 00 00 07 00 00 00 11 00                    ..........
+gclocals·abb2c5050fe821353449583ee1559325 SRODATA dupok size=10
+	0x0000 02 00 00 00 03 00 00 00 02 00                    ..........
+gclocals·a36216b97439c93dafebe03e7f0808b5 SRODATA dupok size=9
+	0x0000 01 00 00 00 01 00 00 00 01                       .........
+gclocals·d2de89f6cf5e99ce0097843c3071e829 SRODATA dupok size=9
+	0x0000 01 00 00 00 02 00 00 00 03                       .........
