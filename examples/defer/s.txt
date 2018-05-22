@@ -1,0 +1,123 @@
+"".myprint STEXT size=75 args=0x10 locals=0x10
+	0x0000 00000 (main.go:4)	TEXT	"".myprint(SB), $16-16
+	0x0000 00000 (main.go:4)	MOVQ	(TLS), CX
+	0x0009 00009 (main.go:4)	CMPQ	SP, 16(CX)
+	0x000d 00013 (main.go:4)	JLS	68
+	0x000f 00015 (main.go:4)	SUBQ	$16, SP
+	0x0013 00019 (main.go:4)	MOVQ	BP, 8(SP)
+	0x0018 00024 (main.go:4)	LEAQ	8(SP), BP
+	0x001d 00029 (main.go:4)	FUNCDATA	$0, gclocals·33cdeccccebe80329f1fdbee7f5874cb(SB)
+	0x001d 00029 (main.go:4)	FUNCDATA	$1, gclocals·33cdeccccebe80329f1fdbee7f5874cb(SB)
+	0x001d 00029 (main.go:5)	PCDATA	$0, $0
+	0x001d 00029 (main.go:5)	CALL	runtime.printlock(SB)
+	0x0022 00034 (main.go:4)	MOVQ	"".x+24(SP), AX
+	0x0027 00039 (main.go:5)	MOVQ	AX, (SP)
+	0x002b 00043 (main.go:5)	PCDATA	$0, $0
+	0x002b 00043 (main.go:5)	CALL	runtime.printint(SB)
+	0x0030 00048 (main.go:5)	PCDATA	$0, $0
+	0x0030 00048 (main.go:5)	CALL	runtime.printnl(SB)
+	0x0035 00053 (main.go:5)	PCDATA	$0, $0
+	0x0035 00053 (main.go:5)	CALL	runtime.printunlock(SB)
+	0x003a 00058 (main.go:6)	MOVQ	8(SP), BP
+	0x003f 00063 (main.go:6)	ADDQ	$16, SP
+	0x0043 00067 (main.go:6)	RET
+	0x0044 00068 (main.go:6)	NOP
+	0x0044 00068 (main.go:4)	PCDATA	$0, $-1
+	0x0044 00068 (main.go:4)	CALL	runtime.morestack_noctxt(SB)
+	0x0049 00073 (main.go:4)	JMP	0
+	0x0000 65 48 8b 0c 25 00 00 00 00 48 3b 61 10 76 35 48  eH..%....H;a.v5H
+	0x0010 83 ec 10 48 89 6c 24 08 48 8d 6c 24 08 e8 00 00  ...H.l$.H.l$....
+	0x0020 00 00 48 8b 44 24 18 48 89 04 24 e8 00 00 00 00  ..H.D$.H..$.....
+	0x0030 e8 00 00 00 00 e8 00 00 00 00 48 8b 6c 24 08 48  ..........H.l$.H
+	0x0040 83 c4 10 c3 e8 00 00 00 00 eb b5                 ...........
+	rel 5+4 t=16 TLS+0
+	rel 30+4 t=8 runtime.printlock+0
+	rel 44+4 t=8 runtime.printint+0
+	rel 49+4 t=8 runtime.printnl+0
+	rel 54+4 t=8 runtime.printunlock+0
+	rel 69+4 t=8 runtime.morestack_noctxt+0
+"".gofun STEXT size=139 args=0x0 locals=0x28
+	0x0000 00000 (main.go:9)	TEXT	"".gofun(SB), $40-0
+	0x0000 00000 (main.go:9)	MOVQ	(TLS), CX
+	0x0009 00009 (main.go:9)	CMPQ	SP, 16(CX)
+	0x000d 00013 (main.go:9)	JLS	129
+	0x000f 00015 (main.go:9)	SUBQ	$40, SP
+	0x0013 00019 (main.go:9)	MOVQ	BP, 32(SP)
+	0x0018 00024 (main.go:9)	LEAQ	32(SP), BP
+	0x001d 00029 (main.go:9)	FUNCDATA	$0, gclocals·33cdeccccebe80329f1fdbee7f5874cb(SB)
+	0x001d 00029 (main.go:9)	FUNCDATA	$1, gclocals·33cdeccccebe80329f1fdbee7f5874cb(SB)
+	0x001d 00029 (main.go:10)	MOVQ	$123, 16(SP)
+	0x0026 00038 (main.go:10)	MOVQ	$4, 24(SP)
+	0x002f 00047 (main.go:10)	MOVL	$16, (SP)
+	0x0036 00054 (main.go:10)	LEAQ	"".myprint·f(SB), AX
+	0x003d 00061 (main.go:10)	MOVQ	AX, 8(SP)
+	0x0042 00066 (main.go:10)	PCDATA	$0, $0
+	0x0042 00066 (main.go:10)	CALL	runtime.deferproc(SB)
+	0x0047 00071 (main.go:10)	TESTL	AX, AX
+	0x0049 00073 (main.go:10)	JNE	113
+	0x004b 00075 (main.go:11)	MOVQ	$567, (SP)
+	0x0053 00083 (main.go:11)	MOVQ	$8, 8(SP)
+	0x005c 00092 (main.go:11)	PCDATA	$0, $0
+	0x005c 00092 (main.go:11)	CALL	"".myprint(SB)
+	0x0061 00097 (main.go:12)	PCDATA	$0, $0
+	0x0061 00097 (main.go:12)	XCHGL	AX, AX
+	0x0062 00098 (main.go:12)	CALL	runtime.deferreturn(SB)
+	0x0067 00103 (main.go:12)	MOVQ	32(SP), BP
+	0x006c 00108 (main.go:12)	ADDQ	$40, SP
+	0x0070 00112 (main.go:12)	RET
+	0x0071 00113 (main.go:10)	PCDATA	$0, $0
+	0x0071 00113 (main.go:10)	XCHGL	AX, AX
+	0x0072 00114 (main.go:10)	CALL	runtime.deferreturn(SB)
+	0x0077 00119 (main.go:10)	MOVQ	32(SP), BP
+	0x007c 00124 (main.go:10)	ADDQ	$40, SP
+	0x0080 00128 (main.go:10)	RET
+	0x0081 00129 (main.go:10)	NOP
+	0x0081 00129 (main.go:9)	PCDATA	$0, $-1
+	0x0081 00129 (main.go:9)	CALL	runtime.morestack_noctxt(SB)
+	0x0086 00134 (main.go:9)	JMP	0
+	0x0000 65 48 8b 0c 25 00 00 00 00 48 3b 61 10 76 72 48  eH..%....H;a.vrH
+	0x0010 83 ec 28 48 89 6c 24 20 48 8d 6c 24 20 48 c7 44  ..(H.l$ H.l$ H.D
+	0x0020 24 10 7b 00 00 00 48 c7 44 24 18 04 00 00 00 c7  $.{...H.D$......
+	0x0030 04 24 10 00 00 00 48 8d 05 00 00 00 00 48 89 44  .$....H......H.D
+	0x0040 24 08 e8 00 00 00 00 85 c0 75 26 48 c7 04 24 37  $........u&H..$7
+	0x0050 02 00 00 48 c7 44 24 08 08 00 00 00 e8 00 00 00  ...H.D$.........
+	0x0060 00 90 e8 00 00 00 00 48 8b 6c 24 20 48 83 c4 28  .......H.l$ H..(
+	0x0070 c3 90 e8 00 00 00 00 48 8b 6c 24 20 48 83 c4 28  .......H.l$ H..(
+	0x0080 c3 e8 00 00 00 00 e9 75 ff ff ff                 .......u...
+	rel 5+4 t=16 TLS+0
+	rel 57+4 t=15 "".myprint·f+0
+	rel 67+4 t=8 runtime.deferproc+0
+	rel 93+4 t=8 "".myprint+0
+	rel 99+4 t=8 runtime.deferreturn+0
+	rel 115+4 t=8 runtime.deferreturn+0
+	rel 130+4 t=8 runtime.morestack_noctxt+0
+go.loc."".myprint SDWARFLOC size=0
+go.info."".myprint SDWARFINFO size=56
+	0x0000 02 22 22 2e 6d 79 70 72 69 6e 74 00 00 00 00 00  ."".myprint.....
+	0x0010 00 00 00 00 00 00 00 00 00 00 00 00 01 9c 00 00  ................
+	0x0020 00 00 01 0e 78 00 00 04 00 00 00 00 00 0e 79 00  ....x.........y.
+	0x0030 00 04 00 00 00 00 00 00                          ........
+	rel 12+8 t=1 "".myprint+0
+	rel 20+8 t=1 "".myprint+75
+	rel 30+4 t=29 gofile../Users/chai/go/src/github.com/chai2010/asmgo-talk/examples/defer/main.go+0
+	rel 40+4 t=28 go.info.int+0
+	rel 50+4 t=28 go.info.int+0
+go.range."".myprint SDWARFRANGE size=0
+go.isstmt."".myprint SDWARFMISC size=0
+	0x0000 04 4b 00                                         .K.
+go.loc."".gofun SDWARFLOC size=0
+go.info."".gofun SDWARFINFO size=34
+	0x0000 02 22 22 2e 67 6f 66 75 6e 00 00 00 00 00 00 00  ."".gofun.......
+	0x0010 00 00 00 00 00 00 00 00 00 00 01 9c 00 00 00 00  ................
+	0x0020 01 00                                            ..
+	rel 10+8 t=1 "".gofun+0
+	rel 18+8 t=1 "".gofun+139
+	rel 28+4 t=29 gofile../Users/chai/go/src/github.com/chai2010/asmgo-talk/examples/defer/main.go+0
+go.range."".gofun SDWARFRANGE size=0
+go.isstmt."".gofun SDWARFMISC size=0
+	0x0000 04 36 01 07 02 4e 00                             .6...N.
+"".myprint·f SRODATA dupok size=8
+	0x0000 00 00 00 00 00 00 00 00                          ........
+	rel 0+8 t=1 "".myprint+0
+gclocals·33cdeccccebe80329f1fdbee7f5874cb SRODATA dupok size=8
+	0x0000 01 00 00 00 00 00 00 00                          ........
