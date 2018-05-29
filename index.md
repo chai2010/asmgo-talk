@@ -1924,6 +1924,11 @@ funcdata 第二个符号对应数据的具体结构？
 /Users/chai/go-tip/src/cmd/asm/internal/asm/asm.go
 汇编指令处理
 
+
+https://dave.cheney.net/2018/05/29/how-the-go-runtime-implements-maps-efficiently-without-generics
+
+map 范型的底层实现，对比汇编结构
+
 -->
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
