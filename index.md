@@ -1949,6 +1949,7 @@ https://www.zhihu.com/question/56501530
 http://blog.reverberate.org/2012/12/hello-jit-world-joy-of-simple-jits.html
 https://qlee.in/huan-ying-lai-dao-jitde-shi-jie-the-joy-of-simple-jits/
 
+http://www.cs.virginia.edu/~evans/cs216/guides/x86.html
 
 -->
 
