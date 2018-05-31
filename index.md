@@ -1951,6 +1951,9 @@ https://qlee.in/huan-ying-lai-dao-jitde-shi-jie-the-joy-of-simple-jits/
 
 http://www.cs.virginia.edu/~evans/cs216/guides/x86.html
 
+deno：Go版本node，ts语言
+https://github.com/ry/deno
+
 -->
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
