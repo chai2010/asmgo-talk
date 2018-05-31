@@ -1929,6 +1929,27 @@ https://dave.cheney.net/2018/05/29/how-the-go-runtime-implements-maps-efficientl
 
 map 范型的底层实现，对比汇编结构
 
+最小的 CPU 指令集是怎样的？
+https://www.zhihu.com/question/36187949
+
+
+https://en.m.wikipedia.org/wiki/Zero_instruction_set_computer
+https://en.m.wikipedia.org/wiki/One_instruction_set_computer
+https://en.m.wikipedia.org/wiki/Minimal_instruction_set_computer
+
+http://www.cl.cam.ac.uk/~sd601/papers/mov.pdf
+https://github.com/xoreaxeaxeax/movfuscator
+
+
+http://www.sigma.me/2011/01/06/one_instruction_set_computer.html
+
+https://www.zhihu.com/question/56501530
+
+欢迎来到JIT的世界: The Joy of Simple JITs
+http://blog.reverberate.org/2012/12/hello-jit-world-joy-of-simple-jits.html
+https://qlee.in/huan-ying-lai-dao-jitde-shi-jie-the-joy-of-simple-jits/
+
+
 -->
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
