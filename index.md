@@ -1967,6 +1967,17 @@ https://www.studygolang.com/articles/10597
 
 https://docs.google.com/presentation/d/1zGX5nlOOPC22-ZrwTWLBKdKfoA03baawo4f9MK2G5Aw/edit#slide=id.g33148270ac_0_143
 
+手把手教你如何专业地逆向GO二进制程序
+https://www.anquanke.com/post/id/85694
+https://rednaga.io/2016/09/21/reversing_go_binaries_like_a_pro/
+
+Reversing Golang
+George Zaytsev
+https://2016.zeronights.ru/wp-content/uploads/2016/12/GO_Zaytsev.pdf
+
+pcline
+https://methane.hatenablog.jp/entry/2013/10/22/gosym_%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E5%BC%95%E6%95%B0%E5%90%8D%E3%82%92%E5%8F%96%E5%BE%97%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B
+https://godoc.org/debug/gosym
 -->
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
