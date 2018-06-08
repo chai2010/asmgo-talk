@@ -1965,6 +1965,8 @@ https://github.com/achilleasa/gopher-os
 
 https://www.studygolang.com/articles/10597
 
+https://docs.google.com/presentation/d/1zGX5nlOOPC22-ZrwTWLBKdKfoA03baawo4f9MK2G5Aw/edit#slide=id.g33148270ac_0_143
+
 -->
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
