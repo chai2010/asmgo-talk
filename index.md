@@ -1963,6 +1963,8 @@ https://github.com/ry/deno
 os
 https://github.com/achilleasa/gopher-os
 
+https://www.studygolang.com/articles/10597
+
 -->
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
