@@ -1978,6 +1978,10 @@ https://2016.zeronights.ru/wp-content/uploads/2016/12/GO_Zaytsev.pdf
 pcline
 https://methane.hatenablog.jp/entry/2013/10/22/gosym_%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E5%BC%95%E6%95%B0%E5%90%8D%E3%82%92%E5%8F%96%E5%BE%97%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B
 https://godoc.org/debug/gosym
+
+Go语言汇编优化－蒙卓
+https://mp.weixin.qq.com/s/fiVVCjBG17aX_8MbBZ80jg
+
 -->
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
