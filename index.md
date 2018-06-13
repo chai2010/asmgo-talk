@@ -304,10 +304,10 @@ TEXT ·HelloWorld(SB), $16-0
 
 
 ---
-### 内存布局(A)
--------------
+### X64/AMD64架构
+----------------
 
-#### ![](./images/mem-section.ditaa.png)
+#### ![](./images/arch-amd64.ditaa.png)
 
 #### https://godoc.org/cmd/internal/obj/x86
 
