@@ -14,3 +14,7 @@ ImageMagick 图像加水印
 
 
 nosplit 也需要一个图进行对比
+
+ditaa 不能显示特殊符号 = + - <= >= ==
+
+https://github.com/stathissideris/ditaa/issues/9
