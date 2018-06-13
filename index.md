@@ -332,6 +332,13 @@ TEXT ·HelloWorld(SB), $16-0
 #### ![](./images/pkg-var-decl.ditaa.png) <!-- .element: style="width:60%;" -->
 
 
+---
+### 全局变量定义(临时)B
+----------------
+
+#### ![](./images/pkg-var-decl-02.ditaa.png) <!-- .element: style="width:70%;" -->
+
+
 
 ---
 ### 内存布局(B)
