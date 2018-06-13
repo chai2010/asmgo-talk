@@ -21,3 +21,8 @@ https://github.com/stathissideris/ditaa/issues/9
 
 全角的英文单词和符号，不过ditaa并不能识别非ASCII字符
 https://en.wikipedia.org/wiki/Halfwidth_and_fullwidth_forms
+
+函数的参数图
+
+函数的局部变量图
+调用其他函数的临时变量和返回值
