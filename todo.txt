@@ -18,3 +18,6 @@ nosplit 也需要一个图进行对比
 ditaa 不能显示特殊符号 = + - <= >= ==
 
 https://github.com/stathissideris/ditaa/issues/9
+
+全角的英文单词和符号，不过ditaa并不能识别非ASCII字符
+https://en.wikipedia.org/wiki/Halfwidth_and_fullwidth_forms
