@@ -307,9 +307,16 @@ TEXT ·HelloWorld(SB), $16-0
 ### X64/AMD64架构
 ----------------
 
-#### ![](./images/arch-amd64.ditaa.png)
+#### ![](./images/arch-amd64.ditaa.png) <!-- .element: style="width:60%;" -->
 
 #### https://godoc.org/cmd/internal/obj/x86
+
+
+---
+### 函数定义(临时)
+----------------
+
+#### ![](./images/func-decl.ditaa.png) <!-- .element: style="width:80%;" -->
 
 
 ---
