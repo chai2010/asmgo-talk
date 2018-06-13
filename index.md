@@ -309,6 +309,8 @@ TEXT ·HelloWorld(SB), $16-0
 
 #### ![](./images/mem-section.ditaa.png)
 
+#### https://godoc.org/cmd/internal/obj/x86
+
 
 ---
 ### 内存布局(B)
