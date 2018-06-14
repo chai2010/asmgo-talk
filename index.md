@@ -312,8 +312,6 @@ TEXT ·HelloWorld(SB), $16-0
 #### https://godoc.org/cmd/internal/obj/x86
 
 
-
-
 ---
 ### 内存布局
 ----------
@@ -324,13 +322,12 @@ TEXT ·HelloWorld(SB), $16-0
 - heap: 堆, 动态内存管理
 - stack: 栈, 函数调用栈帧, 局部变量等信息
 
----
-### Go语言的 Stack
-----------------
 
-- stack 大小有界
-- stack 可能存在与 heap 中
-- stack 伸缩时会进行移动位置
+-----
+
+- Go 的 stack 存在与 heap 中, 大小有界
+- Go 的 stack 伸缩时会进行移动位置
+
 
 ---
 ### 寄存器
@@ -397,6 +394,17 @@ TEXT ·HelloWorld(SB), $16-0
 -----
 
 - 伪寄存器仅仅存在于Go汇编中
+
+
+---
+### X86/AMD64架构下的伪寄存器
+--------------------------
+
+#### ![](./images/arch-amd64-02.ditaa.png) <!-- .element: style="width:65%;" -->
+
+------
+
+#### https://golang.org/doc/asm
 
 ---
 ### 真伪寄存器

@@ -1,4 +1,4 @@
-                 Go's Assembler pseudo registers
+                    Go's Assembler pseudo registers
 
 +----------+                        +---------+    +--------------------+
 |   cYEL   |                        | FLAGS   |    | MOV/LEA            |
