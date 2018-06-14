@@ -338,6 +338,12 @@ TEXT ·HelloWorld(SB), $16-0
 
 #### ![](./images/pkg-var-decl-02.ditaa.png) <!-- .element: style="width:70%;" -->
 
+---
+### 函数参数(临时)
+----------------
+
+#### ![](./images/func-arg-01.ditaa.png) <!-- .element: style="width:70%;" -->
+
 
 
 ---
