@@ -48,3 +48,14 @@ https://en.wikipedia.org/wiki/Halfwidth_and_fullwidth_forms
 调用其他函数的临时变量和返回值
 
 PCDATA和FUNCDATA是否好用图片表达？
+
+----
+
+argsize/framesize 最大值多大
+nosplit 时，调用者如何包装 stack 够大
+
+栈分裂时的检测代码只是判断SP，那么调用函数后，framesize如果比较大，
+依然可能导致栈溢出，如何避免
+
+nosplit函数是否可以调用其他函数，调用非nosplit函数？
+
