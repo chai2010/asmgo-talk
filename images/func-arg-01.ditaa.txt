@@ -2,7 +2,7 @@
 
 +------+-----+-------------------+--------+
 |      |     |                   |        |
-| func | Foo | (a boo, b int 16) | []byte |
+| func | Foo | (a bool, b int16) | []byte | unsafe.Sizeof(struct{a bool; b int16; c []byte})
 | c1AB | c1AB| cRED              | cRED   |
 +------+-----+-------------------+--------+
                       |              |
