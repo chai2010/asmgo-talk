@@ -26,3 +26,5 @@ https://en.wikipedia.org/wiki/Halfwidth_and_fullwidth_forms
 
 函数的局部变量图
 调用其他函数的临时变量和返回值
+
+PCDATA和FUNCDATA是否好用图片表达？
