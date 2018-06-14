@@ -369,7 +369,7 @@ TEXT ·HelloWorld(SB), $16-0
 -------------
 
 - 数据传输: MOV/LEA
-- [有条件]跳转: CMP/TEST/JMP/JCC; JCC: JEQ/JNE/JLT/JLE/JGT/JGE
+- 跳转指令: CMP/TEST/JMP/JCC
 - 栈指令: PUSH/POP
 - 函数调用指令: CALL/RET
 
@@ -381,8 +381,8 @@ TEXT ·HelloWorld(SB), $16-0
 
 ------
 
-- 基于以上指令可以编写大部分非运算型代码
-
+- JCC有条件跳转: JEQ/JNE/JLT/JLE/JGT/JGE
+- 还有针对无符号数的比较条件
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 ***
