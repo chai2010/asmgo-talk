@@ -87,7 +87,13 @@ https://golang.org/src/cmd/internal/objabi/stack.go
 //go:nosplit
 func foo() {
 	var a [752]byte
-	a[len(a)-1] = 1
+	a[0] = 1
 }
 
 崩的原理是什么？
+
+是否可以理解为，运行阶段是无法保证nosplit函数栈溢出问题？
+
+a[0] 越界有可能重叠到某个全局变量的地址位置
+
+那暂时假设128是安全的

@@ -12,8 +12,8 @@
 |   cAAA   |               |              +=-unsafe.Offsetof(pt.Y)         |
 |   heap   |               |              +=-unsafe.Offsetof(pt.X)         |
 |          |               |              |                                |
-+----------+               |              |  unsafe.Sizeof(pt.X)           |
-|   cBLU   |               |              |  unsafe.Sizeof(pt.Y)           |
++----------+               |              |  unsafe.Sizeof(pt.Y)           |
+|   cBLU   |               |              |  unsafe.Sizeof(pt.X)           |
 |   data   |               :              |           |                    |
 |          |               v              v           v                    |
 +----------+            +-------+--------------+---+------+-----+          |
