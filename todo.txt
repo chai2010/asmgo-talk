@@ -59,3 +59,35 @@ nosplit 时，调用者如何包装 stack 够大
 
 nosplit函数是否可以调用其他函数，调用非nosplit函数？
 
+https://golang.org/cmd/compile/#hdr-Compiler_Directives
+
+---
+
+https://github.com/golang/go/issues/14319
+nosplit stack overflow
+
+https://golang.org/test/nosplit.go
+
+https://golang.org/src/cmd/link/internal/ld/lib.go
+stkbroke
+
+StackLimit
+https://godoc.org/cmd/internal/objabi
+
+https://golang.org/src/cmd/internal/objabi/stack.go
+
+到越界会有 StackLimit 752 字节的空间，但是有些其他函数需要使用一些空间
+
+或许是stack本身还有足够的空间导致
+
+如果stack足够大，那么会大于752字节空间
+
+
+//go:noinine
+//go:nosplit
+func foo() {
+	var a [752]byte
+	a[len(a)-1] = 1
+}
+
+崩的原理是什么？
