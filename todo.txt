@@ -156,3 +156,9 @@ TEXT ·sum(SB), NOSPLIT, $0
 	MOVQ AX, BX       // BX = AX + BX
 	MOVQ BX, ret+24(FP)
 	RET
+
+
+----
+
+runtime/stack.go 注释
+runtime 很多代码注释比较重要
