@@ -110,3 +110,39 @@ args/return合并为1个，就是3个部分
 函数段组成：名字/代码/栈
 栈中数据3个部分：参数/返回值/局部变量
 但是汇编中也是3个部分，不一样，参数和返回值/局部变量/调用其他函数的空间
+
+//go:nosplit
+func main() {
+	var a int = 1
+	var b int = 2
+	var c int = sum(a, b)
+}
+
+//go:nosplit
+func sum(a, b int) int {
+	return a+b
+}
+
+TEXT ·main(SB), NOSPLIT, $48
+	MOVQ $1, a-24(SP) // a
+	MOVQ $2, b-16(SP) // b
+	MOVQ $0, c-8(SP)  // c
+
+	MOVQ a-24(SP), AX // AX = a
+	MOVQ b-16(SP), BX // BX = b
+
+	MOVQ AX, +0(SP)       // sum:arg:a
+	MOVQ BX, +8(SP)       // sum:arg:b
+	CALL ·sum(SB)         // call sum
+	MOVQ +16(SP), CX      // CX = sum(AX, BX)
+	MOVQ +24(SP), c-8(SP) // c = CX
+
+	RET
+
+TEXT ·sum(SB), NOSPLIT, $0
+	MOVQ a-24(SP), AX // AX = a
+	MOVQ b-16(SP), BX // BX = b
+
+	MOVQ AX, BX       // BX = AX + BX
+	MOVQ BX, ret+24(FP)
+	RET
