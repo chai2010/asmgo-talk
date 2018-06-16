@@ -1,0 +1,45 @@
++----------+
+| stack    |
+| cRED     |
+|          |     main frame
++----------+    +----------+
+|func main |    |          |
+| cPNK     |    |var c int |
+|var a int |    | cGRE     |
+|var b int |    +----------+
+|var c int |    |          |
+|          |    |var b int |
+|          |    | cGRE     |
+|          |    +----------+
+|          |    |          |
+|          |    |var a int |
+|          |    | cGRE     |
+|          |    +----------+
+|          |    |          |
+|          |    |  other   |
+|          |    | cAAA     |
+|          |    +----------+
+|call sum  |    |          |
+|          |    |  sum.ret |
+|          |    | cBLU     |
+|          |    +----------+
+|          |    |          |
+|          |    |  sum.b   |
+|          |    | cBLU     |
+|          |    +----------+
+|          |    |          |
+|          |    |  sum.a   |
+|sum to c  |    | cBLU     |     sum frame
++----------+    +----------+    +----------+
+| func sum |                    |          |
+| cBLU     |                    |          |
+| ret a+b  |                    |          |
++----------+ 0(SP)              +----------+
+| cAAA     |
+|          |
+|          |
+|          |
+|StackLimit|
+|StackGuard|
++----------+
+
