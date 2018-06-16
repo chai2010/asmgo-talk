@@ -106,3 +106,7 @@ memery分2个frame段，然后错开后展开 args/return 部分，local 部分�
 
 一个函数有4个部分： args/return/local var/call args
 args/return合并为1个，就是3个部分
+
+函数段组成：名字/代码/栈
+栈中数据3个部分：参数/返回值/局部变量
+但是汇编中也是3个部分，不一样，参数和返回值/局部变量/调用其他函数的空间
