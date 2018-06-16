@@ -10,3 +10,6 @@ a.out
 *.exe
 
 .oracle_jre_usage
+
+_*.ditaa.txt
+_*.ditaa.png

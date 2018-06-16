@@ -97,3 +97,12 @@ func foo() {
 a[0] 越界有可能重叠到某个全局变量的地址位置
 
 那暂时假设128是安全的
+
+----
+
+函数调用画法：
+
+memery分2个frame段，然后错开后展开 args/return 部分，local 部分，投影出 被调用函数段 args/return/local var/call args
+
+一个函数有4个部分： args/return/local var/call args
+args/return合并为1个，就是3个部分
