@@ -1,0 +1,24 @@
+Stack frame layout X86
+${GOROOT}/src/runtime/stack.go
+
++-=-------------------------+
+|                           |
+|     args from caller      |
+|                           |
++---------------------------+<--arg+0(FP)
+|      c9D5                 |
+|     return address        |
+|                           |
++---------------------------+
+|      cYEL                 |
+|      caller's BP          |
+| (if framepointer_enabled) |
++---------------------------+<--var-0(SP)
+|       cD0A                |
+|          locals           |
+|                           |
++---------------------------+
+|       cF51                |
+|      args to callee       |
+|                           |
++---------------------------+<--0(SP)
