@@ -10,152 +10,26 @@ package main
 import (
 	"fmt"
 	"reflect"
-	"time"
+	"sync"
 	"unsafe"
-
-	"github.com/cch123/goroutineid"
-	"github.com/petermattis/goid"
 )
 
 func getg() interface{}
-
 func getg_type() unsafe.Pointer
 func getg_addr() unsafe.Pointer
 
-//go:linkname runtime_getg runtime.getg
-//func runtime_getg() unsafe.Pointer
-
-func typeOf(_type unsafe.Pointer) reflect.Type {
-	// https://golang.org/src/reflect/type.go#L1411
-	// https://golang.org/src/reflect/value.go?h=emptyInterface#L181
-	// https://golang.org/src/reflect/type.go?h=toType#L3040
-	type emptyInterface struct {
-		typ  unsafe.Pointer
-		word unsafe.Pointer
-	}
-
-	var x reflect.Type
-	var px = (*emptyInterface)(unsafe.Pointer(&x))
-	px.typ = _type
-	return x
-}
-
 func main() {
-	//go func() {
-	//	fmt.Println("-------------")
-	//	fmt.Printf("other goid: %0X\n", GetGoID())
-	//	fmt.Println("-------------")
-	//
-	//	fmt.Printf("main getg: %v\n", getg())
-	//}()
+	var wg sync.WaitGroup
+	for i := 0; i < 5; i++ {
+		wg.Add(1)
+		go func(idx int) {
+			defer wg.Done()
 
-	//fmt.Println(runtime.Version())
+			g := getg()
+			gid := reflect.ValueOf(g).FieldByName("goid").Int()
 
-	func() {
-		g := getg()
-		t := reflect.TypeOf(g)
-
-		if field, ok := t.FieldByName("goid"); ok {
-			fmt.Println("Name:", field.Name)
-			fmt.Println("Offset:", field.Offset)
-		}
-
-		_ = t
-	}()
-
-	return
-
-	go func() {
-		fmt.Println("-------------")
-		gid0 := goroutineid.GetGoID()
-		gid0 = GetGoID()
-
-		fmt.Printf("main gid0: %0X(%d)\n", gid0, gid0)
-
-		gid1 := goid.Get()
-		fmt.Printf("main gid1: %0X(%d)\n", gid1, gid1)
-
-		fmt.Println("-------------")
-		//fmt.Printf("main getg_type: %0X\n", getg_type())
-		fmt.Printf("main getg_addr000: %0X\n", getg_addr())
-
-		p := (*g)(getg_addr())
-		fmt.Printf("main getg_addr: %p(%d)\n", p, uintptr(unsafe.Pointer(p)))
-
-		fmt.Printf("getg_addr goid offsetof: %d, %d\n", unsafe.Offsetof(p.goid), offsetDict["go1.10"])
-
-		fmt.Printf("getg_addr v.id: %0X(%d)\n", p.goid, p.goid)
-		fmt.Printf("getg_addr value: %#v\n", p)
-
-		gtype := getg_type()
-		_ = gtype
-
-		fmt.Printf("getg_type value: %p\n", gtype)
-
-		tpe := typeOf(gtype)
-		fmt.Printf("gtype:%T\n", tpe)
-
-		//gx := runtime_getg()
-		//_ = gx
-		//fmt.Printf("getg value: %v\n", getg())
-
-	}()
-	//fmt.Printf("main getg: %v\n", getg())
-
-	time.Sleep(time.Second)
+			fmt.Printf("goroutine(%d) id: %d\n", idx, gid)
+		}(i)
+	}
+	wg.Wait()
 }
-
-type stack struct {
-	lo uintptr
-	hi uintptr
-}
-
-type g struct {
-	// Stack parameters.
-	// stack describes the actual stack memory: [stack.lo, stack.hi).
-	// stackguard0 is the stack pointer compared in the Go stack growth prologue.
-	// It is stack.lo+StackGuard normally, but can be StackPreempt to trigger a preemption.
-	// stackguard1 is the stack pointer compared in the C stack growth prologue.
-	// It is stack.lo+StackGuard on g0 and gsignal stacks.
-	// It is ~0 on other goroutine stacks, to trigger a call to morestackc (and crash).
-	stack       stack   // offset known to runtime/cgo
-	stackguard0 uintptr // offset known to liblink
-	stackguard1 uintptr // offset known to liblink
-
-	_panic       unsafe.Pointer // innermost panic - offset known to liblink
-	_defer       unsafe.Pointer // innermost defer
-	m            unsafe.Pointer // current m; offset known to arm liblink
-	sched        gobuf
-	syscallsp    uintptr        // if status==Gsyscall, syscallsp = sched.sp to use during gc
-	syscallpc    uintptr        // if status==Gsyscall, syscallpc = sched.pc to use during gc
-	stktopsp     uintptr        // expected sp at top of stack, to check in traceback
-	param        unsafe.Pointer // passed parameter on wakeup
-	atomicstatus uint32
-	stackLock    uint32 // sigprof/scang lock; TODO: fold in to atomicstatus
-	goid         int64
-}
-
-type gobuf struct {
-	// The offsets of sp, pc, and g are known to (hard-coded in) libmach.
-	//
-	// ctxt is unusual with respect to GC: it may be a
-	// heap-allocated funcval, so GC needs to track it, but it
-	// needs to be set and cleared from assembly, where it's
-	// difficult to have write barriers. However, ctxt is really a
-	// saved, live register, and we only ever exchange it between
-	// the real register and the gobuf. Hence, we treat it as a
-	// root during stack scanning, which means assembly that saves
-	// and restores it doesn't need write barriers. It's still
-	// typed as a pointer so that any other writes from Go get
-	// write barriers.
-	sp   uintptr
-	pc   uintptr
-	g    guintptr
-	ctxt unsafe.Pointer
-	ret  sys_Uintreg
-	lr   uintptr
-	bp   uintptr // for GOEXPERIMENT=framepointer
-}
-
-type guintptr uintptr
-type sys_Uintreg uint64
