@@ -7,7 +7,7 @@ import (
 )
 
 func getg_type_v0() unsafe.Pointer
-func getg_type() unsafe.Pointer
+func getg_type(data *Goroutine) interface{}
 
 // https://golang.org/src/reflect/type.go#L1411
 // https://golang.org/src/reflect/value.go?h=emptyInterface#L181
@@ -17,12 +17,36 @@ type emptyInterface struct {
 	word unsafe.Pointer
 }
 
+var AA int
 var gg Goroutine
 
+var gg111 bool
+var gh bool
+var x bool
+var g bool
+
+var pgg = &gg
+
+func get_gg_ptr() *Goroutine
+
 func main() {
+	gg.stackguard0 = 9527
+
+	fmt.Printf("gg0: %p\n", &gg)
+	fmt.Printf("gg0: %p\n", get_gg_ptr())
+
 	t0 := typeOfG()
 	tye0 := (*emptyInterface)(unsafe.Pointer(&t0))
 	fmt.Printf("tye0: %#v\n", tye0)
+
+	if field, ok := t0.FieldByName("stackguard0"); ok {
+		fmt.Println("Name:", field.Name)
+		fmt.Println("Offset:", field.Offset)
+	}
+
+	x := getg_type(&gg).(Goroutine).stackguard0
+	println(x)
+	return
 
 	v1 := Goroutine{}
 	fmt.Printf("v1: %p\n", &v1)
@@ -34,12 +58,19 @@ func main() {
 
 //go:noinline
 //go:nosplit
+func CallDebug() {
+	var x = Debug()
+	_ = x
+}
+
+//go:noinline
+//go:nosplit
 func Debug() interface{} {
 	return Goroutine{}
 }
 
 func typeOfG() reflect.Type {
-	return typeOf(getg_type())
+	return reflect.TypeOf(getg_type(&gg))
 }
 
 func typeOf(_type unsafe.Pointer) reflect.Type {
