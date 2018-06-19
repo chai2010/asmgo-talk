@@ -201,3 +201,7 @@ gid和goversion包解析
 
 https://github.com/cch123/goroutineid
 https://github.com/rsc/goversion
+
+---
+
+汇编如何获取 pkg 变量 x 的地址，类似 &x ?
