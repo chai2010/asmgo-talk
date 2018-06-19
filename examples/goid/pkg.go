@@ -17,7 +17,7 @@ import (
 func getg() interface{}
 func getg_type() unsafe.Pointer
 func getg_addr() unsafe.Pointer
-func get_tls() (tls, g unsafe.Pointer)
+func get_tls() (tls0, tls1 unsafe.Pointer)
 
 func main() {
 	var wg sync.WaitGroup
@@ -29,9 +29,9 @@ func main() {
 			g := getg()
 			gid := reflect.ValueOf(g).FieldByName("goid").Int()
 
-			tls, gp := get_tls()
+			tls0, tls1 := get_tls()
 
-			fmt.Printf("goroutine(%d): id = %d, tls = %d, g = %p\n", idx, gid, uintptr(tls), gp)
+			fmt.Printf("goroutine(%d): id = %d, tls = %p, g = %p\n", idx, gid, tls0, tls1)
 		}(i)
 	}
 	wg.Wait()

@@ -8,11 +8,10 @@
 
 #include "go_asm.h"
 
-// func get_tls() (tls, g unsafe.Pointer)
+// func get_tls() (tls0, tls1 unsafe.Pointer)
 TEXT ·get_tls(SB), NOSPLIT, $0-16
 	MOVQ TLS, AX
-	get_tls(CX)
-	MOVQ g(CX), BX
+	get_tls(BX)
 	MOVQ AX, ret+0(FP)
 	MOVQ BX, ret+8(FP)
 	RET
