@@ -1551,6 +1551,12 @@ TODO
 最后一种可一致性最好，虽然type.runtime.g和 runtime.convertT2E都是私有成员，但是对于汇编来说，
 2个名字是相对稳定的，比reflect.listtype1更稳定。
 
+https://zhuanlan.zhihu.com/p/33567726
+https://www.jianshu.com/p/85a08d8e7af3
+
+https://github.com/petermattis/goid
+
+https://golang.org/src/runtime/HACKING.md
 
 -->
 
