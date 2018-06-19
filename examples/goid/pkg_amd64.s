@@ -34,23 +34,27 @@ L_START:
 	CMPQ SP, 16(AX)
 	JLS  L_MORE_STK
 
+	// get runtime.g type
+	LEAQ type·runtime·g(SB), AX;
+
 	// get runtime.g
 	get_tls(CX);
-	MOVQ g(CX), AX
+	MOVQ g(CX), BX
 
-	// get runtime.g type
-	LEAQ type·runtime·g(SB), BX;
 
 	//LEAQ go·itab·runtime·g(SB), BX;
 	//MOVQ BX, ret_type-8*0(FP)
 	//MOVQ AX, ret_type-8*1(FP)
 
 
-	MOVQ BX, 8*0(SP)                              // runtime.g type
-	MOVQ AX, 8*1(SP)                              // runtime.g data
-	CALL runtime·convT2E64(SB)
-	MOVQ 8*2(SP), AX; MOVQ AX, ret_type-8*0(FP)   // ret:e._type
-	MOVQ 8*3(SP), BX; MOVQ BX, ret_data-8*1(FP)   // ret:e.data
+	MOVQ AX, 0(SP)
+	MOVQ BX, 8(SP)
+	CALL runtime·convT2E(SB)
+	MOVQ 16(SP), AX
+	MOVQ 24(SP), BX
+
+	MOVQ AX, ret+0(FP)
+	MOVQ BX, ret+8(FP)
 
 	RET
 

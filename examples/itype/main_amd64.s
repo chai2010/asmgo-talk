@@ -18,7 +18,7 @@ TEXT ·get_gg_ptr(SB), NOSPLIT, $0-8
 
 TEXT ·getg_type(SB), NOSPLIT, $32-24
 	LEAQ type·main·Goroutine(SB), AX
-	MOVQ ·pgg(SB), BX
+	MOVQ $·gg(SB), BX
 
 	MOVQ AX, 0(SP)
 	MOVQ BX, 8(SP)

@@ -10,7 +10,6 @@ package main
 import (
 	"fmt"
 	"reflect"
-	"runtime"
 	"time"
 	"unsafe"
 
@@ -50,7 +49,21 @@ func main() {
 	//	fmt.Printf("main getg: %v\n", getg())
 	//}()
 
-	fmt.Println(runtime.Version())
+	//fmt.Println(runtime.Version())
+
+	func() {
+		g := getg()
+		t := reflect.TypeOf(g)
+
+		if field, ok := t.FieldByName("goid"); ok {
+			fmt.Println("Name:", field.Name)
+			fmt.Println("Offset:", field.Offset)
+		}
+
+		_ = t
+	}()
+
+	return
 
 	go func() {
 		fmt.Println("-------------")
