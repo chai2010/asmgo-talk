@@ -1517,6 +1517,8 @@ TODO
 
 http://legendtkl.com/2017/06/12/understanding-golang-interface/
 http://legendtkl.com/2017/07/01/golang-interface-implement/
+
+https://golang.org/src/runtime/iface.go
 -->
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
