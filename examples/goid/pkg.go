@@ -11,6 +11,9 @@ import (
 	"fmt"
 	"time"
 	"unsafe"
+
+	"github.com/cch123/goroutineid"
+	"github.com/petermattis/goid"
 )
 
 func getg() interface{}
@@ -27,21 +30,28 @@ func main() {
 	//	fmt.Printf("main getg: %v\n", getg())
 	//}()
 
-	fmt.Println("-------------")
-	fmt.Printf("main goid: %0X\n", GetGoID())
+	go func() {
+		fmt.Println("-------------")
+		gid0 := goroutineid.GetGoID()
+		fmt.Printf("main gid0: %0X(%d)\n", gid0, gid0)
 
-	fmt.Println("-------------")
-	fmt.Printf("main getg_type: %0X\n", getg_type())
-	fmt.Printf("main getg_addr: %0X\n", getg_addr())
+		gid1 := goid.Get()
+		fmt.Printf("main gid1: %0X(%d)\n", gid1, gid1)
 
-	p := (*g)(getg_addr())
-	fmt.Printf("getg_addr goid offsetof: %d, %d\n", unsafe.Offsetof(p.goid), offsetDict["go1.10"])
+		fmt.Println("-------------")
+		//fmt.Printf("main getg_type: %0X\n", getg_type())
+		fmt.Printf("main getg_addr000: %0X\n", getg_addr())
 
-	fmt.Printf("getg_addr v.id: %0X\n", p.goid)
+		p := (*g)(getg_addr())
+		fmt.Printf("main getg_addr: %p(%d)\n", p, uintptr(unsafe.Pointer(p)))
 
+		fmt.Printf("getg_addr goid offsetof: %d, %d\n", unsafe.Offsetof(p.goid), offsetDict["go1.10"])
+
+		fmt.Printf("getg_addr v.id: %0X(%d)\n", p.goid, p.goid)
+	}()
 	//fmt.Printf("main getg: %v\n", getg())
 
-	time.Sleep(1)
+	time.Sleep(time.Second)
 }
 
 type stack struct {

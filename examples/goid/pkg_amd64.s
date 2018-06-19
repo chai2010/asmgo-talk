@@ -15,13 +15,13 @@ TEXT ·GetGoID(SB), NOSPLIT, $0-8
 	MOVQ AX, ret+0(FP)
 	RET
 
-TEXT ·getg_type(SB), NOSPLIT, $8
+TEXT ·getg_type(SB), NOSPLIT, $0-8
 	LEAQ type·runtime·g(SB), AX
 	MOVQ AX, ret+0(FP)
 	RET
 
-TEXT ·getg_addr(SB), NOSPLIT, $8
-	get_tls(CX);
+TEXT ·getg_addr(SB), NOSPLIT, $0-8
+	get_tls(CX)
 	MOVQ g(CX), AX
 	MOVQ AX, ret+0(FP)
 	RET
