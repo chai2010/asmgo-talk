@@ -6,6 +6,17 @@
 #include "funcdata.h"
 #include "go_tls.h"
 
+#include "go_asm.h"
+
+// func get_tls() (tls, g unsafe.Pointer)
+TEXT ·get_tls(SB), NOSPLIT, $0-16
+	MOVQ TLS, AX
+	get_tls(CX)
+	MOVQ g(CX), BX
+	MOVQ AX, ret+0(FP)
+	MOVQ BX, ret+8(FP)
+	RET
+
 // func getg_type() unsafe.Pointer
 TEXT ·getg_type(SB), NOSPLIT, $0-8
 	MOVQ $type·runtime·g(SB), AX
