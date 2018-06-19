@@ -1514,6 +1514,9 @@ TODO
 - 类型信息标识符
 - 转为接口/接口断言/接口查询
 - 通过接口调用方法函数
+
+http://legendtkl.com/2017/06/12/understanding-golang-interface/
+http://legendtkl.com/2017/07/01/golang-interface-implement/
 -->
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->

@@ -1,7 +1,5 @@
 package main
 
-import "runtime"
-
 var offsetDict = map[string]int64{
 	"go1.4":    128,
 	"go1.4.1":  128,
@@ -37,7 +35,11 @@ var offsetDict = map[string]int64{
 	"go1.10.1": 152,
 }
 
-var offset = offsetDict[runtime.Version()]
+var offset = 152 //offsetDict[runtime.Version()]
 
 // GetGoID returns the goroutine id
 func GetGoID() int64
+
+func init() {
+	offset = 152
+}

@@ -9,6 +9,7 @@ package main
 
 import (
 	"fmt"
+	"runtime"
 	"time"
 	"unsafe"
 
@@ -30,9 +31,13 @@ func main() {
 	//	fmt.Printf("main getg: %v\n", getg())
 	//}()
 
+	fmt.Println(runtime.Version())
+
 	go func() {
 		fmt.Println("-------------")
 		gid0 := goroutineid.GetGoID()
+		gid0 = GetGoID()
+
 		fmt.Printf("main gid0: %0X(%d)\n", gid0, gid0)
 
 		gid1 := goid.Get()
@@ -48,6 +53,17 @@ func main() {
 		fmt.Printf("getg_addr goid offsetof: %d, %d\n", unsafe.Offsetof(p.goid), offsetDict["go1.10"])
 
 		fmt.Printf("getg_addr v.id: %0X(%d)\n", p.goid, p.goid)
+		fmt.Printf("getg_addr value: %#v\n", p)
+
+		gtype := getg_type()
+		_ = gtype
+
+		fmt.Printf("getg_type value: %p\n", gtype)
+
+		gx := getg()
+		_ = gx
+		//fmt.Printf("getg value: %v\n", getg())
+
 	}()
 	//fmt.Printf("main getg: %v\n", getg())
 

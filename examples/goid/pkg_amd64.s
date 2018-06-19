@@ -41,11 +41,12 @@ L_START:
 	// get runtime.g type
 	LEAQ type·runtime·g(SB), BX;
 
+	//LEAQ go·itab·runtime·g(SB), BX;
 
 
 	MOVQ BX, 8*0(SP)                              // runtime.g type
 	MOVQ AX, 8*1(SP)                              // runtime.g data
-	CALL runtime·convT2E(SB)
+	CALL runtime·convT2E64(SB)
 	MOVQ 8*2(SP), AX; MOVQ AX, ret_type-8*0(FP)   // ret:e._type
 	MOVQ 8*3(SP), BX; MOVQ BX, ret_data-8*1(FP)   // ret:e.data
 
