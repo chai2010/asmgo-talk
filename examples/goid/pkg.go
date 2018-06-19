@@ -9,6 +9,7 @@ package main
 
 import (
 	"fmt"
+	"reflect"
 	"runtime"
 	"time"
 	"unsafe"
@@ -21,6 +22,24 @@ func getg() interface{}
 
 func getg_type() unsafe.Pointer
 func getg_addr() unsafe.Pointer
+
+//go:linkname runtime_getg runtime.getg
+//func runtime_getg() unsafe.Pointer
+
+func typeOf(_type unsafe.Pointer) reflect.Type {
+	// https://golang.org/src/reflect/type.go#L1411
+	// https://golang.org/src/reflect/value.go?h=emptyInterface#L181
+	// https://golang.org/src/reflect/type.go?h=toType#L3040
+	type emptyInterface struct {
+		typ  unsafe.Pointer
+		word unsafe.Pointer
+	}
+
+	var x reflect.Type
+	var px = (*emptyInterface)(unsafe.Pointer(&x))
+	px.typ = _type
+	return x
+}
 
 func main() {
 	//go func() {
@@ -60,8 +79,11 @@ func main() {
 
 		fmt.Printf("getg_type value: %p\n", gtype)
 
-		gx := getg()
-		_ = gx
+		tpe := typeOf(gtype)
+		fmt.Printf("gtype:%T\n", tpe)
+
+		//gx := runtime_getg()
+		//_ = gx
 		//fmt.Printf("getg value: %v\n", getg())
 
 	}()

@@ -26,7 +26,7 @@ TEXT ·getg_addr(SB), NOSPLIT, $0-8
 	MOVQ AX, ret+0(FP)
 	RET
 
-TEXT ·getg(SB),$32
+TEXT ·getg(SB),$32-16
 
 L_START:
 	MOVQ TLS, CX
@@ -42,6 +42,8 @@ L_START:
 	LEAQ type·runtime·g(SB), BX;
 
 	//LEAQ go·itab·runtime·g(SB), BX;
+	//MOVQ BX, ret_type-8*0(FP)
+	//MOVQ AX, ret_type-8*1(FP)
 
 
 	MOVQ BX, 8*0(SP)                              // runtime.g type
