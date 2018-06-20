@@ -5,7 +5,7 @@
 #include "textflag.h"
 #include "funcdata.h"
 
-// func GetGroutinePointer() unsafe.Pointer
+// func GetGroutinePointer() uintptr
 TEXT ·GetGroutinePointer(SB), NOSPLIT, $0-8
 	MOVQ TLS, CX
 	MOVQ 0(CX)(TLS*1), AX

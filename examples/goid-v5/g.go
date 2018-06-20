@@ -7,9 +7,5 @@
 
 package main
 
-import (
-	"unsafe"
-)
-
 func GetGroutine() interface{}
-func GetGroutinePointer() unsafe.Pointer
+func GetGroutinePointer() uintptr

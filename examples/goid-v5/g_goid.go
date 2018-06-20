@@ -19,6 +19,6 @@ var g_goid_offset uintptr = func() uintptr {
 
 func GetGroutineId() int64 {
 	g := GetGroutinePointer()
-	p := (*int64)(unsafe.Pointer(uintptr(g) + g_goid_offset))
+	p := (*int64)(unsafe.Pointer(g + g_goid_offset))
 	return *p
 }
