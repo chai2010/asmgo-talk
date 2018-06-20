@@ -1566,6 +1566,8 @@ https://golang.org/src/runtime/HACKING.md
 基于 goid 打造一个 gls，如何回收呢？
 在启动时defer 完成回收
 
+panic 信息中也有 gid，可以作为测试
+
 -->
 
 TODO
