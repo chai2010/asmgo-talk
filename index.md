@@ -1568,6 +1568,9 @@ https://golang.org/src/runtime/HACKING.md
 
 panic 信息中也有 gid，可以作为测试
 
+http2
+https://github.com/golang/net/blob/master/http2/gotrack.go
+
 -->
 
 TODO
