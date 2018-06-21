@@ -205,3 +205,10 @@ https://github.com/rsc/goversion
 ---
 
 汇编如何获取 pkg 变量 x 的地址，类似 &x ?
+
+---
+
+https://golang.org/src/runtime/symtab.go?h=stackmap#L916
+https://golang.org/src/runtime/mgcmark.go?h=stackmap#L825
+
+栈扫描，local 变量表的编码方式
