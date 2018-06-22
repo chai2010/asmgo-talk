@@ -1,24 +1,59 @@
-Stack frame layout X86
-${GOROOT}/src/runtime/stack.go
+Stack frame layout X86/AMD64
 
 +-=-------------------------+
 |                           |
-|     args from caller      |
+|     ret1 from caller      |
 |                           |
-+---------------------------+<--arg+0(FP)
++-=-------------------------+<--ret1+24(FP)
+|                           |
+|     ret0 from caller      |
+|                           |
++-=-------------------------+<--ret0+16(FP)
+|                           |
+|     arg1 from caller      |
+|                           |
++-=-------------------------+<--arg1+8(FP)
+|                           |
+|     arg0 from caller      |
+|                           |
++-=-------------------------+<--arg0+0(FP)
+|                           |
+|   parent return address   |
+|                           |
++---------------------------+
 |      c9D5                 |
-|     return address        |
-|                           |
-+---------------------------+
-|      cYEL                 |
-|      caller's BP          |
+|       caller's BP         |
 | (if framepointer_enabled) |
-+---------------------------+<--var-0(SP)
++---------------------------+<--BP(pseudo SP)
 |       cD0A                |
-|          locals           |
+|      local varable2       |
 |                           |
-+---------------------------+
++---------------------------+<--var2-8(FP)
+|       cD0A                |
+|      local varable1       |
+|                           |
++---------------------------+<--var1-16(FP)
+|       cD0A                |
+|      local varable0       |
+|                           |
++---------------------------+<--var0-24(FP)
+|       cYEL                |
+|      ret1 from callee     |
+|                           |
++---------------------------+<--24(SP)
+|       cYEL                |
+|      ret0 from callee     |
+|                           |
++---------------------------+<--16(SP)
 |       cF51                |
-|      args to callee       |
+|      arg1 to callee       |
+|                           |
++---------------------------+<--8(SP)
+|       cF51                |
+|      arg0 to callee       |
 |                           |
 +---------------------------+<--0(SP)
+|       cAAA                |
+|      return address       |
+|                           |
++---------------------------+
