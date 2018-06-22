@@ -1508,51 +1508,353 @@ L_MORE_STK:
 ## 例子: Goroutine ID
 ---------------------
 
-<!--
-- 方法1: 获取g指针，通过id便宜量获取id
-- 问题: 在不同Go版本中，id的偏移有变化（私有成员）
-- 改进：针对不同版本分别定义偏移量，或者保存到 map 中
-- 问题：出新的Go版本时需要时刻更新map表格
-- 改进：获取runtime.g结构体的信息，有2个方法
+- 故意没有goid?
+- 纯Go方式获取goid
+- 从g结构体获取goid
+- Go不同版本的goid位置变化
+- 获取g结构体对应的接口对象
+- goid的应用: 局部存储
 
-1是利用link特性，reflect内部函数遍历全部的类型（可以改造为遍历某个包到全部类型）。
-2是用type.runtime.g获取类型，然后通过 runtime.convertT2E 生成接口，有了接口再通过reflect查询offset私有成员到值
+---
+### 故意没有goid?
+----------------
 
-问题：是否可以查到 id 成员的偏移量？
+- goid可能会被滥用
+- 依赖的goid的代码导致不好移植
+- goroutine太多, 依赖的资源不好手工回收
 
-最后一种可一致性最好，虽然type.runtime.g和 runtime.convertT2E都是私有成员，但是对于汇编来说，
-2个名字是相对稳定的，比reflect.listtype1更稳定。
+---------
 
-https://zhuanlan.zhihu.com/p/33567726
-https://www.jianshu.com/p/85a08d8e7af3
+- 但是然并卵, 就是要goid!
 
-https://github.com/petermattis/goid
+---
+### 纯Go方式获取goid(A)
+---------------------
 
-https://golang.org/src/runtime/HACKING.md
+```go
+package main
 
-基于 goid 打造一个 gls，如何回收呢？
-在启动时defer 完成回收
+func main() {
+	panic("goid")
+}
+```
 
-panic 信息中也有 gid，可以作为测试
+```
+panic: goid
 
-http2
-https://github.com/golang/net/blob/master/http2/gotrack.go
+goroutine 1 [running]:
+main.main()
+	/path/to/main.go:4 +0x40
+```
 
--->
+--------
 
-TODO
+- panic时就会输出goid
+- 但如何在程序中取到?
 
-<!--
-- 2类方法的定义
-- 类型信息标识符
-- 转为接口/接口断言/接口查询
-- 通过接口调用方法函数
+---
+### 纯Go方式获取goid(B)
+---------------------
 
-http://legendtkl.com/2017/06/12/understanding-golang-interface/
-http://legendtkl.com/2017/07/01/golang-interface-implement/
+```go
+package main
 
-https://golang.org/src/runtime/iface.go
--->
+import "runtime"
+
+func main() {
+	var buf = make([]byte, 64)
+	var stk = buf[:runtime.Stack(buf, false)]
+	print(string(stk))
+}
+```
+
+```
+goroutine 1 [running]:
+main.main()
+	/tmp/sandbox203820168/main.g
+```
+
+------
+
+- `runtime.Stack` 获取当前栈, 里面有goid
+- `runtime.Stack` 甚至可以获取全部goid
+- [http2.curGoroutineID](https://github.com/golang/net/blob/master/http2/gotrack.go) 采用类似方式
+
+
+---
+### 从g结构体获取goid(A)
+----------------------
+
+参考官方文档和runtime包:
+
+```
+get_tls(CX)
+MOVQ g(CX), AX     // Move g into AX.
+```
+
+其实可以更简单一点:
+
+```
+MOVQ (TLS), AX
+```
+
+------
+
+- TLS是线程局部存储, 里面存放了当前运行的g指针
+- 然后根据g结构体中goid成员的偏移获取
+
+---
+### 从g结构体获取goid(B)
+----------------------
+
+```
+// func getg() unsafe.Pointer
+TEXT ·getg(SB), NOSPLIT, $0-8
+	MOVQ (TLS), AX
+	MOVQ AX, ret+0(FP)
+	RET
+```
+
+```go
+const g_goid_offset = 152 // Go1.10
+
+func GetGroutineId() int64 {
+	g := getg()
+	p := (*int64)(unsafe.Pointer(uintptr(g) + g_goid_offset))
+	return *p
+}
+```
+
+-------
+
+- 其中 `g_goid_offset` 是 goid 成员的偏移量
+- g 结构参考 [runtime/runtime2.go](https://github.com/golang/go/blob/master/src/runtime/runtime2.go)
+
+---
+### Go不同版本的goid位置变化问题
+----------------------------
+
+```go
+var offsetDictMap = map[string]int64{
+	"go1.10": 152,
+	"go1.9":  152,
+	"go1.8":  192,
+}
+
+var g_goid_offset = func() int64 {
+	goversion := runtime.Version()
+	for key, off := range offsetDictMap {
+		if goversion == key || strings.HasPrefix(goversion, key) {
+			return off
+		}
+	}
+	panic("unsupport go verion:"+goversion)
+}()
+```
+
+--------
+
+- 参考 [github.com/cch123/goroutineid](https://github.com/cch123/goroutineid/blob/master/goid.go)
+- 问题 dev 版本如何支持？
+
+
+---
+### 获取g结构体对应的接口对象(A)
+----------------------------
+
+```
+// func getg() interface{}
+TEXT ·getg(SB), NOSPLIT, $32-16
+	// get runtime.g
+	MOVQ (TLS), AX
+	// get runtime.g type
+	MOVQ $type·runtime·g(SB), BX
+
+	...
+```
+
+-----
+
+- g指针有了, 再获取g类型就可以构造接口了
+- `$type·runtime·g(SB)` 对应g结构类型
+
+---
+### 获取g结构体对应的接口对象(B)
+----------------------------
+
+```
+// func getg() interface{}
+TEXT ·getg(SB), NOSPLIT, $32-16
+	...
+
+	// convert (*g) to interface{}
+	MOVQ AX, 8(SP)
+	MOVQ BX, 0(SP)
+	CALL runtime·convT2E(SB)
+	MOVQ 16(SP), AX
+	MOVQ 24(SP), BX
+
+	// return interface{}
+	MOVQ AX, ret+0(FP)
+	MOVQ BX, ret+8(FP)
+	RET
+```
+
+----
+
+- `runtime·convT2E` 构造接口(有两类接口)
+
+
+---
+### 获取g结构体对应的接口对象(C)
+----------------------------
+
+```go
+func GetGoid() int64 {
+	g := getg()
+	gid := reflect.ValueOf(g).FieldByName("goid").Int()
+	return goid
+}
+```
+
+-----
+
+- 构造接口的类型是`$type·runtime·g(SB)`, 是值类型
+- `$type·*runtime·g(SB)`是指针类型(不支持)
+
+----
+
+- 有了接口后, 通过反射获取goid成员
+- 问题: 性能低!
+
+
+
+---
+### 获取g结构体对应的接口对象(D)
+----------------------------
+
+```go
+var g_goid_offset uintptr = func() uintptr {
+	g := GetGroutine()
+	if f, ok := reflect.TypeOf(g).FieldByName("goid"); ok {
+		return f.Offset
+	}
+	panic("can not find g.goid field")
+}()
+```
+
+-----
+
+- 通过反射取goid的偏移量, 配合g指针获取goid
+
+---
+### gls: Goroutine局部存储(A)
+----------------------------
+
+```go
+var gls struct {
+	m map[int64]map[interface{}]interface{}
+	sync.Mutex
+}
+
+func init() {
+	gls.m = make(map[int64]map[interface{}]interface{})
+}
+```
+
+-----
+
+- goid 作为key, 每个goroutine一个map
+- init 中初始化 `gls.m`
+
+---
+### gls: Goroutine局部存储(B)
+----------------------------
+
+```go
+func getMap() map[interface{}]interface{} {
+	gls.Lock()
+	defer gls.Unlock()
+
+	goid := GetGoid()
+	if m, _ := gls.m[goid]; m != nil {
+		return m
+	}
+
+	m := make(map[interface{}]interface{})
+	gls.m[goid] = m
+	return m
+}
+```
+
+--------
+
+- getMap 获取当前 goroutine 对应的 map
+
+---
+### gls: Goroutine局部存储(C)
+----------------------------
+
+```go
+func Get(key interface{}) interface{} {
+	return getMap()[key]
+}
+func Put(key interface{}, v interface{}) {
+	getMap()[key] = v
+}
+func Delete(key interface{}) {
+	delete(getMap(), key)
+}
+```
+
+----
+
+- Get获取, Put存储, Delete删除
+
+
+---
+### gls: Goroutine局部存储(D)
+----------------------------
+```go
+func Clean() {
+	gls.Lock()
+	defer gls.Unlock()
+
+	delete(gls.m, GetGoid())
+}
+```
+
+-----
+
+- Clean 释放当前goroutine对应的存储资源
+
+---
+### gls: Goroutine局部存储(E)
+----------------------------
+
+```go
+func main() {
+	var wg sync.WaitGroup
+	for i := 0; i < 5; i++ {
+		wg.Add(1)
+		go func(idx int) {
+			defer wg.Done()
+			defer gls.Clean()
+
+			defer func() {
+				fmt.Printf("%d: number = %d\n", idx, gls.Get("number"))
+			}()
+			gls.Put("number", idx+100)
+		}(i)
+	}
+	wg.Wait()
+}
+```
+
+------
+
+- 同一个goroutine中, 不同函数共享数据
+- defer 用于goroutine退出时回收资源
 
 
 <!--
