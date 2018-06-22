@@ -1,4 +1,4 @@
-           Stack frame layout X86/AMD64
+          Stack frame layout X86/AMD64
 
    ---=-  +-=-------------------------+
      ^    |                           |
