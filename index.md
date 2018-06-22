@@ -460,7 +460,7 @@ TEXT ·HelloWorld(SB), $16-0
 ### 函数栈帧和伪寄存器
 -------------------
 
-#### ![](./images/func-stack-frame-layout-01.ditaa.png) <!-- .element: style="width:60%;" -->
+#### ![](./images/func-stack-frame-layout-01.ditaa.png) <!-- .element: style="width:38%;" -->
 
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
@@ -1504,40 +1504,6 @@ L_MORE_STK:
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 ***
-## 接口和方法
------------
-
-TODO
-
-<!--
-- 2类方法的定义
-- 类型信息标识符
-- 转为接口/接口断言/接口查询
-- 通过接口调用方法函数
-
-http://legendtkl.com/2017/06/12/understanding-golang-interface/
-http://legendtkl.com/2017/07/01/golang-interface-implement/
-
-https://golang.org/src/runtime/iface.go
--->
-
-<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
-***
-## 高级汇编技巧
--------------
-
-TODO
-
-<!--
-- AVX/SSE指令（这个不是技巧吧？）
-- textflag.h，link name，取出私有变量
-- 调用C叶子函数, 假设栈够用
-- 生成动态执行代码
--->
-
-
-<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
-***
 ## 例子: Goroutine ID
 ---------------------
 
@@ -1575,6 +1541,33 @@ https://github.com/golang/net/blob/master/http2/gotrack.go
 
 TODO
 
+<!--
+- 2类方法的定义
+- 类型信息标识符
+- 转为接口/接口断言/接口查询
+- 通过接口调用方法函数
+
+http://legendtkl.com/2017/06/12/understanding-golang-interface/
+http://legendtkl.com/2017/07/01/golang-interface-implement/
+
+https://golang.org/src/runtime/iface.go
+-->
+
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
+***
+## 高级汇编技巧
+-------------
+
+TODO
+
+<!--
+- AVX/SSE指令（这个不是技巧吧？）
+- textflag.h，link name，取出私有变量
+- 调用C叶子函数, 假设栈够用
+- 生成动态执行代码
+-->
 
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
