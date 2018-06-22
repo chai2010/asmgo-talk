@@ -6,7 +6,7 @@
 |          |         main frame
 +----------+<-=-----+----------+
 |   main   |        | cGRE     |
-|  cGRE    |        | local    |         func printsum(a, b int)
+|  cGRE    |        |  local   |         func printsum(a, b int)
 |          |        |          |         printsum frame
 |          |        +----------+         +----------+
 |          |        |          |         :          |
