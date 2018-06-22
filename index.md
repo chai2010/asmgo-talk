@@ -674,6 +674,7 @@ DATA text<>+8(SB)/8,$"rld!"          // ...string data...
 
 - 汇编中 string 只是一种结构体
 - 头部对应 `reflect.StringHeader` 类型
+- $开头表示变量的地址, 比如 `$text<>(SB)`
 
 ---
 ### slice类型变量
