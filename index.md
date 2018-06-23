@@ -384,10 +384,35 @@ TEXT ·HelloWorld(SB), $16-0
 
 
 ---
-### MOV指令
-----------
+### MOV指令(A)
+-------------
 
-#### ![](../images/ins-table.png)
+| Data Type | 386     | AMD64   | Comment       |
+| --------- | ------- | ------- | ------------- |
+| [1]byte   | MOVB    | MOVB    | B => Byte     |
+| [2]byte   | MOVW    | MOVW    | W => Word     |
+| [4]byte   | MOVL    | MOVL    | L => Long     |
+| [8]byte   | MOVQ    | MOVQ    | Q => Quadword |
+
+-------
+
+#### 只移动对应宽度的数据, 忽略符号位
+
+---
+### MOV指令(B)
+-------------
+
+| Data Type | 386     | AMD64   | Comment       |
+| --------- | ------- | ------- | ------------- |
+| int8      | MOVBLSX | MOVBQSX | sign extend   |
+| uint8     | MOVBLZX | MOVBQZX | zero extend   |
+| int16     | MOVWLSX | MOVWQSX | sign extend   |
+| uint16    | MOVWLZX | MOVWQZX | zero extend   |
+
+--------
+
+##### 数据截断或扩展时处理符号位
+
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 ***
