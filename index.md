@@ -387,16 +387,16 @@ TEXT ·HelloWorld(SB), $16-0
 ### MOV指令(A)
 -------------
 
-| Data Type | 386     | AMD64   | Comment       |
-| --------- | ------- | ------- | ------------- |
-| [1]byte   | MOVB    | MOVB    | B => Byte     |
-| [2]byte   | MOVW    | MOVW    | W => Word     |
-| [4]byte   | MOVL    | MOVL    | L => Long     |
-| [8]byte   | MOVQ    | MOVQ    | Q => Quadword |
+| Data Type | 386/AMD64   | Comment       |
+| --------- | ----------- | ------------- |
+| [1]byte   | MOVB        | B => Byte     |
+| [2]byte   | MOVW        | W => Word     |
+| [4]byte   | MOVL        | L => Long     |
+| [8]byte   | MOVQ        | Q => Quadword |
 
 -------
 
-#### 只移动对应宽度的数据, 忽略符号位
+#### 忽略符号位, 386和AMD64的指令一样
 
 ---
 ### MOV指令(B)
