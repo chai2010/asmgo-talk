@@ -1815,6 +1815,7 @@ func Delete(key interface{}) {
 ---
 ### gls: Goroutine局部存储(D)
 ----------------------------
+
 ```go
 func Clean() {
 	gls.Lock()

@@ -57,3 +57,7 @@
           |      return address       |
           |                           |
           +---------------------------+
+          |      cAAA                 |
+          |       caller's BP         |
+          | (if framepointer_enabled) |
+          +---------------------------+
