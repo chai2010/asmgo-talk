@@ -38,7 +38,7 @@ Reveal.js 可能会需要 AJAX 异步加载 Markdown 文件, 可以在当前目�
 -----------
 
 #### [chai2010 (柴树杉)](https://chai2010.cn)
-#### [@青云QingCloud](https://www.qingcloud.com/)
+#### [KusionStack作者](https://github.com/KusionStack/kusion), [凹语言作者](https://wa-lang.org)
 
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
@@ -1931,8 +1931,6 @@ TODO: MOVQ指令的分类，针对不同长度，有/无符号
 #### [https://github.com/chai2010](https://github.com/chai2010)
 
 #### [https://chai2010.cn](https://chai2010.cn)
-
-#### [@青云QingCloud](https://www.qingcloud.com/)
 
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
